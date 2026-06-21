@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('overview');
+  
+  // Conditional form states for custom inputs
+  const [brandBudget, setBrandBudget] = useState('');
+  const [creatorViews, setCreatorViews] = useState('');
 
   // Smooth scroll to top when changing tabs
   useEffect(() => {
@@ -286,14 +290,29 @@ export default function App() {
                   </div>
                   <div>
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Estimated Monthly Budget</label>
-                    <select required name="budget" className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-blue-500 outline-none transition-colors appearance-none">
-                      <option value="" disabled selected>Select your budget bracket</option>
+                    <select 
+                      required 
+                      name="budget_bracket" 
+                      value={brandBudget}
+                      onChange={(e) => setBrandBudget(e.target.value)}
+                      className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-blue-500 outline-none transition-colors appearance-none"
+                    >
+                      <option value="" disabled>Select your budget bracket</option>
                       <option value="1k-5k">$1,000 - $5,000 / mo</option>
                       <option value="5k-20k">$5,000 - $20,000 / mo</option>
                       <option value="20k+">$20,000+ / mo</option>
+                      <option value="custom">Custom / Other Budget</option>
                     </select>
                   </div>
                 </div>
+
+                {/* Conditional Custom Brand Budget Field */}
+                {brandBudget === 'custom' && (
+                  <div className="animate-fadeIn">
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-blue-400 mb-1.5">Specify Your Exact Budget ($)</label>
+                    <input required type="text" name="customBrandBudget" placeholder="e.g., $35,000 / complete campaign" className="w-full bg-blue-950/20 border border-blue-500/30 rounded-lg p-3 text-xs text-white focus:border-blue-400 outline-none transition-colors shadow-inner" />
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Campaign goals & Target Audience</label>
@@ -346,14 +365,29 @@ export default function App() {
 
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Average Views (Past 30 Days)</label>
-                  <select required name="averageViews" className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-emerald-500 outline-none transition-colors appearance-none">
-                    <option value="" disabled selected>Select average video performance</option>
+                  <select 
+                    required 
+                    name="average_views_bracket" 
+                    value={creatorViews}
+                    onChange={(e) => setCreatorViews(e.target.value)}
+                    className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-emerald-500 outline-none transition-colors appearance-none"
+                  >
+                    <option value="" disabled>Select average video performance</option>
                     <option value="under-10k">Less than 10,000 views</option>
                     <option value="10k-50k">10,000 - 50,000 views</option>
                     <option value="50k-200k">50,000 - 200,000 views</option>
                     <option value="200k+">200,000+ views</option>
+                    <option value="custom">Custom View Count</option>
                   </select>
                 </div>
+
+                {/* Conditional Custom Creator Views Field */}
+                {creatorViews === 'custom' && (
+                  <div className="animate-fadeIn">
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Enter Your Exact Average Views</label>
+                    <input required type="text" name="customCreatorViews" placeholder="e.g., 85K long-form / 1.2M shorts avg" className="w-full bg-emerald-950/20 border border-emerald-500/30 rounded-lg p-3 text-xs text-white focus:border-emerald-400 outline-none transition-colors shadow-inner" />
+                  </div>
+                )}
 
                 <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)]">Submit Application</button>
               </form>
