@@ -358,32 +358,47 @@ function App() {
               </a>
             </div>
 
-            {/* Creator Support Benefits Row (Image_327e98.png Layout) */}
+            {/* Creator Support Benefits Row (Exact Image_3211c2.png Popup Layout) */}
             <div className="max-w-5xl mx-auto mb-24 border-t border-b border-white/5 py-16">
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold mb-3">How we support our creators.</h2>
                 <p className="text-neutral-400 text-xs">We work in the background so you spend your time building videos — not chasing invoices.</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-emerald-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 01</div>
-                  <h4 className="font-bold text-sm mb-2">Inbound deals</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-emerald-500/30 hover:shadow-[0_10px_30px_rgba(16,185,129,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-950/40 border border-emerald-900/30 flex items-center justify-center mb-4 text-emerald-400 transition-colors group-hover:border-emerald-500/50">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                  </div>
+                  <div className="text-emerald-400 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 01</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-emerald-400 transition-colors">Inbound deals</h4>
                   <p className="text-neutral-400 text-xs leading-relaxed">We match your channel with premium software and hardware brands.</p>
                 </div>
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-emerald-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 02</div>
-                  <h4 className="font-bold text-sm mb-2">Contract protection</h4>
+
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-emerald-500/30 hover:shadow-[0_10px_30px_rgba(16,185,129,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-950/40 border border-emerald-900/30 flex items-center justify-center mb-4 text-emerald-400 transition-colors group-hover:border-emerald-500/50">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                  </div>
+                  <div className="text-emerald-400 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 02</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-emerald-400 transition-colors">Contract protection</h4>
                   <p className="text-neutral-400 text-xs leading-relaxed">Fair pricing structures. No late payments. No shifting scope.</p>
                 </div>
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-emerald-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 03</div>
-                  <h4 className="font-bold text-sm mb-2">Retention support</h4>
+
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-emerald-500/30 hover:shadow-[0_10px_30px_rgba(16,185,129,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-950/40 border border-emerald-900/30 flex items-center justify-center mb-4 text-emerald-400 transition-colors group-hover:border-emerald-500/50">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                  </div>
+                  <div className="text-emerald-400 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 03</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-emerald-400 transition-colors">Retention support</h4>
                   <p className="text-neutral-400 text-xs leading-relaxed">Performance ideas to optimize hooks and maximize watch time.</p>
                 </div>
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-emerald-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 04</div>
-                  <h4 className="font-bold text-sm mb-2">Programmatic scaling</h4>
+
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-emerald-500/30 hover:shadow-[0_10px_30px_rgba(16,185,129,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-950/40 border border-emerald-900/30 flex items-center justify-center mb-4 text-emerald-400 transition-colors group-hover:border-emerald-500/50">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </div>
+                  <div className="text-emerald-400 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Stage 04</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-emerald-400 transition-colors">Programmatic scaling</h4>
                   <p className="text-neutral-400 text-xs leading-relaxed">We turn one-off integrations into recurring quarterly contracts.</p>
                 </div>
               </div>
