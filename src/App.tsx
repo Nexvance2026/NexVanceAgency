@@ -424,21 +424,21 @@ export default function App() {
               </div>
             </div>
 
-            {/* Privacy Legal Content */}
+            {/* Moderate & Humanly Written Privacy Legal Content */}
             <div className="space-y-8 text-neutral-300 text-xs leading-relaxed border-b border-white/5 pb-16">
               <section>
-                <h3 className="text-base font-bold text-white mb-2">1. The Operational Scope</h3>
-                <p>When you utilize the NexVance orchestration architecture (including onboarding briefs and campaign intake pipelines), we ingest foundational validation parameters such as company domains, average audience views, and campaign metrics. This architecture functions exclusively to accelerate matching and deployment.</p>
+                <h3 className="text-base font-bold text-white mb-2">1. What Data We Collect</h3>
+                <p>We only collect the absolute basics needed to run your campaigns. This includes things like your company name, website, email address, channel links, and view counts. We do not look at or store any private data without your permission.</p>
               </section>
 
               <section>
-                <h3 className="text-base font-bold text-white mb-2">2. Data Ingestion & Sanitization</h3>
-                <p>We restrict raw information collection exclusively to variables required for pipeline performance verification. No transaction histories, structural financial routing codes, or private performance insights are made accessible to external systems without active multi-factor authorization protocols.</p>
+                <h3 className="text-base font-bold text-white mb-2">2. How We Guard Your Information</h3>
+                <p>Your details are safely locked behind encrypted networks. We never sell, leak, or share your contact info, emails, or performance data with outside companies. Everything is kept strictly between us and the brands or creators you choose to work with.</p>
               </section>
 
               <section>
-                <h3 className="text-base font-bold text-white mb-2">3. Retention Policies</h3>
-                <p>Inactive profiles within our routing database are systematically scrubbed or decoupled from legal parameters after a 180-day operational dormancy window, ensuring zero overhead or structural legal liabilities for your creator brand.</p>
+                <h3 className="text-base font-bold text-white mb-2">3. Keeping Things Clean</h3>
+                <p>If you stop using our network and your account stays inactive for 6 months, we systematically delete your records from our systems. No old data clutter, no security risks.</p>
               </section>
             </div>
           </div>
@@ -473,21 +473,21 @@ export default function App() {
               </div>
             </div>
 
-            {/* Terms Legal Content */}
+            {/* Moderate & Humanly Written Terms Legal Content */}
             <div className="space-y-8 text-neutral-300 text-xs leading-relaxed border-b border-white/5 pb-16">
               <section>
-                <h3 className="text-base font-bold text-white mb-2">1. Relationship Parameter</h3>
-                <p>NexVance operates strictly as a transactional intermediary routing engine linking vetted creator identities to corresponding enterprise buyers. Entry onto our ecosystem platform does not constitute an exclusivity lock-in unless a localized master project schedule is signed.</p>
+                <h3 className="text-base font-bold text-white mb-2">1. How We Work Together</h3>
+                <p>NexVance helps connect top-tier tech brands with vetted creators. Joining our network does not mean you are locked into an exclusive contract. You are completely free to work on other deals outside of our platform whenever you want.</p>
               </section>
 
               <section>
-                <h3 className="text-base font-bold text-white mb-2">2. Deliverable Quality Assurance</h3>
-                <p>Creators agreeing to run dedicated software sponsorships accept all criteria outlined inside product campaign specifications. All visual integration scripts, review timelines, and live links must be cleared by automated pre-flight tools prior to deployment.</p>
+                <h3 className="text-base font-bold text-white mb-2">2. Deliverables & Content Quality</h3>
+                <p>When a creator agrees to a brand deal, they commit to following the project brief, video requirements, and agreed deadlines. All video placements and links must be double-checked and approved by our team before they go live.</p>
               </section>
 
               <section>
-                <h3 className="text-base font-bold text-white mb-2">3. Payout Execution Schedules</h3>
-                <p>Campaign funds processed through our infrastructure are released strictly upon complete deployment verification. If a system failure or delivery breach occurs, parameters follow automatic contract refund pathways outlined within specific escrow layers.</p>
+                <h3 className="text-base font-bold text-white mb-2">3. Fair Payments & Safety</h3>
+                <p>We hold campaign budgets safely until the content is fully delivered and verified. If a deal falls through or a video isn't posted as promised, the funds are automatically routed back safely. No hidden fees, no financial surprises.</p>
               </section>
             </div>
           </div>
@@ -518,7 +518,7 @@ export default function App() {
               </ul>
             </div>
 
-            {/* Corporate section reflecting layout of image_0312e5.png */}
+            {/* Corporate section exactly mapping image_0312e5.png styling & functionality */}
             <div className="md:col-span-3">
               <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">Corporate</h5>
               <ul className="space-y-2 text-xs text-neutral-400">
