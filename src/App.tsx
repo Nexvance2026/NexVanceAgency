@@ -92,23 +92,34 @@ function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Graph Asset (Fixed with Hyper-Targeted Digital Network Nodes Graphic) */}
-            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-900 to-black border border-white/10 p-4 shadow-2xl relative overflow-hidden mb-24">
-              <img 
-                src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80" 
-                alt="NexVance Network Graph Connections" 
-                className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none mix-blend-screen"
-              />
-              <div className="absolute inset-0 bg-blue-500/5 pointer-events-none" />
-              <div className="w-full aspect-[16/9] rounded-xl bg-neutral-950/60 border border-white/5 flex flex-col justify-end p-6 md:p-10 relative">
+            {/* Brand <-> Creator Graph Asset (FIXED: Clean SVG Graph Mesh, No Bad Images, No Popping popups) */}
+            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-[#0b0f19] to-[#04060c] border border-white/10 p-2 shadow-2xl relative overflow-hidden mb-24">
+              
+              {/* Geometric High-Tech Cyber Grid Overlay */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f60d_1px,transparent_1px),linear-gradient(to_bottom,#3b82f60d_1px,transparent_1px)] bg-[size:32px_32px]" />
+              
+              <div className="w-full aspect-[16/9] rounded-xl bg-[#03060b]/90 flex flex-col justify-end p-6 md:p-10 relative overflow-hidden">
                 
-                {/* Visual Neural Node Wireframes Simulating Graph */}
-                <div className="absolute inset-0 opacity-30 flex items-center justify-center">
-                  <div className="w-72 h-72 border border-blue-500/20 rounded-full animate-ping absolute" />
-                  <div className="w-96 h-96 border border-emerald-500/15 rounded-full absolute" />
+                {/* Embedded Clean SVG Vector Graph Connections */}
+                <div className="absolute inset-0 flex items-center justify-center p-8 opacity-40">
+                  <svg className="w-full h-full text-blue-500/20" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Connecting Mesh Lines */}
+                    <path d="M150 150 L400 225 M150 150 L250 320 M400 225 L650 120 M400 225 L600 330 M250 320 L600 330 M650 120 L600 330" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
+                    <path d="M150 150 L350 80 M350 80 L650 120 M250 320 L450 380 M450 380 L600 330" stroke="rgba(16,185,129,0.2)" strokeWidth="1.5" />
+                    
+                    {/* Clean Tech Nodes */}
+                    <circle cx="150" cy="150" r="6" fill="#3b82f6" className="shadow-lg" />
+                    <circle cx="400" cy="225" r="8" fill="#3b82f6" />
+                    <circle cx="250" cy="320" r="5" fill="#10b881" />
+                    <circle cx="650" cy="120" r="7" fill="#3b82f6" />
+                    <circle cx="600" cy="330" r="6" fill="#10b881" />
+                    <circle cx="350" cy="80" r="4" fill="#6b7280" />
+                    <circle cx="450" cy="380" r="5" fill="#6b7280" />
+                  </svg>
                 </div>
 
-                <div className="relative z-10">
+                {/* Content Block */}
+                <div className="relative z-10 bg-gradient-to-t from-[#03060b] via-[#03060b]/80 to-transparent pt-12">
                   <span className="text-[10px] uppercase tracking-widest text-blue-400 font-semibold mb-2 block">Live Operations</span>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">Brand ↔ Creator graph</h3>
                   <div className="flex space-x-2">
@@ -117,6 +128,7 @@ function App() {
                     <span className="bg-neutral-900 border border-white/10 px-3 py-1 rounded-full text-[10px] text-neutral-400 font-medium">AI Tools</span>
                   </div>
                 </div>
+
               </div>
             </div>
 
