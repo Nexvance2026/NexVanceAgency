@@ -92,7 +92,7 @@ function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Graph Asset (Image_328259.jpg Layout) */}
+            {/* Brand <-> Creator Graph Asset */}
             <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-900 to-black border border-white/10 p-4 shadow-2xl relative overflow-hidden mb-24">
               <div className="absolute inset-0 bg-blue-500/5 pointer-events-none" />
               <div className="w-full aspect-[16/9] rounded-xl bg-neutral-950/80 border border-white/5 flex flex-col justify-end p-6 md:p-10 relative">
@@ -135,7 +135,7 @@ function App() {
               </div>
             </div>
 
-            {/* Dual Pipeline Blocks (Image_328240.png Layout) */}
+            {/* Dual Pipeline Blocks */}
             <div className="max-w-4xl mx-auto mb-28">
               <div className="text-center mb-16">
                 <span className="text-[10px] uppercase tracking-widest text-blue-500 font-bold block mb-3">The Operation</span>
@@ -186,7 +186,7 @@ function App() {
               </div>
             </div>
 
-            {/* Audience Psychology Framework (Image_32823e.png Layout) */}
+            {/* Audience Psychology Framework */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-4xl mx-auto mb-24 border-t border-white/5 pt-20">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-emerald-400 font-bold block mb-3">Audience Science</span>
@@ -215,7 +215,7 @@ function App() {
         {activeTab === 'brands' && (
           <div className="animate-fadeIn px-6 md:px-[8%]">
             
-            {/* Brands Hero Section (Image_327f1a.jpg Layout) */}
+            {/* Brands Hero Section */}
             <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
               <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
                 ⚡ For Tech Brands
@@ -231,7 +231,7 @@ function App() {
               </a>
             </div>
 
-            {/* Campaign Process Workflow Steps (Image_3211c2.png Style Layout) */}
+            {/* Campaign Process Workflow Steps */}
             <div className="max-w-5xl mx-auto mb-24 border-t border-b border-white/5 py-16">
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold mb-3">The brand campaign process.</h2>
@@ -268,31 +268,8 @@ function App() {
                 </div>
               </div>
             </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 01</div>
-                  <h4 className="font-bold text-sm mb-2">Perfect matching</h4>
-                  <p className="text-neutral-400 text-xs leading-relaxed">We analyze creator demographics to find the absolute best fit for your niche.</p>
-                </div>
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 02</div>
-                  <h4 className="font-bold text-sm mb-2">Content briefing</h4>
-                  <p className="text-neutral-400 text-xs leading-relaxed">We build detailed guides highlighting your product's core value props.</p>
-                </div>
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 03</div>
-                  <h4 className="font-bold text-sm mb-2">Quality control</h4>
-                  <p className="text-neutral-400 text-xs leading-relaxed">Every integration is reviewed by our team before going live.</p>
-                </div>
-                <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
-                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 04</div>
-                  <h4 className="font-bold text-sm mb-2">Results evaluation</h4>
-                  <p className="text-neutral-400 text-xs leading-relaxed">Clean campaign data to optimize the next wave and scale efficiently.</p>
-                </div>
-              </div>
-            </div>
 
-            {/* Strategy Form Container with Formspree Endpoint (Image_327f17.png Layout) */}
+            {/* Strategy Form Container with Formspree Endpoint */}
             <div id="brand-form" className="max-w-4xl mx-auto bg-neutral-900/40 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
               <div className="md:col-span-5">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Work with NexVance.</h3>
@@ -307,7 +284,7 @@ function App() {
               </div>
 
               {/* Formspree Endpoint Form for Brands */}
-                <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
+              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company / SaaS name</label>
                   <input required type="text" name="companyName" placeholder="Your brand name" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-colors" />
@@ -342,7 +319,7 @@ function App() {
         {activeTab === 'creators' && (
           <div className="animate-fadeIn px-6 md:px-[8%]">
             
-            {/* Creators Hero Block (Image_327e9a.jpg Layout) */}
+            {/* Creators Hero Block */}
             <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
               <span className="bg-emerald-950/60 border border-emerald-800/40 text-[10px] font-bold text-emerald-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
                 👥 For Creators
@@ -358,7 +335,7 @@ function App() {
               </a>
             </div>
 
-            {/* Creator Support Benefits Row (Exact Image_3211c2.png Popup Layout) */}
+            {/* Creator Support Benefits Row */}
             <div className="max-w-5xl mx-auto mb-24 border-t border-b border-white/5 py-16">
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold mb-3">How we support our creators.</h2>
@@ -404,7 +381,7 @@ function App() {
               </div>
             </div>
 
-            {/* Creator Roster Form Block (Image_327e97.png Layout) */}
+            {/* Creator Roster Form Block */}
             <div id="roster-form" className="max-w-4xl mx-auto bg-neutral-900/40 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
               <div className="md:col-span-5">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Join our active roster.</h3>
@@ -467,9 +444,9 @@ function App() {
             <div className="md:col-span-3">
               <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">Navigation</h5>
               <ul className="space-y-2 text-xs text-neutral-400">
-                <li><button onClick={() => setActiveTab('brands')} className="hover:text-white">Tech brand portal</button></li>
-                <li><button onClick={() => setActiveTab('creators')} className="hover:text-white">Creator roster</button></li>
-                <li><button onClick={() => setActiveTab('overview')} className="hover:text-white">Overview</button></li>
+                <li><button onClick={() => setActiveTab('brands')} className="hover:text-white text-left">Tech brand portal</button></li>
+                <li><button onClick={() => setActiveTab('creators')} className="hover:text-white text-left">Creator roster</button></li>
+                <li><button onClick={() => setActiveTab('overview')} className="hover:text-white text-left">Overview</button></li>
               </ul>
             </div>
 
