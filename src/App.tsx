@@ -317,11 +317,86 @@ export default function App() {
         {/* ==================== 3. FOR CREATORS ROSTER LANDING & APPLICATION FORM ==================== */}
         {activeTab === 'creators' && (
           <div className="animate-fadeIn px-6 md:px-[8%]">
-            <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
+            <div className="text-center max-w-3xl mx-auto mb-16 pt-6">
               <span className="bg-emerald-950/60 border border-emerald-800/40 text-[10px] font-bold text-emerald-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(16,185,129,0.2)]">👥 For Creators</span>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Focus on content. We'll bring the brand deals.</h1>
               <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">Stop wasting hours on cold corporate emails. We protect your creative freedom and lock in high-paying sponsorships.</p>
               <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] hover:shadow-[0_6px_25px_rgba(16,185,129,0.5)] text-sm inline-block transform hover:-translate-y-0.5">Apply to the Roster →</a>
+            </div>
+
+            {/* Custom Interactive UI Asset - Representing the Tech Roster Engine */}
+            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-[#050505] border border-white/10 p-3 shadow-2xl relative overflow-hidden mb-20 transition-all duration-500 hover:border-emerald-500/20 hover:shadow-[0_10px_40px_rgba(16,185,129,0.1)]">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
+
+              <div className="w-full min-h-[340px] rounded-xl bg-black/80 flex flex-col justify-between p-6 relative overflow-hidden border border-white/5">
+                <div className="relative z-10 flex justify-between items-center w-full border-b border-white/5 pb-4">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Creator Control Panel / Live Inbound Stream</span>
+                  </div>
+                  <div className="flex space-x-1.5">
+                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
+                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
+                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
+                  </div>
+                </div>
+
+                {/* Simulated Custom UI Engine Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 relative z-10">
+                  <div className="bg-neutral-950 border border-white/5 p-4 rounded-xl">
+                    <span className="text-[9px] font-mono text-emerald-400 font-bold block mb-1">STAGE 01</span>
+                    <h5 className="text-xs font-bold text-white mb-2">Inbound Deal Router</h5>
+                    <div className="space-y-2 mt-3">
+                      <div className="bg-neutral-900/60 border border-white/5 p-2 rounded text-[10px] flex justify-between items-center">
+                        <span className="text-neutral-300 truncate font-mono">DevOps Tooling Campaign</span>
+                        <span className="text-emerald-400 font-bold font-mono">$4.5K</span>
+                      </div>
+                      <div className="bg-neutral-900/60 border border-white/5 p-2 rounded text-[10px] flex justify-between items-center">
+                        <span className="text-neutral-300 truncate font-mono">SaaS Automation Integration</span>
+                        <span className="text-emerald-400 font-bold font-mono">$8.2K</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-neutral-950 border border-white/5 p-4 rounded-xl">
+                    <span className="text-[9px] font-mono text-emerald-400 font-bold block mb-1">STAGE 02</span>
+                    <h5 className="text-xs font-bold text-white mb-2">Rate Lock Architecture</h5>
+                    <div className="space-y-1 mt-4 font-mono text-[10px]">
+                      <div className="flex justify-between text-neutral-500 border-b border-white/5 pb-1">
+                        <span>Platform Lock</span> <span className="text-neutral-300">Disabled</span>
+                      </div>
+                      <div className="flex justify-between text-neutral-500 border-b border-white/5 py-1">
+                        <span>Upfront Fee Trap</span> <span className="text-red-400 font-bold">0.00%</span>
+                      </div>
+                      <div className="flex justify-between text-neutral-500 py-1">
+                        <span>Your Base Minimum</span> <span className="text-emerald-400 font-bold">Guaranteed</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-neutral-950 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
+                    <div>
+                      <span className="text-[9px] font-mono text-emerald-400 font-bold block mb-1">STAGE 03</span>
+                      <h5 className="text-xs font-bold text-white mb-1">Retention Optimization</h5>
+                      <p className="text-neutral-500 text-[10px] leading-relaxed">Systematic analysis applied directly to visual hooks, maximizing RPM metrics.</p>
+                    </div>
+                    <div className="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden mt-3 border border-white/5">
+                      <div className="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full w-[84%]" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative z-10 border-t border-white/5 pt-4 bg-gradient-to-t from-black via-black/90 to-transparent flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                  <div>
+                    <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold mb-0.5 block">NexVance Terminal</span>
+                    <h3 className="text-lg font-bold text-white tracking-tight">The Content Protection Matrix</h3>
+                  </div>
+                  <div className="text-[10px] font-mono text-neutral-400 bg-neutral-950 px-3 py-1 rounded border border-white/5">
+                    Roster Security Level: <span className="text-emerald-400 font-bold">Absolute</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Expanded Premium Creator Hub Layout */}
