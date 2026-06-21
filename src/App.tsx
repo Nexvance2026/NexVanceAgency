@@ -231,13 +231,43 @@ function App() {
               </a>
             </div>
 
-            {/* Campaign Process Workflow Steps (Image_327f18.png Layout) */}
+            {/* Campaign Process Workflow Steps (Image_3211c2.png Style Layout) */}
             <div className="max-w-5xl mx-auto mb-24 border-t border-b border-white/5 py-16">
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold mb-3">The brand campaign process.</h2>
                 <p className="text-neutral-400 text-xs">How we remove the operational drag of running creator campaigns.</p>
               </div>
 
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-blue-500/30 hover:shadow-[0_10px_30px_rgba(37,99,235,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950/40 border border-blue-900/30 flex items-center justify-center mb-4 text-blue-400 font-mono text-xs transition-colors group-hover:border-blue-500/50">01</div>
+                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 01</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-blue-400 transition-colors">Perfect matching</h4>
+                  <p className="text-neutral-400 text-xs leading-relaxed">We analyze creator demographics to find the absolute best fit for your niche.</p>
+                </div>
+                
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-blue-500/30 hover:shadow-[0_10px_30px_rgba(37,99,235,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950/40 border border-blue-900/30 flex items-center justify-center mb-4 text-blue-400 font-mono text-xs transition-colors group-hover:border-blue-500/50">02</div>
+                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 02</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-blue-400 transition-colors">Content briefing</h4>
+                  <p className="text-neutral-400 text-xs leading-relaxed">We build detailed guides highlighting your product's core value props.</p>
+                </div>
+
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-blue-500/30 hover:shadow-[0_10px_30px_rgba(37,99,235,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950/40 border border-blue-900/30 flex items-center justify-center mb-4 text-blue-400 font-mono text-xs transition-colors group-hover:border-blue-500/50">03</div>
+                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 03</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-blue-400 transition-colors">Quality control</h4>
+                  <p className="text-neutral-400 text-xs leading-relaxed">Every integration is reviewed by our team before going live.</p>
+                </div>
+
+                <div className="bg-neutral-900/30 border border-white/5 p-6 rounded-2xl transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:bg-neutral-900/50 hover:border-blue-500/30 hover:shadow-[0_10px_30px_rgba(37,99,235,0.1)] group cursor-pointer">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950/40 border border-blue-900/30 flex items-center justify-center mb-4 text-blue-400 font-mono text-xs transition-colors group-hover:border-blue-500/50">04</div>
+                  <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 04</div>
+                  <h4 className="font-bold text-base mb-2 group-hover:text-blue-400 transition-colors">Results evaluation</h4>
+                  <p className="text-neutral-400 text-xs leading-relaxed">Clean campaign data to optimize the next wave and scale efficiently.</p>
+                </div>
+              </div>
+            </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-neutral-900/30 border border-white/5 p-5 rounded-xl">
                   <div className="text-blue-500 font-mono text-[10px] font-bold uppercase tracking-wider mb-2">Step 01</div>
