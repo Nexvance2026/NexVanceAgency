@@ -186,7 +186,7 @@ function App() {
               </div>
             </div>
 
-            {/* Audience Psychology Framework */}
+            {/* Audience Psychology Framework - REPLACED GIBBERISH IMAGE WITH LIVE COMPONENTS */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-4xl mx-auto mb-24 border-t border-white/5 pt-20">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-emerald-400 font-bold block mb-3">Audience Science</span>
@@ -201,11 +201,46 @@ function App() {
                   <span className="bg-neutral-900 border border-white/5 text-[11px] px-3 py-1.5 rounded-full text-neutral-300">Native integration</span>
                 </div>
               </div>
-              <div className="bg-neutral-900/20 border border-white/10 rounded-2xl p-4 shadow-xl">
-                <div className="w-full aspect-[4/3] bg-black/40 rounded-xl flex items-center justify-center text-neutral-600 text-xs border border-white/5">
-                  [ Retention Curve Metric Chart ]
+              
+              {/* FIXED CLEAN COMPONENT CONVERTED FROM ANALYTICS-FLOW */}
+              <div className="bg-neutral-900/40 border border-white/10 rounded-2xl p-6 shadow-xl w-full font-sans backdrop-blur-sm">
+                <div className="text-center mb-6">
+                  <h4 className="text-emerald-400 font-bold tracking-wide text-sm">Premium Convertibles</h4>
+                  <p className="text-neutral-500 text-[10px] mt-0.5">Detailed Conversion and Audience Analytics</p>
+                </div>
+
+                <div className="mb-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-[11px] text-neutral-300 font-medium">Audience Engagement Metrics</span>
+                    <span className="text-[9px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full font-mono">Live Retention</span>
+                  </div>
+                  
+                  <div className="h-32 border-l border-b border-neutral-800 relative bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]">
+                    <svg className="absolute inset-0 w-full h-full text-emerald-500/40" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <path d="M0,75 C20,30 40,85 60,40 C80,10 90,55 100,45" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                    <svg className="absolute inset-0 w-full h-full text-blue-500/30" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <path d="M0,85 C30,50 50,20 70,65 C85,90 95,40 100,35" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-[11px] text-neutral-300 font-medium">Transient Dynamics</span>
+                  </div>
+                  <div className="h-20 border-l border-b border-neutral-800 relative flex items-end justify-between px-1 pt-2">
+                    {[45, 60, 35, 80, 50, 75, 90, 55, 40, 85, 65, 70, 45, 95, 60, 40, 75, 50].map((height, i) => (
+                      <div 
+                        key={i} 
+                        style={{ height: `${height}%` }} 
+                        className="w-[4%] bg-gradient-to-t from-emerald-600/20 to-emerald-400/80 rounded-t-sm transition-all duration-300 hover:to-blue-400"
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
+
             </div>
 
           </div>
