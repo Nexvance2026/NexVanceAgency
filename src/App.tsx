@@ -92,20 +92,20 @@ function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Graph Asset (Fixed with Live Cinematic Network Image) */}
+            {/* Brand <-> Creator Graph Asset (Fixed with Hyper-Targeted Digital Network Nodes Graphic) */}
             <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-900 to-black border border-white/10 p-4 shadow-2xl relative overflow-hidden mb-24">
               <img 
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" 
-                alt="NexVance Network Graph" 
-                className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
+                src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80" 
+                alt="NexVance Network Graph Connections" 
+                className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none mix-blend-screen"
               />
               <div className="absolute inset-0 bg-blue-500/5 pointer-events-none" />
-              <div className="w-full aspect-[16/9] rounded-xl bg-neutral-950/50 border border-white/5 flex flex-col justify-end p-6 md:p-10 relative">
+              <div className="w-full aspect-[16/9] rounded-xl bg-neutral-950/60 border border-white/5 flex flex-col justify-end p-6 md:p-10 relative">
                 
                 {/* Visual Neural Node Wireframes Simulating Graph */}
-                <div className="absolute inset-0 opacity-20 flex items-center justify-center">
-                  <div className="w-72 h-72 border border-blue-500/30 rounded-full animate-ping absolute" />
-                  <div className="w-96 h-96 border border-emerald-500/20 rounded-full absolute" />
+                <div className="absolute inset-0 opacity-30 flex items-center justify-center">
+                  <div className="w-72 h-72 border border-blue-500/20 rounded-full animate-ping absolute" />
+                  <div className="w-96 h-96 border border-emerald-500/15 rounded-full absolute" />
                 </div>
 
                 <div className="relative z-10">
@@ -151,7 +151,7 @@ function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Tech Brands Card (Fixed with premium dashboard image) */}
+                {/* Tech Brands Card */}
                 <div className="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 flex flex-col h-full hover:border-blue-500/20 transition-all duration-300">
                   <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 border border-white/5 overflow-hidden shadow-inner">
                     <img 
@@ -174,7 +174,7 @@ function App() {
                   </button>
                 </div>
 
-                {/* Creators Card (Fixed with premium creative tech studio image) */}
+                {/* Creators Card */}
                 <div className="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 flex flex-col h-full hover:border-emerald-500/20 transition-all duration-300">
                   <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 border border-white/5 overflow-hidden shadow-inner">
                     <img 
