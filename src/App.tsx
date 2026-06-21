@@ -97,7 +97,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Middleman Node Asset */}
+            {/* Brand <-> Creator Middleman Node Asset - (image_04d57a.png remains here for the main pipeline overview) */}
             <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-[#050505] border border-white/10 p-3 shadow-2xl relative overflow-hidden mb-24 transition-all duration-500 hover:border-blue-500/20 hover:shadow-[0_10px_40px_rgba(37,99,235,0.1)]">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -245,59 +245,105 @@ export default function App() {
               <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.5)] text-sm inline-block transform hover:-translate-y-0.5">Start Campaign Strategy →</a>
             </div>
 
-            {/* VISUAL COMPONENT / IMAGE SECTION FOR TECH BRANDS */}
-            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-[#050505] border border-white/10 p-3 shadow-2xl relative overflow-hidden mb-12 transition-all duration-500 hover:border-blue-500/20">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none" />
+            {/* BRAND SPECIFIC REPLACED VISUAL: EMBEDDED DASHBOARD & LIVE CAMPAIGN SDK CONSOLE TERMINAL */}
+            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-black border border-white/10 p-3 shadow-2xl relative overflow-hidden mb-12 transition-all duration-500 hover:border-blue-500/20">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
+              <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-              <div className="w-full aspect-[16/9] min-h-[360px] rounded-xl bg-black/80 flex flex-col justify-between p-6 md:p-8 relative overflow-hidden border border-white/5">
-                <div className="relative z-10 flex justify-between items-center w-full border-b border-white/5 pb-4">
+              <div className="w-full min-h-[380px] rounded-xl bg-[#05070f]/90 border border-white/5 p-4 md:p-6 flex flex-col justify-between font-mono relative">
+                {/* Embedded Framework Console Top Controls */}
+                <div className="flex justify-between items-center w-full border-b border-white/5 pb-3 mb-4">
                   <div className="flex items-center space-x-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Escrow & Campaign Router Active</span>
+                    <div className="flex space-x-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-blue-500/60" />
+                    </div>
+                    <span className="text-[10px] text-neutral-400 ml-2 tracking-wide font-semibold">nexvance-analytics-sdk — v2.4.1</span>
                   </div>
-                  <div className="text-[10px] font-mono text-neutral-500 bg-neutral-950 px-2.5 py-1 rounded-md border border-white/5">
-                    Latency: <span className="text-emerald-400">0.02ms</span>
+                  <div className="bg-blue-950/40 border border-blue-500/20 rounded px-2 py-0.5 text-[9px] text-blue-400 font-bold uppercase tracking-widest animate-pulse">
+                    Live Integration Active
                   </div>
                 </div>
 
-                <div className="relative w-full h-full flex items-center justify-between px-4 md:px-12 my-4">
-                  <div className="flex flex-col space-y-4 z-10 w-1/4">
-                    <div className="bg-neutral-950 border border-white/10 rounded-xl p-3 shadow-xl backdrop-blur-md">
-                      <div className="text-[9px] font-mono uppercase text-blue-400 font-bold mb-0.5">SaaS Brand</div>
-                      <div className="text-xs font-semibold text-white truncate">AI Automations</div>
+                {/* Embedded Body Layout Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full items-stretch my-auto">
+                  {/* Left Column: Code Structure Preview Box */}
+                  <div className="md:col-span-5 bg-black/60 rounded-xl p-3 border border-white/5 text-[10px] text-neutral-400 flex flex-col justify-between leading-relaxed">
+                    <div>
+                      <div className="text-neutral-500 mb-2 font-sans text-[9px] uppercase tracking-wider font-bold">SDK Snippet Layout</div>
+                      <span className="text-blue-400">import</span> &#123; NexVancePipeline &#125; <span className="text-blue-400">from</span> <span className="text-emerald-400">'@nv/core'</span>;
+                      <br /><br />
+                      <span className="text-neutral-500">// Track live conversions & CAC</span>
+                      <br />
+                      <span className="text-blue-400">const</span> campaign = <span className="text-blue-400">new</span> NexVancePipeline(&#123;
+                      <br />
+                      &nbsp;&nbsp;brandId: <span className="text-amber-400">"saas_ai_automation"</span>,
+                      <br />
+                      &nbsp;&nbsp;targetCAC: <span className="text-purple-400">45.00</span>,
+                      <br />
+                      &nbsp;&nbsp;escrowSecure: <span className="text-blue-400">true</span>
+                      <br />
+                      &#125;);
+                    </div>
+                    <div className="mt-4 pt-2 border-t border-white/5 text-[9px] text-neutral-500">
+                      Terminal Output: <span className="text-emerald-400">Ready to deploy.</span>
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 w-full h-full pointer-events-none">
-                    <svg className="w-full h-full" viewBox="0 0 700 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M 160,80 L 350,125" stroke="url(#brandToMiddle)" strokeWidth="1.5" />
-                      <path d="M 350,125 L 540,75" stroke="url(#middleToCreator)" strokeWidth="1.5" />
-                    </svg>
-                  </div>
-
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-blue-600 to-emerald-500 p-[1px] shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-                      <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
-                        <span className="text-xs font-mono font-bold text-white tracking-widest">NV</span>
+                  {/* Right Column: Mini Analytical Analytics Simulation Visual */}
+                  <div className="md:col-span-7 bg-neutral-950/80 rounded-xl p-4 border border-white/5 flex flex-col justify-between">
+                    <div className="flex justify-between items-center mb-3">
+                      <div>
+                        <div className="text-neutral-500 text-[9px] uppercase tracking-wider font-bold font-sans">Performance Engine</div>
+                        <div className="text-sm font-bold text-white font-sans tracking-tight">Conversion Tracking Overview</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs font-bold text-emerald-400 font-sans">+314.8%</div>
+                        <div className="text-[8px] text-neutral-500 uppercase tracking-widest font-sans">Avg ROI Curve</div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="flex flex-col space-y-4 z-10 w-1/4 items-end">
-                    <div className="bg-neutral-950 border border-white/10 rounded-xl p-3 shadow-xl backdrop-blur-md text-right">
-                      <div className="text-[9px] font-mono uppercase text-emerald-400 font-bold mb-0.5">Elite Creator</div>
-                      <div className="text-xs font-semibold text-white truncate">Tech Reviewer (500k+)</div>
+                    {/* Faux Graph Structure representation */}
+                    <div className="h-24 w-full flex items-end space-x-1.5 pt-4 pb-2 px-1 border-b border-white/5">
+                      <div className="bg-neutral-800 w-full h-[15%] rounded-t" />
+                      <div className="bg-neutral-800 w-full h-[30%] rounded-t" />
+                      <div className="bg-blue-600/30 w-full h-[45%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-400" /></div>
+                      <div className="bg-blue-600/40 w-full h-[40%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-400" /></div>
+                      <div className="bg-blue-600/60 w-full h-[65%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-400" /></div>
+                      <div className="bg-blue-600/80 w-full h-[85%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-400 animate-pulse" /></div>
+                      <div className="bg-gradient-to-t from-blue-600 to-emerald-500 w-full h-[98%] rounded-t relative shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-400" />
+                      </div>
                     </div>
+
+                    {/* Embedded Parameter Stat Readout Row */}
+                    <div className="grid grid-cols-3 gap-2 mt-3 text-center">
+                      <div className="bg-black/40 p-1.5 rounded border border-white/5">
+                        <div className="text-[8px] text-neutral-500 uppercase font-sans">Live Clicks</div>
+                        <div className="text-xs font-bold text-white font-sans tracking-tight">41.2k</div>
+                      </div>
+                      <div className="text-center bg-black/40 p-1.5 rounded border border-white/5">
+                        <div className="text-[8px] text-neutral-500 uppercase font-sans">Sign-ups</div>
+                        <div className="text-xs font-bold text-blue-400 font-sans tracking-tight">8,914</div>
+                      </div>
+                      <div className="text-center bg-black/40 p-1.5 rounded border border-white/5">
+                        <div className="text-[8px] text-neutral-500 uppercase font-sans">Verified CAC</div>
+                        <div className="text-xs font-bold text-emerald-400 font-sans tracking-tight">$12.40</div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
 
-                <div className="relative z-10 border-t border-white/5 pt-4 bg-gradient-to-t from-black via-black/90 to-transparent">
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
-                    <div>
-                      <span className="text-[9px] uppercase tracking-widest text-blue-400 font-bold mb-1 block">Middleware Engine</span>
-                      <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">The Frictionless Pipeline</h3>
-                    </div>
+                {/* Embedded Footer Console Banner */}
+                <div className="relative z-10 border-t border-white/5 pt-3 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                  <div>
+                    <span className="text-[9px] uppercase tracking-widest text-blue-400 font-bold block font-sans mb-0.5">Custom Brand SDK Module</span>
+                    <h3 className="text-sm font-bold text-white font-sans tracking-tight">Embedded Distribution Pipeline</h3>
+                  </div>
+                  <div className="text-[9px] text-neutral-500 bg-neutral-950 px-2 py-1 rounded border border-white/5 font-mono">
+                    Status: <span className="text-emerald-400">Fully Encrypted</span>
                   </div>
                 </div>
               </div>
