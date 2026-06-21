@@ -26,7 +26,7 @@ function App() {
           </span>
         </div>
 
-        {/* Lovable Interactive Nav Tabs */}
+        {/* Interactive Nav Tabs */}
         <div className="bg-neutral-900/80 p-1 border border-white/5 rounded-full flex space-x-1 shadow-lg">
           <button 
             onClick={() => setActiveTab('overview')}
@@ -73,7 +73,7 @@ function App() {
                 NexVance is the full-service marketing operation behind tomorrow's SaaS, AI, and hardware launches. We source, vet, and deploy creators that actually convert.
               </p>
 
-              {/* Lovable Dual Buttons */}
+              {/* Dual Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button 
                   onClick={() => setActiveTab('brands')}
@@ -92,18 +92,17 @@ function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Graph Asset */}
+            {/* Brand <-> Creator Graph Asset (REPLACED WITH HERO NETWORK IMAGE) */}
             <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-900 to-black border border-white/10 p-4 shadow-2xl relative overflow-hidden mb-24">
               <div className="absolute inset-0 bg-blue-500/5 pointer-events-none" />
-              <div className="w-full aspect-[16/9] rounded-xl bg-neutral-950/80 border border-white/5 flex flex-col justify-end p-6 md:p-10 relative">
-                
-                {/* Visual Neural Node Wireframes Simulating Graph */}
-                <div className="absolute inset-0 opacity-20 flex items-center justify-center">
-                  <div className="w-72 h-72 border border-blue-500/30 rounded-full animate-ping absolute" />
-                  <div className="w-96 h-96 border border-emerald-500/20 rounded-full absolute" />
-                </div>
-
-                <div className="relative z-10">
+              <div className="w-full aspect-[16/9] rounded-xl border border-white/5 relative overflow-hidden group">
+                <img 
+                  src="hero-network.jpg" 
+                  alt="NexVance Network Graph" 
+                  className="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-10">
                   <span className="text-[10px] uppercase tracking-widest text-blue-400 font-semibold mb-2 block">Live Operations</span>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">Brand ↔ Creator graph</h3>
                   <div className="flex space-x-2">
@@ -146,10 +145,10 @@ function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Tech Brands Card */}
+                {/* Tech Brands Card (REPLACED WITH BRAND DASHBOARD IMAGE) */}
                 <div className="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 flex flex-col h-full hover:border-blue-500/20 transition-all duration-300">
-                  <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 flex items-center justify-center border border-white/5 overflow-hidden text-neutral-600 text-xs">
-                    [ Analytics Dashboard Asset ]
+                  <div className="w-full aspect-[4/3] rounded-xl mb-6 border border-white/5 overflow-hidden">
+                    <img src="brand-dashboard.jpg" alt="Brand Performance Dashboard" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-[10px] uppercase tracking-wider text-blue-400 font-bold mb-2 block">For Tech Brands</span>
                   <h4 className="text-xl font-bold mb-3">Launch campaigns that actually move users.</h4>
@@ -165,10 +164,10 @@ function App() {
                   </button>
                 </div>
 
-                {/* Creators Card */}
+                {/* Creators Card (REPLACED WITH CREATOR SETUP IMAGE) */}
                 <div className="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 flex flex-col h-full hover:border-emerald-500/20 transition-all duration-300">
-                  <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 flex items-center justify-center border border-white/5 overflow-hidden text-neutral-600 text-xs">
-                    [ Camera & Gear Production Asset ]
+                  <div className="w-full aspect-[4/3] rounded-xl mb-6 border border-white/5 overflow-hidden">
+                    <img src="creator-setup.jpg" alt="Elite Tech Creator Setup" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-[10px] uppercase tracking-wider text-emerald-400 font-bold mb-2 block">For Creators</span>
                   <h4 className="text-xl font-bold mb-3">Focus on content. We bring the brand deals.</h4>
@@ -186,7 +185,7 @@ function App() {
               </div>
             </div>
 
-            {/* Audience Psychology Framework - REPLACED GIBBERISH IMAGE WITH LIVE COMPONENTS */}
+            {/* Audience Psychology Framework (LIVE CODE COMPONENT REMAINING TEXT-SAFE) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-4xl mx-auto mb-24 border-t border-white/5 pt-20">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-emerald-400 font-bold block mb-3">Audience Science</span>
@@ -202,19 +201,17 @@ function App() {
                 </div>
               </div>
               
-              {/* FIXED CLEAN COMPONENT CONVERTED FROM ANALYTICS-FLOW */}
+              {/* Clean Live Visual Panel without text errors */}
               <div className="bg-neutral-900/40 border border-white/10 rounded-2xl p-6 shadow-xl w-full font-sans backdrop-blur-sm">
                 <div className="text-center mb-6">
                   <h4 className="text-emerald-400 font-bold tracking-wide text-sm">Premium Convertibles</h4>
                   <p className="text-neutral-500 text-[10px] mt-0.5">Detailed Conversion and Audience Analytics</p>
                 </div>
-
                 <div className="mb-6">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-[11px] text-neutral-300 font-medium">Audience Engagement Metrics</span>
                     <span className="text-[9px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full font-mono">Live Retention</span>
                   </div>
-                  
                   <div className="h-32 border-l border-b border-neutral-800 relative bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]">
                     <svg className="absolute inset-0 w-full h-full text-emerald-500/40" viewBox="0 0 100 100" preserveAspectRatio="none">
                       <path d="M0,75 C20,30 40,85 60,40 C80,10 90,55 100,45" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -224,7 +221,6 @@ function App() {
                     </svg>
                   </div>
                 </div>
-
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-[11px] text-neutral-300 font-medium">Transient Dynamics</span>
