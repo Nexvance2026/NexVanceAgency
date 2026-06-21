@@ -277,7 +277,7 @@ function App() {
               </div>
 
               {/* Formspree Endpoint Form for Brands */}
-              <form action="https://formspree.io/f/mnnqpwqk" method="POST" className="md:col-span-7 space-y-4 w-full">
+                <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company / SaaS name</label>
                   <input required type="text" name="companyName" placeholder="Your brand name" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-colors" />
@@ -374,7 +374,7 @@ function App() {
               </div>
 
               {/* Formspree Endpoint Form for Creators */}
-              <form action="https://formspree.io/f/mnnqpwqk" method="POST" className="md:col-span-7 space-y-4 w-full">
+              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Channel name</label>
                   <input required type="text" name="channelName" placeholder="e.g., TechWithDev" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-colors" />
