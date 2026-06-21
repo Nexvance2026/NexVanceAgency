@@ -92,15 +92,15 @@ function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Graph Asset (Hero Network Added as Background) */}
+            {/* Brand <-> Creator Graph Asset (Fixed with Live Cinematic Network Image) */}
             <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-900 to-black border border-white/10 p-4 shadow-2xl relative overflow-hidden mb-24">
               <img 
-                src="./hero-network.jpg" 
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" 
                 alt="NexVance Network Graph" 
-                className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+                className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
               />
               <div className="absolute inset-0 bg-blue-500/5 pointer-events-none" />
-              <div className="w-full aspect-[16/9] rounded-xl bg-neutral-950/40 border border-white/5 flex flex-col justify-end p-6 md:p-10 relative">
+              <div className="w-full aspect-[16/9] rounded-xl bg-neutral-950/50 border border-white/5 flex flex-col justify-end p-6 md:p-10 relative">
                 
                 {/* Visual Neural Node Wireframes Simulating Graph */}
                 <div className="absolute inset-0 opacity-20 flex items-center justify-center">
@@ -151,10 +151,14 @@ function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Tech Brands Card (Fixed with actual image) */}
+                {/* Tech Brands Card (Fixed with premium dashboard image) */}
                 <div className="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 flex flex-col h-full hover:border-blue-500/20 transition-all duration-300">
                   <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 border border-white/5 overflow-hidden shadow-inner">
-                    <img src="./brand-dashboard.jpg" alt="Brand Performance Dashboard" className="w-full h-full object-cover" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                      alt="Brand Performance Dashboard" 
+                      className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-500" 
+                    />
                   </div>
                   <span className="text-[10px] uppercase tracking-wider text-blue-400 font-bold mb-2 block">For Tech Brands</span>
                   <h4 className="text-xl font-bold mb-3">Launch campaigns that actually move users.</h4>
@@ -170,10 +174,14 @@ function App() {
                   </button>
                 </div>
 
-                {/* Creators Card (Fixed with actual image) */}
+                {/* Creators Card (Fixed with premium creative tech studio image) */}
                 <div className="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 flex flex-col h-full hover:border-emerald-500/20 transition-all duration-300">
                   <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 border border-white/5 overflow-hidden shadow-inner">
-                    <img src="./creator-setup.jpg" alt="Elite Tech Creator Setup" className="w-full h-full object-cover" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=80" 
+                      alt="Elite Tech Creator Setup" 
+                      className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-500" 
+                    />
                   </div>
                   <span className="text-[10px] uppercase tracking-wider text-emerald-400 font-bold mb-2 block">For Creators</span>
                   <h4 className="text-xl font-bold mb-3">Focus on content. We bring the brand deals.</h4>
@@ -207,7 +215,7 @@ function App() {
                 </div>
               </div>
               
-              {/* FIXED CLEAN COMPONENT CONVERTED FROM ANALYTICS-FLOW */}
+              {/* Analytics Dynamic Chart Visual Component */}
               <div className="bg-neutral-900/40 border border-white/10 rounded-2xl p-6 shadow-xl w-full font-sans backdrop-blur-sm">
                 <div className="text-center mb-6">
                   <h4 className="text-emerald-400 font-bold tracking-wide text-sm">Premium Convertibles</h4>
