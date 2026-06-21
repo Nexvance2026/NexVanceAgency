@@ -439,27 +439,105 @@ export default function App() {
               <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] text-sm inline-block transform hover:-translate-y-0.5">Apply to the Roster →</a>
             </div>
 
-            {/* ARTISTIC VISUAL STUDIO COMPONENT */}
-            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-[#05090e] border border-white/5 p-2 shadow-2xl relative overflow-hidden mb-12 transition-all duration-700 hover:border-emerald-500/20 group">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b88103_1px,transparent_1px),linear-gradient(to_bottom,#10b88103_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
-              <div className="w-full aspect-[21/9] min-h-[300px] rounded-xl bg-[#020408] relative overflow-hidden flex items-center justify-center border border-white/5">
-                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-emerald-950/40 via-emerald-900/10 to-transparent rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-                <div className="absolute bottom-0 left-10 w-72 h-72 bg-blue-950/20 rounded-full blur-[90px] pointer-events-none" />
-                <div className="absolute right-12 md:right-24 top-1/2 -translate-y-1/2 flex items-center justify-center">
-                  <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-white/[0.02] border border-white/10 flex items-center justify-center p-4 backdrop-blur-sm">
-                    <div className="w-full h-full rounded-full border-[14px] border-white/90 shadow-[0_0_50px_rgba(255,255,255,0.4)]" />
-                  </div>
-                </div>
-                <div className="absolute left-8 md:left-16 bottom-12 flex items-end space-x-6">
-                  <div className="w-24 h-16 bg-gradient-to-t from-neutral-950 to-neutral-900 border border-white/10 rounded-lg shadow-2xl flex items-center justify-end p-1 relative">
-                    <div className="w-10 h-10 rounded-full bg-neutral-900 border border-white/20 shadow-inner flex items-center justify-center absolute -right-5">
-                      <div className="w-6 h-6 rounded-full bg-black border border-emerald-500/30" />
+            {/* PREMIUM ISOMETRIC INTERACTIVE VISUAL FOR CREATORS (POPUP EFFECT FIXED) */}
+            <div className="w-full max-w-4xl mx-auto min-h-[460px] relative flex items-center justify-center mb-24 group" style={{ perspective: '1000px' }}>
+              {/* Premium Deep Green Brand Soft Radial Backdrop Glow */}
+              <div className="absolute w-[500px] h-[350px] bg-emerald-600/10 rounded-full blur-[140px] opacity-80 group-hover:bg-emerald-500/20 transition-all duration-700 pointer-events-none" />
+              
+              {/* Floating Layout Card with Removed Hardcoded Borders & Background */}
+              <div 
+                className="relative w-full max-w-2xl aspect-[1.4/1] transition-all duration-700 group-hover:-translate-y-6 flex items-center justify-center bg-gradient-to-tr from-emerald-950/30 to-neutral-900/10 rounded-3xl p-6 backdrop-blur-xl shadow-[0_50px_100px_rgba(0,0,0,0.85)] hover:shadow-[0_60px_110px_rgba(16,185,129,0.15)]"
+                style={{ transform: 'rotateX(38deg) rotateZ(-18deg) skewX(2deg)' }}
+              >
+                {/* Tech Aesthetic Mesh Grid */}
+                <div className="w-full h-full opacity-15 bg-[linear-gradient(to_right,#10b881_1px,transparent_1px),linear-gradient(to_bottom,#10b881_1px,transparent_1px)] bg-[size:18px_18px] rounded-2xl absolute inset-0 p-6 pointer-events-none" />
+                
+                {/* Clean Floating Dashboard Block */}
+                <div className="w-full h-full bg-neutral-950/85 border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(0,0,0,0.6)] flex flex-col justify-between relative z-10">
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full items-stretch my-auto">
+                    {/* Left Layer: Creator Monetization Engine Insights */}
+                    <div className="md:col-span-7 bg-neutral-900/40 rounded-xl p-4 border border-white/5 flex flex-col justify-between backdrop-blur-sm">
+                      <div className="flex justify-between items-center mb-3">
+                        <div>
+                          <div className="text-neutral-500 text-[9px] uppercase tracking-wider font-bold font-sans">Payout Middleware</div>
+                          <div className="text-sm font-bold text-white font-sans tracking-tight">Escrow Distribution</div>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-[9px] font-mono uppercase bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30 font-bold">Secured</span>
+                        </div>
+                      </div>
+
+                      {/* Smooth Premium Glassmorphic Soundwave / CTR Growth Visual representation */}
+                      <div className="h-24 w-full flex items-end space-x-1 pt-6 pb-2 px-1 border-b border-white/5 relative">
+                        <div className="absolute top-2 left-2 flex items-center space-x-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                          <span className="text-[9px] font-mono text-neutral-400">Live CPM Optimizer Active</span>
+                        </div>
+                        <div className="bg-neutral-800/60 w-full h-[25%] rounded-t" />
+                        <div className="bg-neutral-800/60 w-full h-[40%] rounded-t" />
+                        <div className="bg-emerald-600/20 w-full h-[55%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-500/50" /></div>
+                        <div className="bg-emerald-600/30 w-full h-[50%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-400/60" /></div>
+                        <div className="bg-emerald-600/50 w-full h-[75%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-400" /></div>
+                        <div className="bg-gradient-to-t from-emerald-600 to-teal-400 w-full h-[100%] rounded-t relative shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+                          <div className="absolute top-0 left-0 right-0 h-0.5 bg-teal-300" />
+                        </div>
+                      </div>
+
+                      {/* Analytics Parameter Output Fields */}
+                      <div className="grid grid-cols-3 gap-2 mt-3 text-center">
+                        <div className="bg-black/50 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-bold tracking-wide">Brand Deals</div>
+                          <div className="text-[10px] font-bold text-white">Inbound</div>
+                        </div>
+                        <div className="bg-black/50 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-bold tracking-wide">Avg CPM</div>
+                          <div className="text-[10px] font-bold text-emerald-400">$42.50</div>
+                        </div>
+                        <div className="bg-black/50 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-bold tracking-wide">Take Rate</div>
+                          <div className="text-[10px] font-bold text-teal-400">0% Excl.</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Layer: Luxury Tech Roster Visual Log Console */}
+                    <div className="md:col-span-5 bg-black/50 rounded-xl p-3 border border-white/5 text-[10px] text-neutral-400 flex flex-col justify-between leading-relaxed">
+                      <div>
+                        <div className="text-neutral-500 mb-2 font-sans text-[9px] uppercase tracking-wider font-bold">Roster Manifest</div>
+                        <span className="text-emerald-400">const</span> creatorProfile = &#123;
+                        <br />
+                        &nbsp;&nbsp;tier: <span className="text-teal-400">"Elite_Tech"</span>,
+                        <br />
+                        &nbsp;&nbsp;verifiedReach: <span className="text-amber-400">"500k+"</span>,
+                        <br />
+                        &nbsp;&nbsp;sponsorships: [
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-purple-400">"SaaS_AI"</span>, <span className="text-purple-400">"FinTech"</span>
+                        <br />
+                        &nbsp;&nbsp;],
+                        <br />
+                        &nbsp;&nbsp;payoutStatus: <span className="text-emerald-400">"Instant"</span>
+                        <br />
+                        &#125;;
+                      </div>
+                      <div className="mt-4 pt-2 border-t border-white/5 text-[9px] text-neutral-500 flex justify-between items-center">
+                        <span>Node Router:</span>
+                        <span className="text-emerald-400 font-bold animate-pulse">● Live Stream</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="absolute left-8 md:left-16 top-10 max-w-[200px] md:max-w-xs">
-                  <div className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider mb-1">Roster Environment</div>
-                  <h3 className="text-sm md:text-base font-bold text-white tracking-tight leading-snug">Built by operators who protect creators.</h3>
+
+                  {/* Aesthetic Footer Control Hub Banner */}
+                  <div className="border-t border-white/5 pt-3 mt-4 flex justify-between items-center w-full">
+                    <div>
+                      <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold block font-sans">NexVance Creator Operations Hub</span>
+                    </div>
+                    <div className="text-[9px] text-neutral-500 bg-neutral-950 px-2 py-1 rounded border border-white/5 font-mono">
+                      Security: <span className="text-emerald-400">End-To-End</span>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
