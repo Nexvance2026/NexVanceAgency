@@ -158,7 +158,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ==================== 2. TECH BRAND PORTAL (LOVABLE CARD INTERFACE) ==================== */}
+        {/* ==================== 2. TECH BRAND PORTAL ==================== */}
         {activeTab === 'brands' && (
           <div className="animate-fadeIn px-6 md:px-[8%]">
             <div className="text-center max-w-3xl mx-auto mb-16 pt-6">
@@ -168,7 +168,7 @@ export default function App() {
               <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] text-xs inline-block">Start Campaign Strategy →</a>
             </div>
 
-            {/* LOVABLE CODES: Process Steps Cards */}
+            {/* Process Steps Cards */}
             <div className="max-w-5xl mx-auto mb-24">
               <div className="text-center mb-12">
                 <h3 className="text-2xl font-bold text-white tracking-tight">The brand campaign process.</h3>
@@ -197,14 +197,31 @@ export default function App() {
               </div>
             </div>
 
-            {/* LOVABLE CODES: Split Dual Intake Layout */}
+            {/* Split Dual Intake Layout with Embedded Dashboard Image */}
             <div id="brand-form" className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch mb-24">
-              {/* Left Segment Text Block */}
-              <div className="md:col-span-5 bg-[#0b0f19] border border-white/10 rounded-xl p-8 flex flex-col justify-between transform transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50">
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 tracking-tight">Work with <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">NexVance</span></h3>
-                  <p className="text-neutral-400 text-xs leading-relaxed mb-6">Partner with a dedicated marketing manager to launch your next tech, SaaS, or hardware campaign seamlessly.</p>
+              {/* Left Segment Text Block + Dashboard Image Embedded */}
+              <div className="md:col-span-5 bg-[#0b0f19] border border-white/10 rounded-xl p-6 flex flex-col justify-between transform transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 overflow-hidden">
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold mb-2 tracking-tight">Work with <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">NexVance</span></h3>
+                  <p className="text-neutral-400 text-xs leading-relaxed">Partner with a dedicated marketing manager to launch your next campaign seamlessly.</p>
                 </div>
+                
+                {/* Embedded Brand Dashboard Image Slot */}
+                <div className="w-full rounded-lg border border-white/5 bg-neutral-950/50 p-1.5 overflow-hidden mb-6 group">
+                  <img 
+                    src="/brand-dashboard.jpg" 
+                    alt="NexVance Brand UI Dashboard" 
+                    className="w-full h-auto object-cover rounded-md opacity-85 group-hover:opacity-100 transition-opacity duration-300"
+                    onError={(e) => {
+                      // fallback representation if paths aren't mapped on your public build folder yet
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <div className="p-2 text-center text-[10px] font-mono text-neutral-500 border-t border-white/5 mt-1 bg-black/40 rounded">
+                    📊 Real-Time Integration Analytics Active
+                  </div>
+                </div>
+
                 <div className="space-y-3 pt-4 border-t border-white/10">
                   <div className="flex items-center space-x-3 bg-black/40 p-3 rounded-lg border border-white/5">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
@@ -274,7 +291,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ==================== 3. CREATOR PORTAL (LOVABLE CARD INTERFACE) ==================== */}
+        {/* ==================== 3. CREATOR PORTAL ==================== */}
         {activeTab === 'creators' && (
           <div className="animate-fadeIn px-6 md:px-[8%]">
             <div className="text-center max-w-3xl mx-auto mb-16 pt-6">
@@ -284,7 +301,7 @@ export default function App() {
               <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] text-xs inline-block">Apply to the Roster →</a>
             </div>
 
-            {/* LOVABLE CODES: Benefits Grid */}
+            {/* Benefits Grid */}
             <div className="max-w-5xl mx-auto mb-24">
               <div className="text-center mb-12">
                 <h3 className="text-2xl font-bold text-white tracking-tight">How we support our creators.</h3>
@@ -313,14 +330,30 @@ export default function App() {
               </div>
             </div>
 
-            {/* LOVABLE CODES: Split Dual Application Layout */}
+            {/* Split Dual Application Layout with Embedded Creator Setup Image */}
             <div id="roster-form" className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch mb-24">
-              {/* Left Text Block */}
-              <div className="md:col-span-5 bg-[#0b0f19] border border-white/10 rounded-xl p-8 flex flex-col justify-between transform transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50">
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 tracking-tight">Join our active <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">roster</span></h3>
-                  <p className="text-neutral-400 text-xs leading-relaxed mb-6">Apply to onboard onto our high-tier talent network. We operate strictly on safe terms with zero upfront registration fees.</p>
+              {/* Left Text Block + Setup Image Embedded */}
+              <div className="md:col-span-5 bg-[#0b0f19] border border-white/10 rounded-xl p-6 flex flex-col justify-between transform transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 overflow-hidden">
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold mb-2 tracking-tight">Join our active <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">roster</span></h3>
+                  <p className="text-neutral-400 text-xs leading-relaxed">Apply to onboard onto our talent network. Safe terms with zero upfront configuration fees.</p>
                 </div>
+
+                {/* Embedded Creator Setup Image Slot */}
+                <div className="w-full rounded-lg border border-white/5 bg-neutral-950/50 p-1.5 overflow-hidden mb-6 group">
+                  <img 
+                    src="/creator-setup.jpg" 
+                    alt="NexVance Roster Setup Asset" 
+                    className="w-full h-auto object-cover rounded-md opacity-85 group-hover:opacity-100 transition-opacity duration-300"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <div className="p-2 text-center text-[10px] font-mono text-neutral-500 border-t border-white/5 mt-1 bg-black/40 rounded">
+                    ⚙️ Performance Engine Workflow Profile Locked
+                  </div>
+                </div>
+
                 <div className="space-y-3 pt-4 border-t border-white/10">
                   <div className="flex items-center space-x-3 bg-black/40 p-3 rounded-lg border border-white/5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
