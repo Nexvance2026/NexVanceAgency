@@ -184,7 +184,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Dual Pipeline Blocks with Advanced Hover Popup Effects */}
+            {/* Dual Pipeline Blocks */}
             <div className="max-w-4xl mx-auto mb-28">
               <div className="text-center mb-16">
                 <span className="text-[10px] uppercase tracking-widest text-blue-500 font-bold block mb-3">The Operation</span>
@@ -244,7 +244,6 @@ export default function App() {
               <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.5)] text-sm inline-block transform hover:-translate-y-0.5">Start Campaign Strategy →</a>
             </div>
 
-            {/* Expanded Premium Brand Hub Layout */}
             <div id="brand-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-2xl transition-all duration-500 hover:border-blue-500/20 hover:shadow-[0_20px_50px_rgba(37,99,235,0.1)] transform hover:-translate-y-1">
               <div className="md:col-span-5">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Work with <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">NexVance</span></h3>
@@ -296,7 +295,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Conditional Custom Brand Budget Field */}
                 {brandBudget === 'custom' && (
                   <div className="animate-fadeIn">
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-blue-400 mb-1.5">Specify Your Exact Budget ($)</label>
@@ -324,82 +322,61 @@ export default function App() {
               <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] hover:shadow-[0_6px_25px_rgba(16,185,129,0.5)] text-sm inline-block transform hover:-translate-y-0.5">Apply to the Roster →</a>
             </div>
 
-            {/* Custom Interactive UI Asset - Representing the Tech Roster Engine */}
-            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-[#050505] border border-white/10 p-3 shadow-2xl relative overflow-hidden mb-20 transition-all duration-500 hover:border-emerald-500/20 hover:shadow-[0_10px_40px_rgba(16,185,129,0.1)]">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
+            {/* NEW PURE AESTHETIC VISUAL COMPONENT (Replaced old image_046826.png dashboard layout completely) */}
+            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-[#05090e] border border-white/5 p-2 shadow-2xl relative overflow-hidden mb-20 transition-all duration-700 hover:border-emerald-500/20 group">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b88103_1px,transparent_1px),linear-gradient(to_bottom,#10b88103_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
+              
+              {/* Artistic Studio Ambient Glow Mapping */}
+              <div className="w-full aspect-[21/9] min-h-[300px] rounded-xl bg-[#020408] relative overflow-hidden flex items-center justify-center border border-white/5">
+                
+                {/* Simulated Deep Green Studio Lighting Gradient Layer from creator-setup_2.jpg */}
+                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-emerald-950/40 via-emerald-900/10 to-transparent rounded-full blur-[120px] pointer-events-none mix-blend-screen transition-all duration-700 group-hover:opacity-80" />
+                <div className="absolute bottom-0 left-10 w-72 h-72 bg-blue-950/20 rounded-full blur-[90px] pointer-events-none" />
 
-              <div className="w-full min-h-[340px] rounded-xl bg-black/80 flex flex-col justify-between p-6 relative overflow-hidden border border-white/5">
-                <div className="relative z-10 flex justify-between items-center w-full border-b border-white/5 pb-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Creator Control Panel / Live Inbound Stream</span>
-                  </div>
-                  <div className="flex space-x-1.5">
-                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
-                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
-                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
+                {/* Abstract Ring Light Asset Shape Structure */}
+                <div className="absolute right-12 md:right-24 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+                  {/* Outer Glow Pass */}
+                  <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-white/[0.02] border border-white/10 flex items-center justify-center p-4 backdrop-blur-sm shadow-[0_0_60px_rgba(255,255,255,0.05)]">
+                    {/* Core High Intensity White Ring Shape */}
+                    <div className="w-full h-full rounded-full border-[14px] border-white/90 shadow-[0_0_50px_rgba(255,255,255,0.4),inset_0_0_20px_rgba(255,255,255,0.2)] transform group-hover:scale-[1.02] transition-transform duration-700" />
                   </div>
                 </div>
 
-                {/* Simulated Custom UI Engine Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 relative z-10">
-                  <div className="bg-neutral-950 border border-white/5 p-4 rounded-xl">
-                    <span className="text-[9px] font-mono text-emerald-400 font-bold block mb-1">STAGE 01</span>
-                    <h5 className="text-xs font-bold text-white mb-2">Inbound Deal Router</h5>
-                    <div className="space-y-2 mt-3">
-                      <div className="bg-neutral-900/60 border border-white/5 p-2 rounded text-[10px] flex justify-between items-center">
-                        <span className="text-neutral-300 truncate font-mono">DevOps Tooling Campaign</span>
-                        <span className="text-emerald-400 font-bold font-mono">$4.5K</span>
-                      </div>
-                      <div className="bg-neutral-900/60 border border-white/5 p-2 rounded text-[10px] flex justify-between items-center">
-                        <span className="text-neutral-300 truncate font-mono">SaaS Automation Integration</span>
-                        <span className="text-emerald-400 font-bold font-mono">$8.2K</span>
-                      </div>
+                {/* Left Side Minimalist Hardware Composition Nodes */}
+                <div className="absolute left-8 md:left-16 bottom-12 flex items-end space-x-6 pointer-events-none">
+                  {/* Geometric Dark Object Block representing Professional Cam gear */}
+                  <div className="w-24 h-16 bg-gradient-to-t from-neutral-950 to-neutral-900 border border-white/10 rounded-lg shadow-2xl flex items-center justify-end p-1 relative">
+                    <div className="w-10 h-10 rounded-full bg-neutral-900 border border-white/20 shadow-inner flex items-center justify-center absolute -right-5">
+                      <div className="w-6 h-6 rounded-full bg-black border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.2)]" />
                     </div>
                   </div>
 
-                  <div className="bg-neutral-950 border border-white/5 p-4 rounded-xl">
-                    <span className="text-[9px] font-mono text-emerald-400 font-bold block mb-1">STAGE 02</span>
-                    <h5 className="text-xs font-bold text-white mb-2">Rate Lock Architecture</h5>
-                    <div className="space-y-1 mt-4 font-mono text-[10px]">
-                      <div className="flex justify-between text-neutral-500 border-b border-white/5 pb-1">
-                        <span>Platform Lock</span> <span className="text-neutral-300">Disabled</span>
-                      </div>
-                      <div className="flex justify-between text-neutral-500 border-b border-white/5 py-1">
-                        <span>Upfront Fee Trap</span> <span className="text-red-400 font-bold">0.00%</span>
-                      </div>
-                      <div className="flex justify-between text-neutral-500 py-1">
-                        <span>Your Base Minimum</span> <span className="text-emerald-400 font-bold">Guaranteed</span>
-                      </div>
+                  {/* Horizontal Matrix Grid Arrays representing Premium Mechanical Keyboard Grid Vibe */}
+                  <div className="flex flex-col space-y-1.5 opacity-60 group-hover:opacity-90 transition-opacity duration-500">
+                    <div className="flex space-x-1">
+                      <div className="w-3 h-2 bg-purple-500/40 rounded-sm shadow-[0_0_4px_rgba(168,85,247,0.4)]" />
+                      <div className="w-3 h-2 bg-purple-500/40 rounded-sm shadow-[0_0_4px_rgba(168,85,247,0.4)]" />
+                      <div className="w-3 h-2 bg-blue-500/40 rounded-sm shadow-[0_0_4px_rgba(59,130,246,0.4)]" />
+                      <div className="w-3 h-2 bg-blue-500/40 rounded-sm shadow-[0_0_4px_rgba(59,130,246,0.4)]" />
+                      <div className="w-3 h-2 bg-emerald-500/50 rounded-sm shadow-[0_0_6px_rgba(16,185,129,0.5)]" />
                     </div>
-                  </div>
-
-                  <div className="bg-neutral-950 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
-                    <div>
-                      <span className="text-[9px] font-mono text-emerald-400 font-bold block mb-1">STAGE 03</span>
-                      <h5 className="text-xs font-bold text-white mb-1">Retention Optimization</h5>
-                      <p className="text-neutral-500 text-[10px] leading-relaxed">Systematic analysis applied directly to visual hooks, maximizing RPM metrics.</p>
-                    </div>
-                    <div className="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden mt-3 border border-white/5">
-                      <div className="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full w-[84%]" />
+                    <div className="flex space-x-1 translate-x-1">
+                      <div className="w-3 h-2 bg-purple-500/40 rounded-sm shadow-[0_0_4px_rgba(168,85,247,0.4)]" />
+                      <div className="w-3 h-2 bg-blue-500/40 rounded-sm shadow-[0_0_4px_rgba(59,130,246,0.4)]" />
+                      <div className="w-3 h-2 bg-blue-500/40 rounded-sm shadow-[0_0_4px_rgba(59,130,246,0.4)]" />
+                      <div className="w-3 h-2 bg-emerald-500/50 rounded-sm shadow-[0_0_6px_rgba(16,165,129,0.5)]" />
+                      <div className="w-3 h-2 bg-emerald-500/50 rounded-sm shadow-[0_0_6px_rgba(16,185,129,0.5)]" />
                     </div>
                   </div>
                 </div>
 
-                <div className="relative z-10 border-t border-white/5 pt-4 bg-gradient-to-t from-black via-black/90 to-transparent flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                  <div>
-                    <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold mb-0.5 block">NexVance Terminal</span>
-                    <h3 className="text-lg font-bold text-white tracking-tight">The Content Protection Matrix</h3>
-                  </div>
-                  <div className="text-[10px] font-mono text-neutral-400 bg-neutral-950 px-3 py-1 rounded border border-white/5">
-                    Roster Security Level: <span className="text-emerald-400 font-bold">Absolute</span>
-                  </div>
-                </div>
+                {/* Floating Bokeh Vector Particles */}
+                <div className="absolute top-12 left-1/3 w-2 h-2 rounded-full bg-emerald-400/20 shadow-[0_0_8px_rgba(52,211,153,0.3)] animate-pulse" />
+                <div className="absolute bottom-16 right-1/2 w-3 h-3 rounded-full bg-blue-400/10 shadow-[0_0_12px_rgba(96,165,250,0.2)]" />
+
               </div>
             </div>
 
-            {/* Expanded Premium Creator Hub Layout */}
             <div id="roster-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-2xl transition-all duration-500 hover:border-emerald-500/20 hover:shadow-[0_20px_50px_rgba(16,185,129,0.1)] transform hover:-translate-y-1">
               <div className="md:col-span-5">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Join our active <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">roster</span></h3>
@@ -457,7 +434,6 @@ export default function App() {
                   </select>
                 </div>
 
-                {/* Conditional Custom Creator Views Field */}
                 {creatorViews === 'custom' && (
                   <div className="animate-fadeIn">
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Enter Your Exact Average Views</label>
@@ -471,7 +447,6 @@ export default function App() {
           </div>
         )}
 
-
         {/* ==================== 4. PREMIUM COMPLIANCE PRIVACY POLICY ==================== */}
         {activeTab === 'privacy' && (
           <div className="animate-fadeIn px-6 md:px-[8%] max-w-4xl mx-auto">
@@ -481,7 +456,6 @@ export default function App() {
               <p className="text-neutral-400 text-xs">Last updated: June 2026. Global Data Router Encryption Standby.</p>
             </div>
 
-            {/* Premium Data Node Asset */}
             <div className="bg-neutral-900/40 border border-blue-500/10 rounded-2xl p-6 backdrop-blur-md mb-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:border-blue-500/30">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
               <div className="flex items-center space-x-4">
@@ -500,7 +474,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Moderate & Humanly Written Privacy Legal Content */}
             <div className="space-y-8 text-neutral-300 text-xs leading-relaxed border-b border-white/5 pb-16">
               <section>
                 <h3 className="text-base font-bold text-white mb-2">1. What Data We Collect</h3>
@@ -520,7 +493,6 @@ export default function App() {
           </div>
         )}
 
-
         {/* ==================== 5. PREMIUM COMPLIANCE TERMS OF SERVICE ==================== */}
         {activeTab === 'terms' && (
           <div className="animate-fadeIn px-6 md:px-[8%] max-w-4xl mx-auto">
@@ -530,7 +502,6 @@ export default function App() {
               <p className="text-neutral-400 text-xs">Effective: June 2026. Standard System Rules Activated.</p>
             </div>
 
-            {/* Premium Contract Asset */}
             <div className="bg-neutral-900/40 border border-emerald-500/10 rounded-2xl p-6 backdrop-blur-md mb-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:border-emerald-500/30">
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
               <div className="flex items-center space-x-4">
@@ -549,7 +520,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Moderate & Humanly Written Terms Legal Content */}
             <div className="space-y-8 text-neutral-300 text-xs leading-relaxed border-b border-white/5 pb-16">
               <section>
                 <h3 className="text-base font-bold text-white mb-2">1. How We Work Together</h3>
@@ -568,7 +538,6 @@ export default function App() {
             </div>
           </div>
         )}
-
 
         {/* GLOBAL FOOTER SECTION */}
         <footer className="border-t border-white/5 pt-16 pb-12 px-6 md:px-[8%] bg-black/20 w-full mt-24">
