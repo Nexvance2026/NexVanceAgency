@@ -237,60 +237,51 @@ export default function App() {
 
         {/* ==================== 2. FOR TECH BRANDS LANDING & STRATEGY FORM ==================== */}
         {activeTab === 'brands' && (
-          <div className="animate-fadeIn px-6 md:px-[8%]">
-            <div className="text-center max-w-3xl mx-auto mb-16 pt-6">
-              <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(59,130,246,0.2)]">⚡ For Tech Brands</span>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Scale signups with creators who already own your audience.</h1>
-              <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">High-intent users, structured video placements, and managed campaigns from kick-off to post-mortem.</p>
-              <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.5)] text-sm inline-block transform hover:-translate-y-0.5">Start Campaign Strategy →</a>
-            </div>
+  <div className="animate-fadeIn px-6 md:px-[8%]">
+    <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
+      <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(59,130,246,0.2)]">⚡ For Tech Brands</span>
+      <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Scale signups with creators who already own your audience.</h1>
+      <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">High-intent users, structured video placements, and managed campaigns from kick-off to post-mortem.</p>
+      <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] text-sm inline-block transform hover:-translate-y-0.5">Start Campaign Strategy →</a>
+    </div>
 
-            {/* BRAND SPECIFIC REPLACED VISUAL: EMBEDDED DASHBOARD & LIVE CAMPAIGN SDK CONSOLE TERMINAL */}
-            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-black border border-white/10 p-3 shadow-2xl relative overflow-hidden mb-12 transition-all duration-500 hover:border-blue-500/20">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
-              <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+    {/* ISOMETRIC GLOWING DASHBOARD */}
+    <div className="w-full max-w-4xl mx-auto min-h-[460px] relative flex items-center justify-center mb-24 perspective-1000 group">
+      <div className="absolute w-[500px] h-[350px] bg-blue-600/10 rounded-full blur-[140px] opacity-80 group-hover:bg-blue-500/20 transition-all duration-700 pointer-events-none" />
+      <div className="relative w-full max-w-2xl aspect-[1.4/1] transform rotate-x-55 rotate-z-[-32deg] skew-x-6 transition-all duration-700 group-hover:rotate-x-50 group-hover:rotate-z-[-28deg] group-hover:-translate-y-4 flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/40 to-neutral-900/20 border border-white-[0.03] rounded-3xl p-6 backdrop-blur-xl shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
+          <div className="w-full h-full opacity-20 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-[size:16px_16px] rounded-2xl" />
+        </div>
+        <div className="absolute inset-x-4 inset-y-8 bg-neutral-950/80 border border-white/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform translate-z-8 transition-transform duration-700 group-hover:translate-z-12 flex flex-col justify-between">
+          <div className="w-full h-28 flex items-end space-x-2 px-2 border-b border-white/5 relative">
+            <div className="absolute inset-x-0 bottom-6 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-emerald-400 opacity-80" />
+            <div className="bg-neutral-900 w-full h-[20%] rounded-t-sm" />
+            <div className="bg-blue-500/40 w-full h-[80%] rounded-t-sm" />
+            <div className="bg-gradient-to-t from-blue-600/40 to-emerald-500/40 w-full h-[95%] rounded-t-sm" />
+          </div>
+        </div>
+        <div className="absolute -top-6 right-4 w-44 aspect-[1.5/1] bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-3 shadow-[0_15px_30px_rgba(37,99,235,0.4)] transform translate-z-20 transition-transform duration-700 group-hover:translate-z-28 flex flex-col justify-between">
+          <div className="text-[8px] font-mono text-white/70 uppercase">Conversion Engine</div>
+          <div className="text-lg font-bold font-mono tracking-tight leading-none mt-0.5">+412%</div>
+        </div>
+      </div>
+    </div>
 
-              <div className="w-full min-h-[380px] rounded-xl bg-[#05070f]/90 border border-white/5 p-4 md:p-6 flex flex-col justify-between font-mono relative">
-                {/* Embedded Framework Console Top Controls */}
-                <div className="flex justify-between items-center w-full border-b border-white/5 pb-3 mb-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="flex space-x-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-blue-500/60" />
-                    </div>
-                    <span className="text-[10px] text-neutral-400 ml-2 tracking-wide font-semibold">nexvance-analytics-sdk — v2.4.1</span>
-                  </div>
-                  <div className="bg-blue-950/40 border border-blue-500/20 rounded px-2 py-0.5 text-[9px] text-blue-400 font-bold uppercase tracking-widest animate-pulse">
-                    Live Integration Active
-                  </div>
-                </div>
-
-                {/* Embedded Body Layout Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full items-stretch my-auto">
-                  {/* Left Column: Code Structure Preview Box */}
-                  <div className="md:col-span-5 bg-black/60 rounded-xl p-3 border border-white/5 text-[10px] text-neutral-400 flex flex-col justify-between leading-relaxed">
-                    <div>
-                      <div className="text-neutral-500 mb-2 font-sans text-[9px] uppercase tracking-wider font-bold">SDK Snippet Layout</div>
-                      <span className="text-blue-400">import</span> &#123; NexVancePipeline &#125; <span className="text-blue-400">from</span> <span className="text-emerald-400">'@nv/core'</span>;
-                      <br /><br />
-                      <span className="text-neutral-500">// Track live conversions & CAC</span>
-                      <br />
-                      <span className="text-blue-400">const</span> campaign = <span className="text-blue-400">new</span> NexVancePipeline(&#123;
-                      <br />
-                      &nbsp;&nbsp;brandId: <span className="text-amber-400">"saas_ai_automation"</span>,
-                      <br />
-                      &nbsp;&nbsp;targetCAC: <span className="text-purple-400">45.00</span>,
-                      <br />
-                      &nbsp;&nbsp;escrowSecure: <span className="text-blue-400">true</span>
-                      <br />
-                      &#125;);
-                    </div>
-                    <div className="mt-4 pt-2 border-t border-white/5 text-[9px] text-neutral-500">
-                      Terminal Output: <span className="text-emerald-400">Ready to deploy.</span>
-                    </div>
-                  </div>
-
+    {/* Form Section */}
+    <div id="brand-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-2xl">
+      <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-12 space-y-4 w-full">
+        <input required type="text" name="companyName" placeholder="Company Name" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white" />
+        <select required name="budget_bracket" value={brandBudget} onChange={(e) => setBrandBudget(e.target.value)} className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300">
+          <option value="" disabled>Select Budget</option>
+          <option value="1k-5k">$1k - $5k</option>
+          <option value="5k+">5k+</option>
+        </select>
+        <textarea name="message" rows={4} placeholder="Campaign goals..." className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white" />
+        <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl text-xs font-semibold">Send Request</button>
+      </form>
+    </div>
+  </div>
+)}
                   {/* Right Column: Mini Analytical Analytics Simulation Visual */}
                   <div className="md:col-span-7 bg-neutral-950/80 rounded-xl p-4 border border-white/5 flex flex-col justify-between">
                     <div className="flex justify-between items-center mb-3">
