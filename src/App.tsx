@@ -17,7 +17,6 @@ export default function App() {
 
       {/* TOP NAVIGATION BAR */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-white/5 px-6 md:px-[8%] py-4 flex justify-between items-center">
-        
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('overview')}>
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-sm shadow-[0_0_15px_rgba(37,99,235,0.4)]">
             NV
@@ -243,4 +242,120 @@ export default function App() {
                     <li className="flex items-center space-x-2"><span className="text-emerald-500">✓</span> <span>Rate negotiation</span></li>
                     <li className="flex items-center space-x-2"><span className="text-emerald-500">✓</span> <span>Contract protection</span></li>
                   </ul>
-                  <button onClick={() => setActiveTab('creators')} className="text-xs text-emerald-400 font-semibold flex items-center space-
+                  <button onClick={() => setActiveTab('creators')} className="text-xs text-emerald-400 font-semibold flex items-center space-x-1 hover:underline">
+                    <span>Apply to the roster</span> <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ==================== 2. FOR TECH BRANDS LANDING & STRATEGY FORM ==================== */}
+        {activeTab === 'brands' && (
+          <div className="animate-fadeIn px-6 md:px-[8%]">
+            <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
+              <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">⚡ For Tech Brands</span>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Scale signups with creators who already own your audience.</h1>
+              <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">High-intent users, structured video placements, and managed campaigns from kick-off to post-mortem.</p>
+              <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] text-sm inline-block">Start Campaign Strategy →</a>
+            </div>
+
+            <div id="brand-form" className="max-w-4xl mx-auto bg-neutral-900/40 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              <div className="md:col-span-5">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Work with NexVance.</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed mb-6">Partner with a dedicated marketing manager to launch your next tech, SaaS, or hardware campaign.</p>
+              </div>
+
+              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company / SaaS name</label>
+                  <input required type="text" name="companyName" placeholder="Your brand name" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-colors" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Work email</label>
+                  <input required type="email" name="email" placeholder="name@company.com" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-colors" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Campaign goals</label>
+                  <textarea name="message" rows={4} placeholder="Tell us about your product..." className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-colors resize-none" />
+                </div>
+                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)]">Send Strategy Request</button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* ==================== 3. FOR CREATORS ROSTER LANDING & APPLICATION FORM ==================== */}
+        {activeTab === 'creators' && (
+          <div className="animate-fadeIn px-6 md:px-[8%]">
+            <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
+              <span className="bg-emerald-950/60 border border-emerald-800/40 text-[10px] font-bold text-emerald-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">👥 For Creators</span>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Focus on content. We'll bring the brand deals.</h1>
+              <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">Stop wasting hours on cold corporate emails. We protect your creative freedom and lock in high-paying sponsorships.</p>
+              <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] text-sm inline-block">Apply to the Roster →</a>
+            </div>
+
+            <div id="roster-form" className="max-w-4xl mx-auto bg-neutral-900/40 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              <div className="md:col-span-5">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Join our active roster.</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed mb-6">Apply to onboard onto our talent network. We operate strictly on commission.</p>
+              </div>
+
+              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Channel name</label>
+                  <input required type="text" name="channelName" placeholder="e.g., TechWithDev" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-colors" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Contact email</label>
+                  <input required type="email" name="email" placeholder="you@gmail.com" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-colors" />
+                </div>
+                <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)]">Submit Application</button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* PREMIUM RICH EXPANDED FOOTER INFRASTRUCTURE */}
+        <footer className="border-t border-white/5 pt-16 pb-12 px-6 md:px-[8%] bg-black/20 w-full mt-24">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+            <div className="md:col-span-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-6 h-6 rounded bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-xs">
+                  NV
+                </div>
+                <span className="text-base font-bold tracking-tight text-white">NexVance</span>
+              </div>
+              <p className="text-neutral-500 text-xs max-w-sm leading-relaxed">
+                Managed creator operations architecture and strategic frameworks for high-value tech partnerships.
+              </p>
+            </div>
+            
+            <div className="md:col-span-3">
+              <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">Navigation</h5>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><button onClick={() => setActiveTab('brands')} className="hover:text-white text-left">Tech brand portal</button></li>
+                <li><button onClick={() => setActiveTab('creators')} className="hover:text-white text-left">Creator roster</button></li>
+                <li><button onClick={() => setActiveTab('overview')} className="hover:text-white text-left">Overview</button></li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-3">
+              <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">Corporate</h5>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li className="cursor-pointer hover:text-white">Privacy</li>
+                <li className="cursor-pointer hover:text-white">Terms</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center text-[11px] text-neutral-600 border-t border-white/5 pt-8">
+            © 2026 NexVance. Managed operations infrastructure.
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  );
+}
