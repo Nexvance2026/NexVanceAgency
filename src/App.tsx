@@ -236,7 +236,7 @@ export default function App() {
         )}
 
         {/* ==================== 2. FOR TECH BRANDS LANDING & STRATEGY FORM ==================== */}
-        {activeTab === 'brands' && (
+{activeTab === 'brands' && (
   <div className="animate-fadeIn px-6 md:px-[8%]">
     <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
       <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(59,130,246,0.2)]">⚡ For Tech Brands</span>
@@ -282,19 +282,6 @@ export default function App() {
     </div>
   </div>
 )}
-                  {/* Right Column: Mini Analytical Analytics Simulation Visual */}
-                  <div className="md:col-span-7 bg-neutral-950/80 rounded-xl p-4 border border-white/5 flex flex-col justify-between">
-                    <div className="flex justify-between items-center mb-3">
-                      <div>
-                        <div className="text-neutral-500 text-[9px] uppercase tracking-wider font-bold font-sans">Performance Engine</div>
-                        <div className="text-sm font-bold text-white font-sans tracking-tight">Conversion Tracking Overview</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-xs font-bold text-emerald-400 font-sans">+314.8%</div>
-                        <div className="text-[8px] text-neutral-500 uppercase tracking-widest font-sans">Avg ROI Curve</div>
-                      </div>
-                    </div>
-
                     {/* Faux Graph Structure representation */}
                     <div className="h-24 w-full flex items-end space-x-1.5 pt-4 pb-2 px-1 border-b border-white/5">
                       <div className="bg-neutral-800 w-full h-[15%] rounded-t" />
