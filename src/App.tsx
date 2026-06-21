@@ -395,6 +395,105 @@ export default function App() {
           </div>
         )}
 
+
+        {/* ==================== 4. PREMIUM COMPLIANCE PRIVACY POLICY ==================== */}
+        {activeTab === 'privacy' && (
+          <div className="animate-fadeIn px-6 md:px-[8%] max-w-4xl mx-auto">
+            <div className="text-center mb-16 pt-6">
+              <span className="text-[10px] uppercase tracking-widest text-blue-500 font-bold block mb-3">Legal Framework</span>
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Privacy Operation Protocol</h1>
+              <p className="text-neutral-400 text-xs">Last updated: June 2026. Global Data Router Encryption Standby.</p>
+            </div>
+
+            {/* Premium Interactive Data Node Micro-Asset */}
+            <div className="bg-neutral-900/40 border border-blue-500/10 rounded-2xl p-6 backdrop-blur-md mb-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 rounded-xl bg-neutral-950 border border-white/10 flex flex-col items-center justify-center font-mono text-[10px]">
+                  <span className="text-blue-400 font-bold">AES</span>
+                  <span className="text-[8px] text-neutral-500">256</span>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-white">Encrypted Pipeline Routing</h4>
+                  <p className="text-neutral-500 text-[11px] max-w-sm mt-0.5">Creator analytics, emails, and brand KPIs are completely sandboxed. Zero non-consensual tracking data gets leaked.</p>
+                </div>
+              </div>
+              <div className="bg-neutral-950 px-3 py-1.5 rounded-lg border border-white/5 font-mono text-[9px] text-emerald-400 flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>GDPR / CCPA Compliant</span>
+              </div>
+            </div>
+
+            {/* Privacy Legal Content */}
+            <div className="space-y-8 text-neutral-300 text-xs leading-relaxed border-b border-white/5 pb-16">
+              <section>
+                <h3 className="text-base font-bold text-white mb-2">1. The Operational Scope</h3>
+                <p>When you utilize the NexVance orchestration architecture (including onboarding briefs and campaign intake pipelines), we ingest foundational validation parameters such as company domains, average audience views, and campaign metrics. This architecture functions exclusively to accelerate matching and deployment.</p>
+              </section>
+
+              <section>
+                <h3 className="text-base font-bold text-white mb-2">2. Data Ingestion & Sanitization</h3>
+                <p>We restrict raw information collection exclusively to variables required for pipeline performance verification. No transaction histories, structural financial routing codes, or private performance insights are made accessible to external systems without active multi-factor authorization protocols.</p>
+              </section>
+
+              <section>
+                <h3 className="text-base font-bold text-white mb-2">3. Retention Policies</h3>
+                <p>Inactive profiles within our routing database are systematically scrubbed or decoupled from legal parameters after a 180-day operational dormancy window, ensuring zero overhead or structural legal liabilities for your creator brand.</p>
+              </section>
+            </div>
+          </div>
+        )}
+
+
+        {/* ==================== 5. PREMIUM COMPLIANCE TERMS OF SERVICE ==================== */}
+        {activeTab === 'terms' && (
+          <div className="animate-fadeIn px-6 md:px-[8%] max-w-4xl mx-auto">
+            <div className="text-center mb-16 pt-6">
+              <span className="text-[10px] uppercase tracking-widest text-emerald-500 font-bold block mb-3">Operational Agreement</span>
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Terms of Architecture</h1>
+              <p className="text-neutral-400 text-xs">Effective: June 2026. Standard System Rules Activated.</p>
+            </div>
+
+            {/* Premium Interactive Contract Micro-Asset */}
+            <div className="bg-neutral-900/40 border border-emerald-500/10 rounded-2xl p-6 backdrop-blur-md mb-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 rounded-xl bg-neutral-950 border border-white/10 flex flex-col items-center justify-center font-mono text-[10px]">
+                  <span className="text-emerald-400 font-bold">20%</span>
+                  <span className="text-[8px] text-neutral-500">FIXED</span>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-white">Performance Commission Escrow</h4>
+                  <p className="text-neutral-500 text-[11px] max-w-sm mt-0.5">We maintain zero monthly software platform lock-ins. Roster logistics utilize strict payout rules with absolute rate safety.</p>
+                </div>
+              </div>
+              <div className="bg-neutral-950 px-3 py-1.5 rounded-lg border border-white/5 font-mono text-[9px] text-blue-400 flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <span>Zero Upfront Risk Rules</span>
+              </div>
+            </div>
+
+            {/* Terms Legal Content */}
+            <div className="space-y-8 text-neutral-300 text-xs leading-relaxed border-b border-white/5 pb-16">
+              <section>
+                <h3 className="text-base font-bold text-white mb-2">1. Relationship Parameter</h3>
+                <p>NexVance operates strictly as a transactional intermediary routing engine linking vetted creator identities to corresponding enterprise buyers. Entry onto our ecosystem platform does not constitute an exclusivity lock-in unless a localized master project schedule is signed.</p>
+              </section>
+
+              <section>
+                <h3 className="text-base font-bold text-white mb-2">2. Deliverable Quality Assurance</h3>
+                <p>Creators agreeing to run dedicated software sponsorships accept all criteria outlined inside product campaign specifications. All visual integration scripts, review timelines, and live links must be cleared by automated pre-flight tools prior to deployment.</p>
+              </section>
+
+              <section>
+                <h3 className="text-base font-bold text-white mb-2">3. Payout Execution Schedules</h3>
+                <p>Campaign funds processed through our infrastructure are released strictly upon complete deployment verification. If a system failure or delivery breach occurs, parameters follow automatic contract refund pathways outlined within specific escrow layers.</p>
+              </section>
+            </div>
+          </div>
+        )}
+
+
         {/* PREMIUM RICH EXPANDED FOOTER INFRASTRUCTURE */}
         <footer className="border-t border-white/5 pt-16 pb-12 px-6 md:px-[8%] bg-black/20 w-full mt-24">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
@@ -419,11 +518,12 @@ export default function App() {
               </ul>
             </div>
 
+            {/* Corporate section reflecting layout of image_0312e5.png */}
             <div className="md:col-span-3">
               <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">Corporate</h5>
               <ul className="space-y-2 text-xs text-neutral-400">
-                <li className="cursor-pointer hover:text-white">Privacy</li>
-                <li className="cursor-pointer hover:text-white">Terms</li>
+                <li><button onClick={() => setActiveTab('privacy')} className="hover:text-white text-left">Privacy</button></li>
+                <li><button onClick={() => setActiveTab('terms')} className="hover:text-white text-left">Terms</button></li>
               </ul>
             </div>
           </div>
