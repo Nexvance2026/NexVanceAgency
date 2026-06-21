@@ -282,6 +282,45 @@ export default function App() {
     </div>
   </div>
 )}
+
+                {/* Embedded Body Layout Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full items-stretch my-auto">
+                  {/* Left Column: Code Structure Preview Box */}
+                  <div className="md:col-span-5 bg-black/60 rounded-xl p-3 border border-white/5 text-[10px] text-neutral-400 flex flex-col justify-between leading-relaxed">
+                    <div>
+                      <div className="text-neutral-500 mb-2 font-sans text-[9px] uppercase tracking-wider font-bold">SDK Snippet Layout</div>
+                      <span className="text-blue-400">import</span> &#123; NexVancePipeline &#125; <span className="text-blue-400">from</span> <span className="text-emerald-400">'@nv/core'</span>;
+                      <br /><br />
+                      <span className="text-neutral-500">// Track live conversions & CAC</span>
+                      <br />
+                      <span className="text-blue-400">const</span> campaign = <span className="text-blue-400">new</span> NexVancePipeline(&#123;
+                      <br />
+                      &nbsp;&nbsp;brandId: <span className="text-amber-400">"saas_ai_automation"</span>,
+                      <br />
+                      &nbsp;&nbsp;targetCAC: <span className="text-purple-400">45.00</span>,
+                      <br />
+                      &nbsp;&nbsp;escrowSecure: <span className="text-blue-400">true</span>
+                      <br />
+                      &#125;);
+                    </div>
+                    <div className="mt-4 pt-2 border-t border-white/5 text-[9px] text-neutral-500">
+                      Terminal Output: <span className="text-emerald-400">Ready to deploy.</span>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Mini Analytical Analytics Simulation Visual */}
+                  <div className="md:col-span-7 bg-neutral-950/80 rounded-xl p-4 border border-white/5 flex flex-col justify-between">
+                    <div className="flex justify-between items-center mb-3">
+                      <div>
+                        <div className="text-neutral-500 text-[9px] uppercase tracking-wider font-bold font-sans">Performance Engine</div>
+                        <div className="text-sm font-bold text-white font-sans tracking-tight">Conversion Tracking Overview</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs font-bold text-emerald-400 font-sans">+314.8%</div>
+                        <div className="text-[8px] text-neutral-500 uppercase tracking-widest font-sans">Avg ROI Curve</div>
+                      </div>
+                    </div>
+
                     {/* Faux Graph Structure representation */}
                     <div className="h-24 w-full flex items-end space-x-1.5 pt-4 pb-2 px-1 border-b border-white/5">
                       <div className="bg-neutral-800 w-full h-[15%] rounded-t" />
