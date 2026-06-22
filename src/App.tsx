@@ -97,7 +97,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Middleman Node Asset - Fully Stackable Mobile Fix */}
+            {/* Brand <-> Creator Middleman Node Asset */}
             <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-[#050505] border border-white/10 p-2 md:p-3 shadow-2xl relative overflow-hidden mb-16 md:mb-24 transition-all duration-500 hover:border-blue-500/20 hover:shadow-[0_10px_40px_rgba(37,99,235,0.1)]">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 bg-blue-500/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none" />
@@ -124,7 +124,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* SVG Center Connection - Hidden on mobile, beautiful on desktop */}
+                  {/* SVG Center Connection */}
                   <div className="absolute inset-0 w-full h-full pointer-events-none hidden md:block">
                     <svg className="w-full h-full" viewBox="0 0 700 250" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <defs>
@@ -171,7 +171,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Performance Metrics Row - Non-scrunched Mobile Grid Grid */}
+            {/* Performance Metrics Row */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 bg-neutral-900/30 border border-white/5 p-4 md:p-6 rounded-2xl backdrop-blur-md mb-16 md:mb-28 max-w-4xl mx-auto">
               <div className="text-center p-1 sm:p-2 border-r border-white/5">
                 <div className="text-xl sm:text-2xl md:text-4xl font-extrabold text-blue-400">84%</div>
@@ -251,7 +251,7 @@ export default function App() {
               <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] text-xs sm:text-sm inline-block transform hover:-translate-y-0.5">Start Campaign Strategy →</a>
             </div>
 
-            {/* ISOMETRIC GLOWING DASHBOARD - Adaptive Height & Angle Mobile Fix */}
+            {/* ISOMETRIC GLOWING DASHBOARD */}
             <div className="w-full max-w-4xl mx-auto min-h-[340px] sm:min-h-[420px] md:min-h-[460px] relative flex items-center justify-center mb-16 md:mb-24 group px-2" style={{ perspective: '1000px' }}>
               <div className="absolute w-[280px] sm:w-[500px] h-[250px] sm:h-[350px] bg-blue-600/10 rounded-full blur-[80px] sm:blur-[140px] opacity-80 pointer-events-none" />
               
@@ -264,7 +264,6 @@ export default function App() {
                 <div className="w-full h-full bg-neutral-950/90 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between relative z-10 overflow-hidden">
                   
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 h-full items-stretch my-auto">
-                    {/* Left Column: Code Snippet */}
                     <div className="md:col-span-5 bg-black/60 rounded-xl p-2.5 sm:p-3 border border-white/5 text-[9px] sm:text-[10px] text-neutral-400 flex flex-col justify-between leading-normal font-mono">
                       <div>
                         <div className="text-neutral-500 mb-1.5 font-sans text-[8px] sm:text-[9px] uppercase tracking-wider font-bold">SDK Snippet Layout</div>
@@ -274,14 +273,13 @@ export default function App() {
                         <br />
                         &nbsp;&nbsp;brandId: <span className="text-amber-400">"saas_ai"</span>
                         <br />
-                        &#125;);
+                        &#125());
                       </div>
                       <div className="mt-2 pt-1.5 border-t border-white/5 text-[8px] text-neutral-500 font-sans">
                         Terminal: <span className="text-emerald-400">Active.</span>
                       </div>
                     </div>
 
-                    {/* Right Column: Mini Analytical Visual */}
                     <div className="md:col-span-7 bg-neutral-950/80 rounded-xl p-3 sm:p-4 border border-white/5 flex flex-col justify-between">
                       <div className="flex justify-between items-center mb-2">
                         <div>
@@ -291,7 +289,6 @@ export default function App() {
                         <div className="text-[10px] sm:text-xs font-bold text-emerald-400">+314.8%</div>
                       </div>
 
-                      {/* Line/Bar Graph Simulation */}
                       <div className="h-16 sm:h-20 w-full flex items-end space-x-1 sm:space-x-1.5 pt-2 pb-1 px-0.5 border-b border-white/5">
                         <div className="bg-neutral-800 w-full h-[20%] rounded-t" />
                         <div className="bg-neutral-800 w-full h-[35%] rounded-t" />
@@ -303,7 +300,6 @@ export default function App() {
                         </div>
                       </div>
 
-                      {/* Stat Metrics Row */}
                       <div className="grid grid-cols-3 gap-1.5 mt-2.5 text-center font-sans">
                         <div className="bg-black/40 p-1 rounded border border-white/5">
                           <div className="text-[7px] sm:text-[8px] text-neutral-500 uppercase">Live Clicks</div>
@@ -331,65 +327,43 @@ export default function App() {
             </div>
 
             {/* 4 GRID CARDS - Upgraded Premium Aesthetic Vibe */}
-<div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-20">
-  
-  {/* Card 01 */}
-  <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-        01
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Campaign Routing</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        We sync your parameters into tailored influencer video outlines with absolute compliance layouts.
-      </p>
-    </div>
-  </div>
+            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-20">
+              <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">01</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Campaign Routing</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">We sync your parameters into tailored influencer video outlines with absolute compliance layouts.</p>
+                </div>
+              </div>
 
-  {/* Card 02 */}
-  <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-        02
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Performance Tracking</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        Track integration channels with clean conversion checks, reach analytics metrics, and live dashboards.
-      </p>
-    </div>
-  </div>
+              <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">02</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Performance Tracking</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Track integration channels with clean conversion checks, reach analytics metrics, and live dashboards.</p>
+                </div>
+              </div>
 
-  {/* Card 03 */}
-  <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-        03
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Infrastructure Guard</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        Secure escrow management setups, legal sheets protection, and transparent operational pipeline logs.
-      </p>
-    </div>
-  </div>
+              <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">03</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Infrastructure Guard</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Secure escrow management setups, legal sheets protection, and transparent operational pipeline logs.</p>
+                </div>
+              </div>
 
-  {/* Card 04 */}
-  <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-        04
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">ROI-Optimized Matches</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        Skip generalized pitches. Route directly to creators whose historic click retention data ensures raw conversion value.
-      </p>
-    </div>
-  </div>
-
-</div>
+              <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">04</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">ROI-Optimized Matches</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Skip generalized pitches. Route directly to creators whose historic click retention data ensures raw conversion value.</p>
+                </div>
+              </div>
+            </div>
 
             {/* STRATEGY REQUEST FORM */}
             <div id="brand-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-5 sm:p-8 rounded-2xl backdrop-blur-md mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start shadow-2xl">
@@ -470,7 +444,7 @@ export default function App() {
               <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] text-xs sm:text-sm inline-block transform hover:-translate-y-0.5">Apply to the Roster →</a>
             </div>
 
-            {/* PREMIUM ISOMETRIC INTERACTIVE VISUAL FOR CREATORS (Mobile Flatten Fix) */}
+            {/* PREMIUM ISOMETRIC INTERACTIVE VISUAL FOR CREATORS */}
             <div className="w-full max-w-4xl mx-auto min-h-[340px] sm:min-h-[420px] md:min-h-[460px] relative flex items-center justify-center mb-16 md:mb-24 group px-2" style={{ perspective: '1000px' }}>
               <div className="absolute w-[280px] sm:w-[500px] h-[250px] sm:h-[350px] bg-emerald-600/10 rounded-full blur-[80px] sm:blur-[140px] opacity-80 pointer-events-none" />
               
@@ -483,7 +457,6 @@ export default function App() {
                 <div className="w-full h-full bg-neutral-950/95 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between relative z-10 overflow-hidden">
                   
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 h-full items-stretch my-auto">
-                    {/* Left Layer: Analytics info */}
                     <div className="md:col-span-7 bg-neutral-900/40 rounded-xl p-3 border border-white/5 flex flex-col justify-between backdrop-blur-sm">
                       <div className="flex justify-between items-center mb-2">
                         <div>
@@ -493,7 +466,6 @@ export default function App() {
                         <span className="text-[8px] sm:text-[9px] font-mono uppercase bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/30 font-bold">Secured</span>
                       </div>
 
-                      {/* Waveform Line Graphics */}
                       <div className="h-16 sm:h-24 w-full flex items-end space-x-1 pt-4 pb-1 px-0.5 border-b border-white/5 relative">
                         <div className="absolute top-1 left-1 flex items-center space-x-1">
                           <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
@@ -509,7 +481,6 @@ export default function App() {
                         </div>
                       </div>
 
-                      {/* Readouts fields */}
                       <div className="grid grid-cols-3 gap-1.5 mt-2.5 text-center font-sans">
                         <div className="bg-black/50 p-1 rounded border border-white/5">
                           <div className="text-[7px] sm:text-[8px] text-neutral-500 uppercase font-bold">Brand Deals</div>
@@ -526,7 +497,6 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Right Layer: Manifest Logger */}
                     <div className="md:col-span-5 bg-black/50 rounded-xl p-2.5 sm:p-3 border border-white/5 text-[9px] sm:text-[10px] text-neutral-400 flex flex-col justify-between leading-relaxed font-mono">
                       <div>
                         <div className="text-neutral-500 mb-1.5 font-sans text-[8px] sm:text-[9px] uppercase tracking-wider font-bold">Roster Manifest</div>
@@ -555,65 +525,43 @@ export default function App() {
             </div>
 
             {/* 4 GRID CARDS - Upgraded Premium Aesthetic Vibe (Creators) */}
-<div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-20">
-  
-  {/* Card 01 */}
-  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
-        01
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">High Rate Protection</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        No predatory split traps. We legally secure your CPM baselines and optimize deal setups transparently.
-      </p>
-    </div>
-  </div>
+            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-20">
+              <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">01</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">High Rate Protection</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">No predatory split traps. We legally secure your CPM baselines and optimize deal setups transparently.</p>
+                </div>
+              </div>
 
-  {/* Card 02 */}
-  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
-        02
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Automated Sponsorship Flow</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        Skip cold corporate follow-ups. Recieve incoming verified brand deal routes optimized for your platform size.
-      </p>
-    </div>
-  </div>
+              <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">02</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Automated Sponsorship Flow</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Skip cold corporate follow-ups. Recieve incoming verified brand deal routes optimized for your platform size.</p>
+                </div>
+              </div>
 
-  {/* Card 03 */}
-  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
-        03
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Creative Discretion</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        Your custom production workflow stays clean. We manage tedious invoices pipelines, briefs, and legal details.
-      </p>
-    </div>
-  </div>
+              <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">03</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Creative Discretion</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Your custom production workflow stays clean. We manage tedious invoices pipelines, briefs, and legal details.</p>
+                </div>
+              </div>
 
-  {/* Card 04 */}
-  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
-    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    <div>
-      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
-        04
-      </div>
-      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Zero Exclusivity Rules</h4>
-      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
-        Retain complete autonomy. Keep your own direct inbound deals while pulling active premium campaigns from NexVance.
-      </p>
-    </div>
-  </div>
-
-</div>
+              <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">04</div>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Zero Exclusivity Rules</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Retain complete autonomy. Keep your own direct inbound deals while pulling active premium campaigns from NexVance.</p>
+                </div>
+              </div>
+            </div>
 
             {/* ROSTER APPLICATION FORM */}
             <div id="roster-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-5 sm:p-8 rounded-2xl backdrop-blur-md mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start shadow-2xl text-left">
@@ -686,6 +634,74 @@ export default function App() {
                 </div>
                 <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)]">Submit Application</button>
               </form>
+            </div>
+          </div>
+        )}
+
+        {/* ==================== 4. DYNAMIC PRIVACY POLICY VIEW ==================== */}
+        {activeTab === 'privacy' && (
+          <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%] max-w-4xl mx-auto text-left mb-16 md:mb-24">
+            <div className="mb-8 border-b border-white/5 pb-5">
+              <span className="text-[10px] font-mono tracking-widest uppercase text-blue-400 font-bold block mb-2">Legal Operations // Core</span>
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">Privacy Policy Layout</h1>
+              <p className="text-xs text-neutral-500 font-mono">Last Updated: June 2026 // Encrypted Vault Setup</p>
+            </div>
+
+            <div className="bg-neutral-950/50 border border-white/5 rounded-2xl p-6 md:p-8 backdrop-blur-md space-y-6 text-xs sm:text-sm text-neutral-400 leading-relaxed shadow-xl">
+              <div>
+                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 1. Data Collection Framework
+                </h3>
+                <p>We log minimal performance variables required to route campaigns. This includes active brand links, profile metrics, and encrypted token configurations to maximize integration workflow precision. We do not store financial credentials or private analytical access configurations.</p>
+              </div>
+
+              <div>
+                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 2. Tracking Optimization
+                </h3>
+                <p>NexVance utilizes standard server-side performance analytics blocks to review click conversion loops and target audience engagement scopes. This monitoring ensures absolute transparent ROI metrics for corporate stakeholders and creator payouts.</p>
+              </div>
+
+              <div>
+                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 3. Infrastructure Protection
+                </h3>
+                <p>Your platform identity rules and parameters are securely gated under our middleware structure log layout. No data records or proprietary content setups are shared, traded, or routed to outside corporate tracking nodes without manual clearance protocols.</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ==================== 5. DYNAMIC TERMS OF SERVICE VIEW ==================== */}
+        {activeTab === 'terms' && (
+          <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%] max-w-4xl mx-auto text-left mb-16 md:mb-24">
+            <div className="mb-8 border-b border-white/5 pb-5">
+              <span className="text-[10px] font-mono tracking-widest uppercase text-emerald-400 font-bold block mb-2">Compliance Metrics // Active</span>
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">Terms of Service Layout</h1>
+              <p className="text-xs text-neutral-500 font-mono">Effective Framework: Q3 2026 // Verified Ledger</p>
+            </div>
+
+            <div className="bg-neutral-950/50 border border-white/5 rounded-2xl p-6 md:p-8 backdrop-blur-md space-y-6 text-xs sm:text-sm text-neutral-400 leading-relaxed shadow-xl">
+              <div>
+                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 1. Roster Autonomy Layout
+                </h3>
+                <p>NexVance serves exclusively as an infrastructure middleman campaign router. Creators maintain 100% legal discretion over their channels. Zero exclusivity setups apply; creators retain the full right to process external inbound operations freely.</p>
+              </div>
+
+              <div>
+                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 2. Escrow & Execution Rules
+                </h3>
+                <p>Brand budgets are secured within our compliance node structures prior to asset distribution. Payout releases deploy instantly upon video validation, preventing fulfillment lag, predatory rate drops, or manual split adjustments.</p>
+              </div>
+
+              <div>
+                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 3. Production Compliance
+                </h3>
+                <p>Brands agree to supply valid production blueprints, and creators pledge absolute transparency regarding verified traffic data. NexVance retains systemic rights to remove entities found running counterfeit impressions or inaccurate reach arrays.</p>
+              </div>
             </div>
           </div>
         )}
