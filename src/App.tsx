@@ -554,29 +554,66 @@ export default function App() {
               </div>
             </div>
 
-            {/* 4 CARDS GRID */}
-            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-16 md:mb-20">
-              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-xl p-4.5 transition-all duration-300 hover:border-emerald-500/30 group">
-                <div className="w-8 h-8 rounded-lg bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-2.5">01</div>
-                <h4 className="text-xs font-bold text-white mb-1">High Rate Protection</h4>
-                <p className="text-neutral-400 text-[10px] leading-relaxed">No predatory split traps. We legally secure your CPM baselines and optimize deal setups transparently.</p>
-              </div>
-              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-xl p-4.5 transition-all duration-300 hover:border-emerald-500/30 group">
-                <div className="w-8 h-8 rounded-lg bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-2.5">02</div>
-                <h4 className="text-xs font-bold text-white mb-1">Automated Sponsorship Flow</h4>
-                <p className="text-neutral-400 text-[10px] leading-relaxed">Skip cold corporate follow-ups. Recieve incoming verified brand deal routes optimized for your platform size.</p>
-              </div>
-              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-xl p-4.5 transition-all duration-300 hover:border-emerald-500/30 group">
-                <div className="w-8 h-8 rounded-lg bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-2.5">03</div>
-                <h4 className="text-xs font-bold text-white mb-1">Creative Discretion</h4>
-                <p className="text-neutral-400 text-[10px] leading-relaxed">Your custom production workflow stays clean. We manage tedious invoices pipelines, briefs, and legal details.</p>
-              </div>
-              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-xl p-4.5 transition-all duration-300 hover:border-emerald-500/30 group">
-                <div className="w-8 h-8 rounded-lg bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-2.5">04</div>
-                <h4 className="text-xs font-bold text-white mb-1">Zero Exclusivity Rules</h4>
-                <p className="text-neutral-400 text-[10px] leading-relaxed">Retain complete autonomy. Keep your own direct inbound deals while pulling active premium campaigns from NexVance.</p>
-              </div>
-            </div>
+            {/* 4 GRID CARDS - Upgraded Premium Aesthetic Vibe (Creators) */}
+<div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-20">
+  
+  {/* Card 01 */}
+  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div>
+      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+        01
+      </div>
+      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">High Rate Protection</h4>
+      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
+        No predatory split traps. We legally secure your CPM baselines and optimize deal setups transparently.
+      </p>
+    </div>
+  </div>
+
+  {/* Card 02 */}
+  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div>
+      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+        02
+      </div>
+      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Automated Sponsorship Flow</h4>
+      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
+        Skip cold corporate follow-ups. Recieve incoming verified brand deal routes optimized for your platform size.
+      </p>
+    </div>
+  </div>
+
+  {/* Card 03 */}
+  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div>
+      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+        03
+      </div>
+      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Creative Discretion</h4>
+      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
+        Your custom production workflow stays clean. We manage tedious invoices pipelines, briefs, and legal details.
+      </p>
+    </div>
+  </div>
+
+  {/* Card 04 */}
+  <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
+    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div>
+      <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+        04
+      </div>
+      <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Zero Exclusivity Rules</h4>
+      <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">
+        Retain complete autonomy. Keep your own direct inbound deals while pulling active premium campaigns from NexVance.
+      </p>
+    </div>
+  </div>
+
+</div>
 
             {/* ROSTER APPLICATION FORM */}
             <div id="roster-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-5 sm:p-8 rounded-2xl backdrop-blur-md mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start shadow-2xl text-left">
