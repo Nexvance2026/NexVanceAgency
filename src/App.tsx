@@ -106,7 +106,7 @@ export default function App() {
                 <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center w-full border-b border-white/5 pb-3 gap-2 sm:gap-0">
                   <div className="flex items-center space-x-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-                    <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">Escrow & Campaign Router Active</span>
+                    <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">Campaign Router Active</span>
                   </div>
                   <div className="text-[9px] font-mono text-neutral-500 bg-neutral-950 px-2 py-0.5 rounded border border-white/5">
                     Latency: <span className="text-emerald-400">0.02ms</span>
@@ -638,69 +638,69 @@ export default function App() {
           </div>
         )}
 
-        {/* ==================== 4. DYNAMIC PRIVACY POLICY VIEW ==================== */}
+        {/* ==================== 4. DYNAMIC PRIVACY POLICY VIEW (PLAIN ENGLISH UPGRADE) ==================== */}
         {activeTab === 'privacy' && (
           <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%] max-w-4xl mx-auto text-left mb-16 md:mb-24">
             <div className="mb-8 border-b border-white/5 pb-5">
               <span className="text-[10px] font-mono tracking-widest uppercase text-blue-400 font-bold block mb-2">Legal Operations // Core</span>
-              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">Privacy Policy Layout</h1>
-              <p className="text-xs text-neutral-500 font-mono">Last Updated: June 2026 // Encrypted Vault Setup</p>
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">Privacy Policy</h1>
+              <p className="text-xs text-neutral-500 font-mono">Last Updated: June 2026</p>
             </div>
 
             <div className="bg-neutral-950/50 border border-white/5 rounded-2xl p-6 md:p-8 backdrop-blur-md space-y-6 text-xs sm:text-sm text-neutral-400 leading-relaxed shadow-xl">
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 1. Data Collection Framework
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 1. What Data We Collect
                 </h3>
-                <p>We log minimal performance variables required to route campaigns. This includes active brand links, profile metrics, and encrypted token configurations to maximize integration workflow precision. We do not store financial credentials or private analytical access configurations.</p>
+                <p>We only collect basic info needed to run and track your campaigns. This includes your name, company website, work email, and public social media metrics (like views and subscriber counts). We never ask for or save your private passwords or sensitive bank details.</p>
               </div>
 
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 2. Tracking Optimization
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 2. How We Use Your Info
                 </h3>
-                <p>NexVance utilizes standard server-side performance analytics blocks to review click conversion loops and target audience engagement scopes. This monitoring ensures absolute transparent ROI metrics for corporate stakeholders and creator payouts.</p>
+                <p>Your data is strictly used to match tech brands with the right creators and track campaign clicks. This helps us show accurate data dashboards to brands and ensure creators get paid fairly and on time based on actual results.</p>
               </div>
 
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 3. Infrastructure Protection
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 3. Your Data Security
                 </h3>
-                <p>Your platform identity rules and parameters are securely gated under our middleware structure log layout. No data records or proprietary content setups are shared, traded, or routed to outside corporate tracking nodes without manual clearance protocols.</p>
+                <p>Your privacy is our priority. We store all data securely on protected servers. We do not rent, sell, or share your channel metrics or company information with third-party advertising tracking networks without your clear permission.</p>
               </div>
             </div>
           </div>
         )}
 
-        {/* ==================== 5. DYNAMIC TERMS OF SERVICE VIEW ==================== */}
+        {/* ==================== 5. DYNAMIC TERMS OF SERVICE VIEW (PLAIN ENGLISH UPGRADE) ==================== */}
         {activeTab === 'terms' && (
           <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%] max-w-4xl mx-auto text-left mb-16 md:mb-24">
             <div className="mb-8 border-b border-white/5 pb-5">
               <span className="text-[10px] font-mono tracking-widest uppercase text-emerald-400 font-bold block mb-2">Compliance Metrics // Active</span>
-              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">Terms of Service Layout</h1>
-              <p className="text-xs text-neutral-500 font-mono">Effective Framework: Q3 2026 // Verified Ledger</p>
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">Terms of Service</h1>
+              <p className="text-xs text-neutral-500 font-mono">Effective: June 2026</p>
             </div>
 
             <div className="bg-neutral-950/50 border border-white/5 rounded-2xl p-6 md:p-8 backdrop-blur-md space-y-6 text-xs sm:text-sm text-neutral-400 leading-relaxed shadow-xl">
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 1. Roster Autonomy Layout
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 1. Creator Freedom (No Exclusivity)
                 </h3>
-                <p>NexVance serves exclusively as an infrastructure middleman campaign router. Creators maintain 100% legal discretion over their channels. Zero exclusivity setups apply; creators retain the full right to process external inbound operations freely.</p>
+                <p>NexVance is an independent platform that connects brands and creators. Creators have 100% control over their content. We do not lock you into exclusive contracts. You are entirely free to take external deals or work with other networks anytime.</p>
               </div>
 
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 2. Escrow & Execution Rules
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 2. Safe Payout Guarantee
                 </h3>
-                <p>Brand budgets are secured within our compliance node structures prior to asset distribution. Payout releases deploy instantly upon video validation, preventing fulfillment lag, predatory rate drops, or manual split adjustments.</p>
+                <p>To protect everyone, brands secure the campaign budget with us before a creator starts working on a video. Once the video is uploaded and verified according to the brand brief, the payment is released immediately to prevent delays.</p>
               </div>
 
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 3. Production Compliance
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 3. Fair Play Rules
                 </h3>
-                <p>Brands agree to supply valid production blueprints, and creators pledge absolute transparency regarding verified traffic data. NexVance retains systemic rights to remove entities found running counterfeit impressions or inaccurate reach arrays.</p>
+                <p>Brands agree to provide realistic guidelines, and creators agree to provide authentic content and real audience views. NexVance reserves the right to suspend any account found using fake traffic bots or providing completely false metrics.</p>
               </div>
             </div>
           </div>
