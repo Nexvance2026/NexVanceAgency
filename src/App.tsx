@@ -20,9 +20,9 @@ export default function App() {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-950/20 via-[#030712] to-[#030712] pointer-events-none z-0" />
 
       {/* TOP NAVIGATION BAR */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-white/5 px-4 md:px-[8%] py-4 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-white/5 px-6 md:px-[8%] py-4 flex justify-between items-center">
         
-        <div className="flex items-center space-x-3 cursor-pointer self-start sm:self-auto" onClick={() => setActiveTab('overview')}>
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('overview')}>
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-sm shadow-[0_0_15px_rgba(37,99,235,0.4)]">
             NV
           </div>
@@ -31,23 +31,23 @@ export default function App() {
           </span>
         </div>
 
-        {/* Interactive Nav Tabs - Scrollable on very small screens */}
-        <div className="bg-neutral-900/80 p-1 border border-white/5 rounded-full flex space-x-1 shadow-lg max-w-full overflow-x-auto no-scrollbar">
+        {/* Interactive Nav Tabs */}
+        <div className="bg-neutral-900/80 p-1 border border-white/5 rounded-full flex space-x-1 shadow-lg">
           <button 
             onClick={() => setActiveTab('overview')}
-            className={`px-3 md:px-4 py-1.5 text-[11px] md:text-xs font-medium rounded-full transition-all duration-300 whitespace-nowrap ${activeTab === 'overview' ? 'bg-neutral-800 text-white shadow-inner' : 'text-neutral-400 hover:text-white'}`}
+            className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-300 ${activeTab === 'overview' ? 'bg-neutral-800 text-white shadow-inner' : 'text-neutral-400 hover:text-white'}`}
           >
             Overview
           </button>
           <button 
             onClick={() => setActiveTab('brands')}
-            className={`px-3 md:px-4 py-1.5 text-[11px] md:text-xs font-medium rounded-full transition-all duration-300 whitespace-nowrap ${activeTab === 'brands' ? 'bg-blue-600/90 text-white shadow-[0_0_12px_rgba(37,99,235,0.3)]' : 'text-neutral-400 hover:text-white'}`}
+            className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-300 ${activeTab === 'brands' ? 'bg-blue-600/90 text-white shadow-[0_0_12px_rgba(37,99,235,0.3)]' : 'text-neutral-400 hover:text-white'}`}
           >
             For Tech Brands
           </button>
           <button 
             onClick={() => setActiveTab('creators')}
-            className={`px-3 md:px-4 py-1.5 text-[11px] md:text-xs font-medium rounded-full transition-all duration-300 whitespace-nowrap ${activeTab === 'creators' ? 'bg-emerald-600/90 text-white shadow-[0_0_12px_rgba(16,185,129,0.3)]' : 'text-neutral-400 hover:text-white'}`}
+            className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-300 ${activeTab === 'creators' ? 'bg-emerald-600/90 text-white shadow-[0_0_12px_rgba(16,185,129,0.3)]' : 'text-neutral-400 hover:text-white'}`}
           >
             For Creators
           </button>
@@ -55,302 +55,566 @@ export default function App() {
       </nav>
 
       {/* DYNAMIC PAGES BODY */}
-      <main className="relative z-10 pt-36 sm:pt-28 max-w-7xl mx-auto w-full">
+      <main className="relative z-10 pt-28 max-w-7xl mx-auto w-full">
         
         {/* ==================== 1. OVERVIEW LANDING PAGE ==================== */}
         {activeTab === 'overview' && (
-          <div className="animate-fadeIn px-4 md:px-[8%]">
+          <div className="animate-fadeIn px-6 md:px-[8%]">
             
-            {/* Hero Section */}
-            <div className="text-center max-w-3xl mx-auto mb-16 pt-6">
-              <span className="bg-neutral-900 border border-white/10 text-[10px] font-bold text-neutral-400 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
-                ⚡ The Creator Ops Infrastructure
-              </span>
-              <h1 className="text-4xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 bg-gradient-to-b from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-                Where Elite Tech Brands Meet Top-Tier Creators.
+            {/* Hero Top Tagline */}
+            <div className="flex justify-center mb-8 pt-6">
+              <div className="inline-flex items-center space-x-2 bg-neutral-900/80 border border-white/5 rounded-full px-4 py-1.5 text-xs text-neutral-400 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Now booking Q3 / Q4 2026 campaigns</span>
+              </div>
+            </div>
+
+            {/* Main Hero Copy */}
+            <div className="text-center max-w-4xl mx-auto mb-16">
+              <h1 className="text-4xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
+                Where <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">tech brands</span> meet <span className="bg-gradient-to-r from-emerald-400 to-emerald-400 bg-clip-text text-transparent">elite creators.</span>
               </h1>
-              <p className="text-neutral-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-8">
-                We handle the entire operational workflow—from contracts and strategy to assets and attribution. Scale without the headache.
+              <p className="text-base md:text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed mb-10">
+                NexVance is the full-service marketing operation behind tomorrow's SaaS, AI, and hardware launches. We source, vet, and deploy creators that actually convert.
               </p>
-              
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+
+              {/* Dual Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button 
                   onClick={() => setActiveTab('brands')}
-                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl text-xs tracking-wide transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] transform hover:-translate-y-0.5"
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-[0_4px_20px_rgba(37,99,235,0.3)] group"
                 >
-                  Deploy Campaigns
+                  <span>I'm a Tech Brand</span>
+                  <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                 </button>
                 <button 
                   onClick={() => setActiveTab('creators')}
-                  className="w-full sm:w-auto bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-white/10 font-semibold px-6 py-3.5 rounded-xl text-xs tracking-wide transition-all transform hover:-translate-y-0.5"
+                  className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-[0_4px_20px_rgba(16,185,129,0.3)] group"
                 >
-                  Join Roster
+                  <span>I'm a Creator</span>
+                  <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                 </button>
               </div>
             </div>
 
-            {/* Premium Centerpiece Image Wrapper (FIXED MOBILE OVERFLOW) */}
-            <div className="w-full max-w-[650px] mx-auto mb-28 px-2">
-              <div className="relative rounded-2xl border border-white/10 p-2 bg-neutral-900/30 backdrop-blur-sm shadow-[0_30px_100px_rgba(0,0,0,0.6)] group overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <img 
-                  src="/brand-dashboard.jpg" 
-                  alt="NexVance Infrastructure Interface" 
-                  className="w-full h-auto rounded-xl object-cover border border-white/5 opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                />
-              </div>
-            </div>
+            {/* Brand <-> Creator Middleman Node Asset */}
+            <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-[#050505] border border-white/10 p-3 shadow-2xl relative overflow-hidden mb-24 transition-all duration-500 hover:border-blue-500/20 hover:shadow-[0_10px_40px_rgba(37,99,235,0.1)]">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none" />
 
-            {/* Dual Value Proposition Splits */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
-              
-              {/* Brand Preview Box */}
-              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 p-6 md:p-8 rounded-2xl backdrop-blur-md flex flex-col justify-between group hover:border-blue-500/20 transition-all duration-300">
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-blue-950/50 border border-blue-800/30 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
-                    📊
+              <div className="w-full aspect-[16/9] min-h-[360px] rounded-xl bg-black/80 flex flex-col justify-between p-6 md:p-8 relative overflow-hidden border border-white/5">
+                <div className="relative z-10 flex justify-between items-center w-full border-b border-white/5 pb-4">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Escrow & Campaign Router Active</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">For Tech & SaaS Brands</h3>
-                  <p className="text-neutral-400 text-xs md:text-sm leading-relaxed mb-6">
-                    Stop wasting internal engineering and marketing hours tracking down raw assets, legal sign-offs, and custom metrics. NexVance injects data-driven, conversion-optimized native integrations directly into specialized tech developer feeds.
-                  </p>
-                </div>
-                <button onClick={() => setActiveTab('brands')} className="text-blue-400 hover:text-blue-300 text-xs font-semibold tracking-wide flex items-center gap-2 self-start">
-                  Explore Brand Infrastructure <span>→</span>
-                </button>
-              </div>
-
-              {/* Creator Preview Box */}
-              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 p-6 md:p-8 rounded-2xl backdrop-blur-md flex flex-col justify-between group hover:border-emerald-500/20 transition-all duration-300">
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
-                    🎬
+                  <div className="text-[10px] font-mono text-neutral-500 bg-neutral-950 px-2.5 py-1 rounded-md border border-white/5">
+                    Latency: <span className="text-emerald-400">0.02ms</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">For Cozy-Tech & Tech Creators</h3>
-                  <p className="text-neutral-400 text-xs md:text-sm leading-relaxed mb-6">
-                    Focus strictly on the asset creation timeline. No more chasing inbound cold pitches or dealing with chaotic multi-layered creative briefs. We build out dedicated sponsorship packaging that aligns perfectly with your production cycle.
-                  </p>
                 </div>
-                <button onClick={() => setActiveTab('creators')} className="text-emerald-400 hover:text-emerald-300 text-xs font-semibold tracking-wide flex items-center gap-2 self-start">
-                  Review Creator Standards <span>→</span>
-                </button>
-              </div>
 
+                <div className="relative w-full h-full flex items-center justify-between px-4 md:px-12 my-4">
+                  <div className="flex flex-col space-y-4 z-10 w-1/4">
+                    <div className="bg-neutral-950 border border-white/10 rounded-xl p-3 shadow-xl backdrop-blur-md transform hover:scale-105 transition-all">
+                      <div className="text-[9px] font-mono uppercase text-blue-400 font-bold mb-0.5">SaaS Brand</div>
+                      <div className="text-xs font-semibold text-white truncate">AI Automations</div>
+                    </div>
+                  </div>
+
+                  <div className="absolute inset-0 w-full h-full pointer-events-none">
+                    <svg className="w-full h-full" viewBox="0 0 700 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="brandToMiddle" x1="0%" y1="50%" x2="100%" y2="50%">
+                          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                          <stop offset="100%" stopColor="#3b82f6" stopOpacity="1" />
+                        </linearGradient>
+                        <linearGradient id="middleToCreator" x1="0%" y1="50%" x2="100%" y2="50%">
+                          <stop offset="0%" stopColor="#10b881" stopOpacity="1" />
+                          <stop offset="100%" stopColor="#10b881" stopOpacity="0.2" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M 160,80 L 350,125" stroke="url(#brandToMiddle)" strokeWidth="1.5" />
+                      <path d="M 350,125 L 540,75" stroke="url(#middleToCreator)" strokeWidth="1.5" />
+                    </svg>
+                  </div>
+
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-blue-600 to-emerald-500 p-[1px] shadow-[0_0_30px_rgba(37,99,235,0.3)] animate-pulse">
+                      <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
+                        <span className="text-xs font-mono font-bold text-white tracking-widest">NV</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col space-y-4 z-10 w-1/4 items-end">
+                    <div className="bg-neutral-950 border border-white/10 rounded-xl p-3 shadow-xl backdrop-blur-md text-right transform hover:scale-105 transition-all">
+                      <div className="text-[9px] font-mono uppercase text-emerald-400 font-bold mb-0.5">Elite Creator</div>
+                      <div className="text-xs font-semibold text-white truncate">Tech Reviewer (500k+)</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative z-10 border-t border-white/5 pt-4 bg-gradient-to-t from-black via-black/90 to-transparent">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
+                    <div>
+                      <span className="text-[9px] uppercase tracking-widest text-blue-400 font-bold mb-1 block">Middleware Engine</span>
+                      <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">The Frictionless Pipeline</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            {/* Performance Metrics Row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-neutral-900/30 border border-white/5 p-6 rounded-2xl backdrop-blur-md mb-28 max-w-4xl mx-auto">
+              <div className="text-center p-2 border-r border-white/5 last:border-0">
+                <div className="text-2xl md:text-4xl font-extrabold text-blue-400">84%</div>
+                <div className="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Avg. Audience Retention</div>
+              </div>
+              <div className="text-center p-2 border-r border-white/5 last:border-0">
+                <div className="text-2xl md:text-4xl font-extrabold text-white">50+</div>
+                <div className="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Verified Elite Creators</div>
+              </div>
+              <div className="text-center p-2 border-r border-white/5 last:border-0">
+                <div className="text-2xl md:text-4xl font-extrabold text-white">12M+</div>
+                <div className="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Combined Monthly Reach</div>
+              </div>
+              <div className="text-center p-2 last:border-0">
+                <div className="text-2xl md:text-4xl font-extrabold text-blue-400">100%</div>
+                <div className="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Managed End-to-End</div>
+              </div>
+            </div>
+
+            {/* Dual Pipeline Blocks */}
+            <div className="max-w-4xl mx-auto mb-28">
+              <div className="text-center mb-16">
+                <span className="text-[10px] uppercase tracking-widest text-blue-500 font-bold block mb-3">The Operation</span>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Two sides. One frictionless pipeline.</h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Tech Brand Card */}
+                <div className="bg-gradient-to-b from-neutral-900/60 to-neutral-950/80 border border-white/5 rounded-2xl p-6 flex flex-col h-full transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-blue-500/30 hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] group cursor-pointer" onClick={() => setActiveTab('brands')}>
+                  <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 border border-white/5 overflow-hidden shadow-inner relative">
+                    <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/5 transition-colors duration-500 z-10" />
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Brand Performance Dashboard" className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-blue-400 font-bold mb-2 block tracking-widest">For Tech Brands</span>
+                  <h4 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors duration-300">Launch campaigns that actually move users.</h4>
+                  <p className="text-neutral-400 text-xs mb-6 leading-relaxed">Skip the cold-DM grind. Get matched with creators whose audience already wants what you ship.</p>
+                  <ul className="space-y-2.5 text-xs text-neutral-300 mb-8 mt-auto">
+                    <li className="flex items-center space-x-2"><span className="text-blue-400 font-bold">✓</span> <span>Vetted creator roster</span></li>
+                    <li className="flex items-center space-x-2"><span className="text-blue-400 font-bold">✓</span> <span>Brief & QA included</span></li>
+                    <li className="flex items-center space-x-2"><span className="text-blue-400 font-bold">✓</span> <span>ROI-tracked placements</span></li>
+                  </ul>
+                  <div className="text-xs text-blue-400 font-semibold flex items-center space-x-1 group-hover:translate-x-1 transition-transform duration-300">
+                    <span>Explore brand services</span> <span>→</span>
+                  </div>
+                </div>
+
+                {/* Creator Card */}
+                <div className="bg-gradient-to-b from-neutral-900/60 to-neutral-950/80 border border-white/5 rounded-2xl p-6 flex flex-col h-full transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-emerald-500/30 hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] group cursor-pointer" onClick={() => setActiveTab('creators')}>
+                  <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-6 border border-white/5 overflow-hidden shadow-inner relative">
+                    <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/5 transition-colors duration-500 z-10" />
+                    <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=80" alt="Elite Tech Creator Setup" className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-emerald-400 font-bold mb-2 block tracking-widest">For Creators</span>
+                  <h4 className="text-xl font-bold mb-3 group-hover:text-emerald-400 transition-colors duration-300">Focus on content. We bring the brand deals.</h4>
+                  <p className="text-neutral-400 text-xs mb-6 leading-relaxed">No upfront fees, no exclusivity traps. We only earn when we land you a deal — and we guard your rate.</p>
+                  <ul className="space-y-2.5 text-xs text-neutral-300 mb-8 mt-auto">
+                    <li className="flex items-center space-x-2"><span className="text-emerald-400 font-bold">✓</span> <span>Inbound deal flow</span></li>
+                    <li className="flex items-center space-x-2"><span className="text-emerald-400 font-bold">✓</span> <span>Rate negotiation</span></li>
+                    <li className="flex items-center space-x-2"><span className="text-emerald-400 font-bold">✓</span> <span>Contract protection</span></li>
+                  </ul>
+                  <div className="text-xs text-emerald-400 font-semibold flex items-center space-x-1 group-hover:translate-x-1 transition-transform duration-300">
+                    <span>Apply to the roster</span> <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
-        {/* ==================== 2. FOR TECH BRANDS LANDING ==================== */}
+        {/* ==================== 2. FOR TECH BRANDS LANDING & STRATEGY FORM ==================== */}
         {activeTab === 'brands' && (
-          <div className="animate-fadeIn px-4 md:px-[8%]">
-            
-            <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20 pt-6">
-              <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(59,130,246,0.2)]">
-                ⚡ For Tech Brands
-              </span>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
-                Scale signups with creators who already own your audience.
-              </h1>
-              <p className="text-neutral-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-8">
-                High-intent users, structured video placements, and managed campaigns from kick-off to post-mortem.
-              </p>
-              <a 
-                href="#brand-form" 
-                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] text-sm inline-block transform hover:-translate-y-0.5"
+          <div className="animate-fadeIn px-6 md:px-[8%]">
+            <div className="text-center max-w-3xl mx-auto mb-20 pt-6">
+              <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(59,130,246,0.2)]">⚡ For Tech Brands</span>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Scale signups with creators who already own your audience.</h1>
+              <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">High-intent users, structured video placements, and managed campaigns from kick-off to post-mortem.</p>
+              <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] text-sm inline-block transform hover:-translate-y-0.5">Start Campaign Strategy →</a>
+            </div>
+
+            {/* ISOMETRIC GLOWING DASHBOARD */}
+            <div className="w-full max-w-4xl mx-auto min-h-[460px] relative flex items-center justify-center mb-24 group" style={{ perspective: '1000px' }}>
+              <div className="absolute w-[500px] h-[350px] bg-blue-600/10 rounded-full blur-[140px] opacity-80 group-hover:bg-blue-500/20 transition-all duration-700 pointer-events-none" />
+              
+              <div 
+                className="relative w-full max-w-2xl aspect-[1.4/1] transition-all duration-700 group-hover:-translate-y-4 flex items-center justify-center bg-gradient-to-tr from-blue-950/40 to-neutral-900/20 border border-white/5 rounded-3xl p-6 backdrop-blur-xl shadow-[0_50px_100px_rgba(0,0,0,0.8)]"
+                style={{ transform: 'rotateX(45deg) rotateZ(-25deg) skewX(5deg)' }}
               >
-                Start Campaign Strategy →
-              </a>
-            </div>
-
-            {/* ISOMETRIC GLOWING DASHBOARD (FIXED FOR MOBILE INTERFERENCE) */}
-            <div className="w-full max-w-4xl mx-auto min-h-[300px] md:min-h-[460px] relative flex items-center justify-center mb-24 perspective-1000 group px-4">
-              {/* Glow Behind */}
-              <div className="absolute w-[280px] md:w-[500px] h-[200px] md:h-[350px] bg-blue-600/10 rounded-full blur-[80px] md:blur-[140px] opacity-80 group-hover:bg-blue-500/20 transition-all duration-700 pointer-events-none" />
-              
-              {/* Isometric Card Container */}
-              <div className="relative w-full max-w-2xl aspect-[1.5/1] sm:aspect-[1.4/1] transform rotate-x-30 rotate-z-[-15deg] sm:rotate-x-55 sm:rotate-z-[-32deg] skew-x-3 sm:skew-x-6 transition-all duration-700 group-hover:rotate-x-25 sm:group-hover:rotate-x-50 group-hover:rotate-z-[-10deg] sm:group-hover:rotate-z-[-28deg] group-hover:-translate-y-2 md:group-hover:-translate-y-4 flex items-center justify-center">
+                <div className="w-full h-full opacity-20 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-[size:16px_16px] rounded-2xl absolute inset-0 p-6 pointer-events-none" />
                 
-                {/* Outer Glass Shell */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/40 to-neutral-900/20 border border-white-[0.03] rounded-2xl md:rounded-3xl p-3 md:p-6 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.7)] md:shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
-                  <div className="w-full h-full opacity-20 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-[size:12px_12px] md:bg-[size:16px_16px] rounded-xl" />
-                </div>
-
-                {/* Inner Data Widget */}
-                <div className="absolute inset-x-3 sm:inset-x-4 inset-y-6 sm:inset-y-8 bg-neutral-950/80 border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6 shadow-[0_15px_30px_rgba(0,0,0,0.5)] transform translate-z-4 sm:translate-z-8 transition-transform duration-700 group-hover:translate-z-8 sm:group-hover:translate-z-12 flex flex-col justify-between">
-                  <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                    <div className="flex space-x-1.5">
-                      <div className="w-2 h-2 rounded-full bg-red-500/60" />
-                      <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
-                      <div className="w-2 h-2 rounded-full bg-green-500/60" />
+                <div className="w-full h-full bg-neutral-950/80 border border-white/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col justify-between relative z-10">
+                  
+                  {/* Internal Pipeline Visual Rows inside Isometric Box */}
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full items-stretch my-auto">
+                    {/* Left Column: Code Structure Preview Box */}
+                    <div className="md:col-span-5 bg-black/60 rounded-xl p-3 border border-white/5 text-[10px] text-neutral-400 flex flex-col justify-between leading-relaxed">
+                      <div>
+                        <div className="text-neutral-500 mb-2 font-sans text-[9px] uppercase tracking-wider font-bold">SDK Snippet Layout</div>
+                        <span className="text-blue-400">import</span> &#123; NexVancePipeline &#125; <span className="text-blue-400">from</span> <span className="text-emerald-400">'@nv/core'</span>;
+                        <br /><br />
+                        <span className="text-neutral-500">// Track live conversions</span>
+                        <br />
+                        <span className="text-blue-400">const</span> campaign = <span className="text-blue-400">new</span> NexVancePipeline(&#123;
+                        <br />
+                        &nbsp;&nbsp;brandId: <span className="text-amber-400">"saas_ai"</span>,
+                        <br />
+                        &nbsp;&nbsp;targetCAC: <span className="text-purple-400">45.00</span>
+                        <br />
+                        &#125;);
+                      </div>
+                      <div className="mt-4 pt-2 border-t border-white/5 text-[9px] text-neutral-500">
+                        Terminal: <span className="text-emerald-400">Active.</span>
+                      </div>
                     </div>
-                    <div className="text-[9px] font-mono text-neutral-500 tracking-wider">CAMPAIGN_ATTRIBUTION_LIVE</div>
+
+                    {/* Right Column: Mini Analytical Analytics Simulation Visual */}
+                    <div className="md:col-span-7 bg-neutral-950/80 rounded-xl p-4 border border-white/5 flex flex-col justify-between">
+                      <div className="flex justify-between items-center mb-3">
+                        <div>
+                          <div className="text-neutral-500 text-[9px] uppercase tracking-wider font-bold font-sans">Performance Engine</div>
+                          <div className="text-sm font-bold text-white font-sans tracking-tight">ROI Overview</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-xs font-bold text-emerald-400 font-sans">+314.8%</div>
+                        </div>
+                      </div>
+
+                      {/* Faux Graph Structure representation */}
+                      <div className="h-20 w-full flex items-end space-x-1.5 pt-4 pb-2 px-1 border-b border-white/5">
+                        <div className="bg-neutral-800 w-full h-[15%] rounded-t" />
+                        <div className="bg-neutral-800 w-full h-[30%] rounded-t" />
+                        <div className="bg-blue-600/30 w-full h-[45%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-400" /></div>
+                        <div className="bg-blue-600/40 w-full h-[40%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-400" /></div>
+                        <div className="bg-blue-600/60 w-full h-[65%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-400" /></div>
+                        <div className="bg-gradient-to-t from-blue-600 to-emerald-500 w-full h-[98%] rounded-t relative shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                          <div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-400" />
+                        </div>
+                      </div>
+
+                      {/* Parameter Stat Readout Row */}
+                      <div className="grid grid-cols-3 gap-2 mt-3 text-center">
+                        <div className="bg-black/40 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-sans">Live Clicks</div>
+                          <div className="text-[10px] font-bold text-white">41.2k</div>
+                        </div>
+                        <div className="bg-black/40 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-sans">Sign-ups</div>
+                          <div className="text-[10px] font-bold text-blue-400">8,914</div>
+                        </div>
+                        <div className="bg-black/40 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-sans">CAC</div>
+                          <div className="text-[10px] font-bold text-emerald-400">$12.40</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Simulated Chart Bars */}
-                  <div className="w-full h-20 md:h-28 flex items-end space-x-1 sm:space-x-2 px-1 md:px-2 border-b border-white/5 relative mb-2">
-                    <div className="absolute inset-x-0 bottom-4 md:bottom-6 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-emerald-400 opacity-80" />
-                    <div className="bg-neutral-900 w-full h-[30%] rounded-t-sm" />
-                    <div className="bg-blue-500/20 w-full h-[55%] rounded-t-sm" />
-                    <div className="bg-blue-500/40 w-full h-[45%] rounded-t-sm" />
-                    <div className="bg-blue-500/60 w-full h-[70%] rounded-t-sm" />
-                    <div className="bg-gradient-to-t from-blue-600/40 to-emerald-500/40 w-full h-[90%] rounded-t-sm animate-pulse" />
-                    <div className="bg-neutral-900 w-full h-[20%] rounded-t-sm" />
+                  {/* Footer Console Banner */}
+                  <div className="border-t border-white/5 pt-3 mt-4 flex justify-between items-center w-full">
+                    <div>
+                      <span className="text-[9px] uppercase tracking-widest text-blue-400 font-bold block font-sans">Custom Brand SDK Module</span>
+                    </div>
+                    <div className="text-[9px] text-neutral-500 bg-neutral-950 px-2 py-1 rounded border border-white/5 font-mono">
+                      Status: <span className="text-emerald-400">Encrypted</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Floating Metric Badge */}
-                <div className="absolute -top-3 sm:-top-6 right-2 sm:right-4 w-32 sm:w-44 aspect-[1.5/1] bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-[0_10px_20px_rgba(37,99,235,0.4)] transform translate-z-12 sm:translate-z-20 transition-transform duration-700 group-hover:translate-z-20 sm:group-hover:translate-z-28 flex flex-col justify-between">
-                  <div className="text-[7px] sm:text-[8px] font-mono text-white/70 uppercase tracking-wider">Conversion Engine</div>
-                  <div className="text-sm sm:text-lg font-bold font-mono tracking-tight leading-none mt-0.5">+412%</div>
                 </div>
-
               </div>
             </div>
 
-            {/* Structured Intake Form */}
-            <div id="brand-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-6 md:p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-2xl">
-              
-              <div className="md:col-span-4 space-y-4">
-                <h4 className="text-lg font-bold tracking-tight">Initiate Operational Strategy</h4>
-                <p className="text-neutral-400 text-xs leading-relaxed">
-                  Provide baseline target scope metrics. Our growth desk reviews audience alignment cross-checks within 12 standard operations hours.
-                </p>
-                <div className="pt-2 space-y-1.5">
-                  <div className="text-[10px] text-neutral-500 flex items-center gap-2">✓ Verified Creator Matches</div>
-                  <div className="text-[10px] text-neutral-500 flex items-center gap-2">✓ Automated Usage Rights</div>
+            {/* 4 HOVER GRID CARDS */}
+            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-blue-950/50 border border-blue-800/30 flex items-center justify-center text-blue-400 text-xs font-mono font-bold mb-3">01</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">Campaign Routing</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">We sync your parameters into tailored influencer video outlines with absolute compliance layouts.</p>
+              </div>
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-blue-950/50 border border-blue-800/30 flex items-center justify-center text-blue-400 text-xs font-mono font-bold mb-3">02</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">Performance Tracking</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">Track integration channels with clean conversion checks, reach analytics metrics, and live dashboards.</p>
+              </div>
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-blue-950/50 border border-blue-800/30 flex items-center justify-center text-blue-400 text-xs font-mono font-bold mb-3">03</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">Infrastructure Guard</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">Secure escrow management setups, legal sheets protection, and transparent operational pipeline logs.</p>
+              </div>
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-blue-950/50 border border-blue-800/30 flex items-center justify-center text-blue-400 text-xs font-mono font-bold mb-3">04</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">ROI-Optimized Matches</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">Skip generalized pitches. Route directly to creators whose historic click retention data ensures raw conversion value.</p>
+              </div>
+            </div>
+
+            {/* STRATEGY REQUEST FORM */}
+            <div id="brand-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-2xl transition-all duration-500 hover:border-blue-500/20">
+              <div className="md:col-span-5">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Work with <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">NexVance</span></h3>
+                <p className="text-neutral-400 text-xs leading-relaxed mb-6">Partner with a dedicated marketing manager to launch your next tech, SaaS, or hardware campaign seamlessly.</p>
+                <div className="space-y-4 pt-4 border-t border-white/5">
+                  <div className="flex items-center space-x-3 bg-black/30 p-3 rounded-xl border border-white/5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,1)]" />
+                    <span className="text-xs text-neutral-300 font-medium">Guaranteed Video Quality Check</span>
+                  </div>
+                  <div className="flex items-center space-x-3 bg-black/30 p-3 rounded-xl border border-white/5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,1)]" />
+                    <span className="text-xs text-neutral-300 font-medium">Full CTR & conversion analytics</span>
+                  </div>
                 </div>
               </div>
 
-              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-8 space-y-4 w-full">
+              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company Entity</label>
-                    <input required type="text" name="companyName" placeholder="e.g., Vercel Inc." className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company / SaaS name</label>
+                    <input required type="text" name="companyName" placeholder="Your brand name" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-all duration-300" />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Work Corporate Email</label>
-                    <input required type="email" name="email" placeholder="e.g., growth@company.com" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company Website URL</label>
+                    <input required type="url" name="websiteUrl" placeholder="https://yourbrand.com" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-all duration-300" />
                   </div>
                 </div>
-
+                
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Target Quarterly Allocation</label>
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Work email</label>
+                    <input required type="email" name="email" placeholder="name@company.com" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-all duration-300" />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Estimated Monthly Budget</label>
                     <select 
-                      required
+                      required 
                       name="budget_bracket" 
                       value={brandBudget}
                       onChange={(e) => setBrandBudget(e.target.value)}
-                      className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-blue-500 outline-none"
+                      className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-blue-500 outline-none appearance-none cursor-pointer"
                     >
-                      <option value="" disabled hidden>Select Budget Structure</option>
-                      <option value="test_tier">$2,500 - $7,500 (Pilot Deployment)</option>
-                      <option value="mid_tier">$7,500 - $20,000 (Scale Framework)</option>
-                      <option value="enterprise_tier">$20,000+ (Enterprise Allocation)</option>
+                      <option value="" disabled>Select your budget bracket</option>
+                      <option value="1k-5k">$1,000 - $5,000 / mo</option>
+                      <option value="5k-20k">$5,000 - $20,000 / mo</option>
+                      <option value="20k+">$20,000+ / mo</option>
+                      <option value="custom">Custom / Other Budget</option>
                     </select>
                   </div>
-                  <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Primary Target Product Niche</label>
-                    <input required type="text" name="product_niche" placeholder="e.g., Developer Tools, B2B SaaS" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none" />
-                  </div>
                 </div>
+
+                {brandBudget === 'custom' && (
+                  <div className="animate-fadeIn">
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-blue-400 mb-1.5">Specify Your Exact Budget ($)</label>
+                    <input required type="text" name="customBrandBudget" placeholder="e.g., $35,000" className="w-full bg-blue-950/30 border border-blue-500/40 rounded-lg p-3 text-xs text-white focus:border-blue-400 outline-none" />
+                  </div>
+                )}
 
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Campaign Performance Metrics / Core Objectives</label>
-                  <textarea required name="objectives" rows={4} placeholder="Detail core acquisition targets, specific feature focus vectors, or baseline conversion targets..." className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none resize-none" />
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Campaign goals & Target Audience</label>
+                  <textarea name="message" rows={4} placeholder="Tell us about your product, KPI requirements..." className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none resize-none" />
                 </div>
-
-                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)]">
-                  Transmit Allocation Criteria
-                </button>
+                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)]">Send Strategy Request</button>
               </form>
-
             </div>
-
           </div>
         )}
 
-        {/* ==================== 3. FOR CREATORS ROSTER LANDING ==================== */}
+        {/* ==================== 3. FOR CREATORS ROSTER LANDING & APPLICATION FORM ==================== */}
         {activeTab === 'creators' && (
-          <div className="animate-fadeIn px-4 md:px-[8%]">
-            
-            <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20 pt-6">
-              <span className="bg-emerald-950/60 border border-emerald-800/40 text-[10px] font-bold text-emerald-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                ⚡ For Creators
-              </span>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
-                Protect your production pipeline. Outsource business ops.
-              </h1>
-              <p className="text-neutral-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-8">
-                We embed directly into your infrastructure to pitch long-form tech brands, manage contracts, and streamline asset specs.
-              </p>
-              <a 
-                href="#creator-form" 
-                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] text-sm inline-block transform hover:-translate-y-0.5"
-              >
-                Apply to Roster Framework →
-              </a>
+          <div className="animate-fadeIn px-6 md:px-[8%]">
+            <div className="text-center max-w-3xl mx-auto mb-16 pt-6">
+              <span className="bg-emerald-950/60 border border-emerald-800/40 text-[10px] font-bold text-emerald-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(16,185,129,0.2)]">👥 For Creators</span>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">Focus on content. We'll bring the brand deals.</h1>
+              <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">Stop wasting hours on cold corporate emails. We protect your creative freedom and lock in high-paying sponsorships.</p>
+              <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] text-sm inline-block transform hover:-translate-y-0.5">Apply to the Roster →</a>
             </div>
 
-            {/* Premium Asset Showcase Wrapper (FIXED MOBILE RESPONSIVENESS) */}
-            <div className="w-full max-w-[650px] mx-auto mb-24 px-2">
-              <div className="relative rounded-2xl border border-white/10 p-2 bg-neutral-900/30 backdrop-blur-sm shadow-[0_30px_100px_rgba(0,0,0,0.6)] group overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <img 
-                  src="/creator-setup.jpg" 
-                  alt="Cozy Tech Production Environment Asset" 
-                  className="w-full h-auto rounded-xl object-cover border border-white/5 opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                />
-              </div>
-            </div>
-
-            {/* Creator Application Form */}
-            <div id="creator-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-6 md:p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-2xl">
+            {/* PREMIUM ISOMETRIC INTERACTIVE VISUAL FOR CREATORS (POPUP EFFECT FIXED) */}
+            <div className="w-full max-w-4xl mx-auto min-h-[460px] relative flex items-center justify-center mb-24 group" style={{ perspective: '1000px' }}>
+              {/* Premium Deep Green Brand Soft Radial Backdrop Glow */}
+              <div className="absolute w-[500px] h-[350px] bg-emerald-600/10 rounded-full blur-[140px] opacity-80 group-hover:bg-emerald-500/20 transition-all duration-700 pointer-events-none" />
               
-              <div className="md:col-span-4 space-y-4">
-                <h4 className="text-lg font-bold tracking-tight">Roster Integration Intake</h4>
-                <p className="text-neutral-400 text-xs leading-relaxed">
-                  NexVance strictly acts as an operational pipeline filter for premium tech channels. Ensure verified traffic logs match selection arrays.
-                </p>
-                <div className="pt-2 space-y-1.5">
-                  <div className="text-[10px] text-neutral-500 flex items-center gap-2">✓ 100% Inbound Deal Handling</div>
-                  <div className="text-[10px] text-neutral-500 flex items-center gap-2">✓ Guaranteed Legal Clearance</div>
+              {/* Floating Layout Card with Removed Hardcoded Borders & Background */}
+              <div 
+                className="relative w-full max-w-2xl aspect-[1.4/1] transition-all duration-700 group-hover:-translate-y-6 flex items-center justify-center bg-gradient-to-tr from-emerald-950/30 to-neutral-900/10 rounded-3xl p-6 backdrop-blur-xl shadow-[0_50px_100px_rgba(0,0,0,0.85)] hover:shadow-[0_60px_110px_rgba(16,185,129,0.15)]"
+                style={{ transform: 'rotateX(38deg) rotateZ(-18deg) skewX(2deg)' }}
+              >
+                {/* Tech Aesthetic Mesh Grid */}
+                <div className="w-full h-full opacity-15 bg-[linear-gradient(to_right,#10b881_1px,transparent_1px),linear-gradient(to_bottom,#10b881_1px,transparent_1px)] bg-[size:18px_18px] rounded-2xl absolute inset-0 p-6 pointer-events-none" />
+                
+                {/* Clean Floating Dashboard Block */}
+                <div className="w-full h-full bg-neutral-950/85 border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(0,0,0,0.6)] flex flex-col justify-between relative z-10">
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full items-stretch my-auto">
+                    {/* Left Layer: Creator Monetization Engine Insights */}
+                    <div className="md:col-span-7 bg-neutral-900/40 rounded-xl p-4 border border-white/5 flex flex-col justify-between backdrop-blur-sm">
+                      <div className="flex justify-between items-center mb-3">
+                        <div>
+                          <div className="text-neutral-500 text-[9px] uppercase tracking-wider font-bold font-sans">Payout Middleware</div>
+                          <div className="text-sm font-bold text-white font-sans tracking-tight">Escrow Distribution</div>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-[9px] font-mono uppercase bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30 font-bold">Secured</span>
+                        </div>
+                      </div>
+
+                      {/* Smooth Premium Glassmorphic Soundwave / CTR Growth Visual representation */}
+                      <div className="h-24 w-full flex items-end space-x-1 pt-6 pb-2 px-1 border-b border-white/5 relative">
+                        <div className="absolute top-2 left-2 flex items-center space-x-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                          <span className="text-[9px] font-mono text-neutral-400">Live CPM Optimizer Active</span>
+                        </div>
+                        <div className="bg-neutral-800/60 w-full h-[25%] rounded-t" />
+                        <div className="bg-neutral-800/60 w-full h-[40%] rounded-t" />
+                        <div className="bg-emerald-600/20 w-full h-[55%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-500/50" /></div>
+                        <div className="bg-emerald-600/30 w-full h-[50%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-400/60" /></div>
+                        <div className="bg-emerald-600/50 w-full h-[75%] rounded-t relative"><div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-400" /></div>
+                        <div className="bg-gradient-to-t from-emerald-600 to-teal-400 w-full h-[100%] rounded-t relative shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+                          <div className="absolute top-0 left-0 right-0 h-0.5 bg-teal-300" />
+                        </div>
+                      </div>
+
+                      {/* Analytics Parameter Output Fields */}
+                      <div className="grid grid-cols-3 gap-2 mt-3 text-center">
+                        <div className="bg-black/50 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-bold tracking-wide">Brand Deals</div>
+                          <div className="text-[10px] font-bold text-white">Inbound</div>
+                        </div>
+                        <div className="bg-black/50 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-bold tracking-wide">Avg CPM</div>
+                          <div className="text-[10px] font-bold text-emerald-400">$42.50</div>
+                        </div>
+                        <div className="bg-black/50 p-1.5 rounded border border-white/5">
+                          <div className="text-[8px] text-neutral-500 uppercase font-bold tracking-wide">Take Rate</div>
+                          <div className="text-[10px] font-bold text-teal-400">0% Excl.</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Layer: Luxury Tech Roster Visual Log Console */}
+                    <div className="md:col-span-5 bg-black/50 rounded-xl p-3 border border-white/5 text-[10px] text-neutral-400 flex flex-col justify-between leading-relaxed">
+                      <div>
+                        <div className="text-neutral-500 mb-2 font-sans text-[9px] uppercase tracking-wider font-bold">Roster Manifest</div>
+                        <span className="text-emerald-400">const</span> creatorProfile = &#123;
+                        <br />
+                        &nbsp;&nbsp;tier: <span className="text-teal-400">"Elite_Tech"</span>,
+                        <br />
+                        &nbsp;&nbsp;verifiedReach: <span className="text-amber-400">"500k+"</span>,
+                        <br />
+                        &nbsp;&nbsp;sponsorships: [
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-purple-400">"SaaS_AI"</span>, <span className="text-purple-400">"FinTech"</span>
+                        <br />
+                        &nbsp;&nbsp;],
+                        <br />
+                        &nbsp;&nbsp;payoutStatus: <span className="text-emerald-400">"Instant"</span>
+                        <br />
+                        &#125;;
+                      </div>
+                      <div className="mt-4 pt-2 border-t border-white/5 text-[9px] text-neutral-500 flex justify-between items-center">
+                        <span>Node Router:</span>
+                        <span className="text-emerald-400 font-bold animate-pulse">● Live Stream</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Aesthetic Footer Control Hub Banner */}
+                  <div className="border-t border-white/5 pt-3 mt-4 flex justify-between items-center w-full">
+                    <div>
+                      <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold block font-sans">NexVance Creator Operations Hub</span>
+                    </div>
+                    <div className="text-[9px] text-neutral-500 bg-neutral-950 px-2 py-1 rounded border border-white/5 font-mono">
+                      Security: <span className="text-emerald-400">End-To-End</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            {/* 4 HOVER GRID CARDS */}
+            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-emerald-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-3">01</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">High Rate Protection</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">No predatory split traps. We legally secure your CPM baselines and optimize deal setups transparently.</p>
+              </div>
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-emerald-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-3">02</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">Automated Sponsorship Flow</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">Skip cold corporate follow-ups. Recieve incoming verified brand deal routes optimized for your platform size.</p>
+              </div>
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-emerald-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-3">03</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">Creative Discretion</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">Your custom production workflow stays clean. We manage tedious invoices pipelines, briefs, and legal details.</p>
+              </div>
+              <div className="bg-gradient-to-b from-neutral-900/40 to-neutral-950/60 border border-white/5 rounded-2xl p-5 transition-all duration-300 hover:border-emerald-500/30 hover:-translate-y-1 group">
+                <div className="w-9 h-9 rounded-xl bg-emerald-950/50 border border-emerald-800/30 flex items-center justify-center text-emerald-400 text-xs font-mono font-bold mb-3">04</div>
+                <h4 className="text-xs font-bold text-white mb-1.5">Zero Exclusivity Rules</h4>
+                <p className="text-neutral-400 text-[10px] leading-relaxed">Retain complete autonomy. Keep your own direct inbound deals while pulling active premium campaigns from NexVance.</p>
+              </div>
+            </div>
+
+            {/* ROSTER APPLICATION FORM */}
+            <div id="roster-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-8 rounded-2xl backdrop-blur-md mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start shadow-2xl transition-all duration-500 hover:border-emerald-500/20">
+              <div className="md:col-span-5">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Join the <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">Elite Roster</span></h3>
+                <p className="text-neutral-400 text-xs leading-relaxed mb-6">We review applications within 48 hours. If there's a fit with active tech/SaaS campaigns, we'll reach out with immediate deal structures.</p>
+                <div className="space-y-4 pt-4 border-t border-white/5">
+                  <div className="flex items-center space-x-3 bg-black/30 p-3 rounded-xl border border-white/5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,1)]" />
+                    <span className="text-xs text-neutral-300 font-medium">0% Exclusivity Traps — keep your inbound</span>
+                  </div>
+                  <div className="flex items-center space-x-3 bg-black/30 p-3 rounded-xl border border-white/5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,1)]" />
+                    <span className="text-xs text-neutral-300 font-medium">Guaranteed payment escrow system</span>
+                  </div>
                 </div>
               </div>
 
-              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-8 space-y-4 w-full">
+              <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Primary Handle / Channel Link</label>
-                    <input required type="url" name="channelLink" placeholder="e.g., youtube.com/@yourtechbrand" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Primary Platform / Link</label>
+                    <input required type="url" name="platformLink" placeholder="https://youtube.com/c/..." className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-all duration-300" />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Direct Contact Email</label>
-                    <input required type="email" name="creatorEmail" placeholder="e.g., talent@nexvance.com" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Audience Size / Subs</label>
+                    <input required type="text" name="subscriberCount" placeholder="e.g., 150k" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-all duration-300" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Average Dynamic Video Metric Range</label>
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Avg. Views per Video</label>
                     <select 
-                      required
-                      name="average_views" 
+                      required 
+                      name="views_bracket" 
                       value={creatorViews}
                       onChange={(e) => setCreatorViews(e.target.value)}
-                      className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-emerald-500 outline-none"
+                      className="w-full bg-neutral-950 border border-white/10 rounded-lg p-3 text-xs text-neutral-300 focus:border-emerald-500 outline-none appearance-none cursor-pointer"
                     >
-                      <option value="" disabled hidden>Select Baseline Range</option>
-                      <option value="5k_15k">5,000 - 15,000 Avg Views</option>
-                      <option value="15k_50k">15,000 - 50,000 Avg Views</option>
-                      <option value="50k_plus">50,000+ Alpha Metrics Tier</option>
-                      <option value="custom">Custom View Metric Spec</option>
+                      <option value="" disabled>Select average views</option>
+                      <option value="5k-20k">5,000 - 20,000 views</option>
+                      <option value="20k-100k">20,000 - 100,000 views</option>
+                      <option value="100k+">100,000+ views</option>
+                      <option value="custom">Custom Bracket</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Core Content Theme / Niche Focus</label>
-                    <input required type="text" name="niche" placeholder="e.g., Software Engineering, Consumer Tech" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Main Content Tech Niche</label>
+                    <input required type="text" name="niche" placeholder="e.g., Consumer Tech" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-all duration-300" />
                   </div>
                 </div>
 
@@ -360,59 +624,56 @@ export default function App() {
                     <input required type="text" name="customCreatorViews" placeholder="e.g., 45,000 views" className="w-full bg-emerald-950/30 border border-emerald-500/40 rounded-lg p-3 text-xs text-white focus:border-emerald-400 outline-none" />
                   </div>
                 )}
-                
-                <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)]">
-                  Submit Application
-                </button>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Channel name</label>
+                    <input required type="text" name="channelName" placeholder="e.g., TechWithDev" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none" />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Contact email</label>
+                    <input required type="email" name="email" placeholder="you@gmail.com" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none" />
+                  </div>
+                </div>
+                <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)]">Submit Application</button>
               </form>
-
             </div>
-
           </div>
         )}
 
-        {/* GLOBAL FOOTER */}
-        <footer className="border-t border-white/5 pt-16 pb-12 px-4 md:px-[8%] bg-black/20 w-full relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
-            
-            <div className="md:col-span-6 space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 rounded-md bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-xs">
-                  NV
-                </div>
-                <span className="text-md font-bold tracking-tight text-white">NexVance</span>
+        {/* GLOBAL FOOTER SECTION */}
+        <footer className="border-t border-white/5 pt-16 pb-12 px-6 md:px-[8%] bg-black/20 w-full relative z-10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+            <div className="md:col-span-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-6 h-6 rounded-md bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-xs">NV</div>
+                <span className="text-base font-bold text-white tracking-tight">NexVance</span>
               </div>
-              <p className="text-neutral-400 text-xs max-w-sm leading-relaxed">
-                The operations architecture decoupling technical asset creation from operational baseline conversion.
-              </p>
+              <p className="text-neutral-500 text-xs max-w-sm leading-relaxed">Elite performance influencer middleware infrastructure layout for SaaS, deep tech systems, and hardware brands.</p>
             </div>
             
-            <div className="grid grid-cols-2 gap-8 md:col-span-6">
-              <div className="space-y-3">
-                <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Navigation</h5>
-                <ul className="space-y-2 text-xs text-neutral-400">
-                  <li><button onClick={() => setActiveTab('brands')} className="hover:text-white text-left transition-colors">Tech brand portal</button></li>
-                  <li><button onClick={() => setActiveTab('creators')} className="hover:text-white text-left transition-colors">Creator roster</button></li>
-                  <li><button onClick={() => setActiveTab('overview')} className="hover:text-white text-left transition-colors">Overview</button></li>
-                </ul>
-              </div>
-
-              <div className="space-y-3">
-                <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Corporate</h5>
-                <ul className="space-y-2 text-xs text-neutral-400">
-                  <li><button onClick={() => setActiveTab('privacy')} className="hover:text-white text-left transition-colors">Privacy Policy</button></li>
-                  <li><button onClick={() => setActiveTab('terms')} className="hover:text-white text-left transition-colors">Terms of Operations</button></li>
-                </ul>
-              </div>
+            <div className="md:col-span-3">
+              <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">Navigation</h5>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><button onClick={() => setActiveTab('brands')} className="hover:text-white text-left">Tech brand portal</button></li>
+                <li><button onClick={() => setActiveTab('creators')} className="hover:text-white text-left">Creator roster</button></li>
+                <li><button onClick={() => setActiveTab('overview')} className="hover:text-white text-left">Overview</button></li>
+              </ul>
             </div>
 
+            <div className="md:col-span-3">
+              <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">Corporate</h5>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><button onClick={() => setActiveTab('privacy')} className="hover:text-white text-left">Privacy</button></li>
+                <li><button onClick={() => setActiveTab('terms')} className="hover:text-white text-left">Terms</button></li>
+              </ul>
+            </div>
           </div>
 
           <div className="text-center text-[11px] text-neutral-600 border-t border-white/5 pt-8">
-            © 2026 NexVance. Managed operations infrastructure. All rights reserved.
+            © 2026 NexVance. Managed operations infrastructure.
           </div>
         </footer>
-
       </main>
     </div>
   );
