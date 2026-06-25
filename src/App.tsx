@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('overview');
-  
-  // Conditional form states for custom inputs
   const [brandBudget, setBrandBudget] = useState('');
   const [creatorViews, setCreatorViews] = useState('');
 
-  // Smooth scroll to top when changing tabs
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeTab]);
@@ -19,9 +16,8 @@ export default function App() {
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0" />
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-950/20 via-[#030712] to-[#030712] pointer-events-none z-0" />
 
-      {/* TOP NAVIGATION BAR - Ultra Responsive Fix */}
+      {/* TOP NAVIGATION BAR */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-white/5 px-4 sm:px-6 md:px-[8%] py-3 md:py-4 flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between items-center">
-        
         <div className="flex items-center space-x-2 md:space-x-3 cursor-pointer" onClick={() => setActiveTab('overview')}>
           <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-xs md:text-sm shadow-[0_0_15px_rgba(37,99,235,0.4)]">
             NV
@@ -31,7 +27,6 @@ export default function App() {
           </span>
         </div>
 
-        {/* Interactive Nav Tabs - Prevent mobile clipping */}
         <div className="bg-neutral-900/80 p-1 border border-white/5 rounded-full flex space-x-0.5 sm:space-x-1 shadow-lg max-w-[95vw] sm:max-w-none justify-center overflow-x-auto no-scrollbar">
           <button 
             onClick={() => setActiveTab('overview')}
@@ -61,7 +56,6 @@ export default function App() {
         {activeTab === 'overview' && (
           <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%]">
             
-            {/* Hero Top Tagline */}
             <div className="flex justify-center mb-6 md:mb-8 pt-2">
               <div className="inline-flex items-center space-x-2 bg-neutral-900/80 border border-white/5 rounded-full px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-xs text-neutral-400 shadow-md text-center">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 animate-pulse" />
@@ -69,22 +63,20 @@ export default function App() {
               </div>
             </div>
 
-            {/* Main Hero Copy */}
             <div className="text-center max-w-4xl mx-auto mb-12 md:text-center md:mb-16">
               <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.15] md:leading-[1.1] mb-6 md:mb-8">
-                Where <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">tech brands</span> meet <span className="bg-gradient-to-r from-emerald-400 to-emerald-400 bg-clip-text text-transparent">elite creators.</span>
+                Where <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">top brands</span> meet <span className="bg-gradient-to-r from-emerald-400 to-emerald-400 bg-clip-text text-transparent">elite creators.</span>
               </h1>
               <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed mb-8 md:mb-10 px-2">
-                NexVance is the full-service marketing operation behind tomorrow's SaaS, AI, and hardware launches. We source, vet, and deploy creators that actually convert.
+                NexVance is the full-service marketing operation behind tomorrow's viral products, high-growth e-commerce assets, and digital brands. We source, vet, and deploy creators that convert attention into revenue.
               </p>
 
-              {/* Dual Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-sm sm:max-w-none mx-auto px-4">
                 <button 
                   onClick={() => setActiveTab('brands')}
                   className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm md:text-base px-6 md:px-8 py-3.5 md:py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-[0_4px_20px_rgba(37,99,235,0.3)] group"
                 >
-                  <span>I'm a Tech Brand</span>
+                  <span>I'm a Brand</span>
                   <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                 </button>
                 <button 
@@ -97,7 +89,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Brand <-> Creator Middleman Node Asset */}
+            {/* Middleman Router Asset */}
             <div className="w-full max-w-4xl mx-auto rounded-2xl bg-gradient-to-b from-neutral-950 to-[#050505] border border-white/10 p-2 md:p-3 shadow-2xl relative overflow-hidden mb-16 md:mb-24 transition-all duration-500 hover:border-blue-500/20 hover:shadow-[0_10px_40px_rgba(37,99,235,0.1)]">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 bg-blue-500/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none" />
@@ -113,18 +105,14 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Adaptive Middleman Router UI */}
                 <div className="relative w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 px-2 md:px-12 my-6 md:my-4">
-                  
-                  {/* Left node */}
                   <div className="w-full md:w-1/4 flex justify-center md:justify-start z-10">
                     <div className="w-full max-w-[200px] md:max-w-none bg-neutral-950 border border-white/10 rounded-xl p-3 shadow-xl backdrop-blur-md transform hover:scale-105 transition-all text-center md:text-left">
-                      <div className="text-[9px] font-mono uppercase text-blue-400 font-bold mb-0.5">SaaS Brand</div>
-                      <div className="text-xs font-semibold text-white truncate">AI Automations</div>
+                      <div className="text-[9px] font-mono uppercase text-blue-400 font-bold mb-0.5">Growing Brand</div>
+                      <div className="text-xs font-semibold text-white truncate">E-Commerce / Product</div>
                     </div>
                   </div>
 
-                  {/* SVG Center Connection */}
                   <div className="absolute inset-0 w-full h-full pointer-events-none hidden md:block">
                     <svg className="w-full h-full" viewBox="0 0 700 250" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <defs>
@@ -142,7 +130,6 @@ export default function App() {
                     </svg>
                   </div>
 
-                  {/* Center Node Diamond */}
                   <div className="relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20 text-center py-2 md:py-0">
                     <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-tr from-blue-600 to-emerald-500 p-[1px] shadow-[0_0_30px_rgba(37,99,235,0.3)] animate-pulse">
                       <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
@@ -151,11 +138,10 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Right node */}
                   <div className="w-full md:w-1/4 flex justify-center md:justify-end z-10">
                     <div className="w-full max-w-[200px] md:max-w-none bg-neutral-950 border border-white/10 rounded-xl p-3 shadow-xl backdrop-blur-md text-center md:text-right transform hover:scale-105 transition-all">
                       <div className="text-[9px] font-mono uppercase text-emerald-400 font-bold mb-0.5">Elite Creator</div>
-                      <div className="text-xs font-semibold text-white truncate">Tech Reviewer (500k+)</div>
+                      <div className="text-xs font-semibold text-white truncate">Lifestyle & Niche (500k+)</div>
                     </div>
                   </div>
                 </div>
@@ -171,11 +157,11 @@ export default function App() {
               </div>
             </div>
 
-            {/* Performance Metrics Row */}
+            {/* Metrics */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 bg-neutral-900/30 border border-white/5 p-4 md:p-6 rounded-2xl backdrop-blur-md mb-16 md:mb-28 max-w-4xl mx-auto">
               <div className="text-center p-1 sm:p-2 border-r border-white/5">
                 <div className="text-xl sm:text-2xl md:text-4xl font-extrabold text-blue-400">84%</div>
-                <div className="text-[8px] sm:text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Audience Retention</div>
+                <div className="text-[8px] sm:text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Audience Engagement</div>
               </div>
               <div className="text-center p-1 sm:p-2 md:border-r border-white/5 lg:border-r">
                 <div className="text-xl sm:text-2xl md:text-4xl font-extrabold text-white">50+</div>
@@ -199,18 +185,18 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {/* Tech Brand Card */}
+                {/* Brand Card */}
                 <div className="bg-gradient-to-b from-neutral-900/60 to-neutral-950/80 border border-white/5 rounded-2xl p-5 md:p-6 flex flex-col h-full transform transition-all duration-500 hover:border-blue-500/30 group cursor-pointer" onClick={() => setActiveTab('brands')}>
                   <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-5 border border-white/5 overflow-hidden shadow-inner relative">
                     <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/5 transition-colors duration-500 z-10" />
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Brand Performance Dashboard" className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Brand Performance Dashboard" className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                   </div>
-                  <span className="text-[10px] uppercase tracking-wider text-blue-400 font-bold mb-1.5 block tracking-widest">For Tech Brands</span>
-                  <h4 className="text-lg md:text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">Launch campaigns that actually move users.</h4>
-                  <p className="text-neutral-400 text-xs mb-4 leading-relaxed">Skip the cold-DM grind. Get matched with creators whose audience already wants what you ship.</p>
+                  <span className="text-[10px] uppercase tracking-wider text-blue-400 font-bold mb-1.5 block tracking-widest">For Brands</span>
+                  <h4 className="text-lg md:text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">Launch campaigns that scale conversion metrics.</h4>
+                  <p className="text-neutral-400 text-xs mb-4 leading-relaxed">Skip the cold-DM grind. Get matched with native creators whose audiences already buy your products.</p>
                   <ul className="space-y-2 text-xs text-neutral-300 mb-6 mt-auto">
                     <li className="flex items-center space-x-2"><span className="text-blue-400 font-bold">✓</span> <span>Vetted creator roster</span></li>
-                    <li className="flex items-center space-x-2"><span className="text-blue-400 font-bold">✓</span> <span>Brief & QA included</span></li>
+                    <li className="flex items-center space-x-2"><span className="text-blue-400 font-bold">✓</span> <span>Briefing & QA included</span></li>
                     <li className="flex items-center space-x-2"><span className="text-blue-400 font-bold">✓</span> <span>ROI-tracked placements</span></li>
                   </ul>
                   <div className="text-xs text-blue-400 font-semibold flex items-center space-x-1 group-hover:translate-x-1 transition-transform duration-300">
@@ -222,11 +208,11 @@ export default function App() {
                 <div className="bg-gradient-to-b from-neutral-900/60 to-neutral-950/80 border border-white/5 rounded-2xl p-5 md:p-6 flex flex-col h-full transform transition-all duration-500 hover:border-emerald-500/30 group cursor-pointer" onClick={() => setActiveTab('creators')}>
                   <div className="w-full aspect-[4/3] bg-neutral-950 rounded-xl mb-5 border border-white/5 overflow-hidden shadow-inner relative">
                     <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/5 transition-colors duration-500 z-10" />
-                    <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=80" alt="Elite Tech Creator Setup" className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Content Setup" className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                   </div>
                   <span className="text-[10px] uppercase tracking-wider text-emerald-400 font-bold mb-1.5 block tracking-widest">For Creators</span>
-                  <h4 className="text-lg md:text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors duration-300">Focus on content. We bring the brand deals.</h4>
-                  <p className="text-neutral-400 text-xs mb-4 leading-relaxed">No upfront fees, no exclusivity traps. We only earn when we land you a deal — and we guard your rate.</p>
+                  <h4 className="text-lg md:text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors duration-300">Focus on content. We bring premium deals.</h4>
+                  <p className="text-neutral-400 text-xs mb-4 leading-relaxed">No upfront fees, no exclusive traps. We only earn when we land you a secure deal — protecting your rates.</p>
                   <ul className="space-y-2 text-xs text-neutral-300 mb-6 mt-auto">
                     <li className="flex items-center space-x-2"><span className="text-emerald-400 font-bold">✓</span> <span>Inbound deal flow</span></li>
                     <li className="flex items-center space-x-2"><span className="text-emerald-400 font-bold">✓</span> <span>Rate negotiation</span></li>
@@ -241,39 +227,36 @@ export default function App() {
           </div>
         )}
 
-        {/* ==================== 2. FOR TECH BRANDS LANDING & STRATEGY FORM ==================== */}
+        {/* ==================== 2. FOR BRANDS LANDING & STRATEGY FORM ==================== */}
         {activeTab === 'brands' && (
           <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%]">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 pt-2">
-              <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(59,130,246,0.2)]">⚡ For Tech Brands</span>
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-5">Scale signups with creators who already own your audience.</h1>
-              <p className="text-neutral-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-6 md:mb-8">High-intent users, structured video placements, and managed campaigns from kick-off to post-mortem.</p>
+              <span className="bg-blue-950/60 border border-blue-800/40 text-[10px] font-bold text-blue-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(59,130,246,0.2)]">⚡ For Brands</span>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-5">Scale your customer base with creators who capture attention.</h1>
+              <p className="text-neutral-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-6 md:mb-8">High-intent users, structural conversion placements, and optimized campaigns from kick-off to full delivery metrics.</p>
               <a href="#brand-form" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)] text-xs sm:text-sm inline-block transform hover:-translate-y-0.5">Start Campaign Strategy →</a>
             </div>
 
-            {/* ISOMETRIC GLOWING DASHBOARD */}
+            {/* DASHBOARD MODULE */}
             <div className="w-full max-w-4xl mx-auto min-h-[340px] sm:min-h-[420px] md:min-h-[460px] relative flex items-center justify-center mb-16 md:mb-24 group px-2" style={{ perspective: '1000px' }}>
               <div className="absolute w-[280px] sm:w-[500px] h-[250px] sm:h-[350px] bg-blue-600/10 rounded-full blur-[80px] sm:blur-[140px] opacity-80 pointer-events-none" />
-              
               <div 
                 className="relative w-full max-w-2xl aspect-[1.2/1] sm:aspect-[1.4/1] transition-all duration-700 flex items-center justify-center bg-gradient-to-tr from-blue-950/40 to-neutral-900/20 border border-white/5 rounded-2xl sm:rounded-3xl p-3 sm:p-6 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.8)] md:group-hover:-translate-y-4"
                 style={{ transform: typeof window !== 'undefined' && window.innerWidth < 768 ? 'none' : 'rotateX(45deg) rotateZ(-25deg) skewX(5deg)' }}
               >
                 <div className="w-full h-full opacity-10 sm:opacity-20 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-[size:16px_16px] rounded-2xl absolute inset-0 p-6 pointer-events-none" />
-                
                 <div className="w-full h-full bg-neutral-950/90 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between relative z-10 overflow-hidden">
-                  
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 h-full items-stretch my-auto">
                     <div className="md:col-span-5 bg-black/60 rounded-xl p-2.5 sm:p-3 border border-white/5 text-[9px] sm:text-[10px] text-neutral-400 flex flex-col justify-between leading-normal font-mono">
                       <div>
-                        <div className="text-neutral-500 mb-1.5 font-sans text-[8px] sm:text-[9px] uppercase tracking-wider font-bold">SDK Snippet Layout</div>
-                        <span className="text-blue-400">import</span> &#123; NVCore &#125; <span className="text-blue-400">from</span> <span className="text-emerald-400">'@nv/sdk'</span>;
+                        <div className="text-neutral-500 mb-1.5 font-sans text-[8px] sm:text-[9px] uppercase tracking-wider font-bold">Campaign Snippet Layout</div>
+                        <span className="text-blue-400">import</span> &#123; NVRouter &#125; <span className="text-blue-400">from</span> <span className="text-emerald-400">'@nv/core'</span>;
                         <br />
-                        <span className="text-blue-400">const</span> track = <span className="text-blue-400">new</span> NVCore(&#123;
+                        <span className="text-blue-400">const</span> track = <span className="text-blue-400">new</span> NVRouter(&#123;
                         <br />
-                        &nbsp;&nbsp;brandId: <span className="text-amber-400">"saas_ai"</span>
+                        &nbsp;&nbsp;brandType: <span className="text-amber-400">"ecommerce_general"</span>
                         <br />
-                        &#125());
+                        &#125;);
                       </div>
                       <div className="mt-2 pt-1.5 border-t border-white/5 text-[8px] text-neutral-500 font-sans">
                         Terminal: <span className="text-emerald-400">Active.</span>
@@ -288,7 +271,6 @@ export default function App() {
                         </div>
                         <div className="text-[10px] sm:text-xs font-bold text-emerald-400">+314.8%</div>
                       </div>
-
                       <div className="h-16 sm:h-20 w-full flex items-end space-x-1 sm:space-x-1.5 pt-2 pb-1 px-0.5 border-b border-white/5">
                         <div className="bg-neutral-800 w-full h-[20%] rounded-t" />
                         <div className="bg-neutral-800 w-full h-[35%] rounded-t" />
@@ -299,14 +281,13 @@ export default function App() {
                           <div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-400" />
                         </div>
                       </div>
-
                       <div className="grid grid-cols-3 gap-1.5 mt-2.5 text-center font-sans">
                         <div className="bg-black/40 p-1 rounded border border-white/5">
                           <div className="text-[7px] sm:text-[8px] text-neutral-500 uppercase">Live Clicks</div>
                           <div className="text-[9px] sm:text-[10px] font-bold text-white">41.2k</div>
                         </div>
                         <div className="bg-black/40 p-1 rounded border border-white/5">
-                          <div className="text-[7px] sm:text-[8px] text-neutral-500 uppercase">Sign-ups</div>
+                          <div className="text-[7px] sm:text-[8px] text-neutral-500 uppercase">Purchases</div>
                           <div className="text-[9px] sm:text-[10px] font-bold text-blue-400">8,914</div>
                         </div>
                         <div className="bg-black/40 p-1 rounded border border-white/5">
@@ -316,24 +297,22 @@ export default function App() {
                       </div>
                     </div>
                   </div>
-
                   <div className="border-t border-white/5 pt-2 mt-3 flex justify-between items-center w-full text-[8px] sm:text-[9px]">
                     <span className="uppercase tracking-widest text-blue-400 font-bold font-sans">Custom Brand Module</span>
                     <span className="text-neutral-500 font-mono bg-neutral-950 px-1.5 py-0.5 rounded border border-white/5">Status: Encr.</span>
                   </div>
-
                 </div>
               </div>
             </div>
 
-            {/* 4 GRID CARDS - Upgraded Premium Aesthetic Vibe */}
+            {/* HOVER GRID CARDS CONTAINER */}
             <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-20">
               <div className="group relative bg-[#090d16]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-blue-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">01</div>
                   <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Campaign Routing</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">We sync your parameters into tailored influencer video outlines with absolute compliance layouts.</p>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">We translate your operational requirements into tailored influencer outlines matching active consumer demographics.</p>
                 </div>
               </div>
 
@@ -342,7 +321,7 @@ export default function App() {
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">02</div>
                   <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Performance Tracking</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Track integration channels with clean conversion checks, reach analytics metrics, and live dashboards.</p>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Track ongoing integrations via real-time conversion checks, click retention models, and simple logs.</p>
                 </div>
               </div>
 
@@ -351,7 +330,7 @@ export default function App() {
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">03</div>
                   <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Infrastructure Guard</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Secure escrow management setups, legal sheets protection, and transparent operational pipeline logs.</p>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Secured upfront escrow systems, verified digital legal contracts, and clean transaction protections.</p>
                 </div>
               </div>
 
@@ -359,8 +338,8 @@ export default function App() {
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-blue-950/40 border border-blue-500/20 text-blue-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.4)]">04</div>
-                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">ROI-Optimized Matches</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Skip generalized pitches. Route directly to creators whose historic click retention data ensures raw conversion value.</p>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">Data-Driven Matches</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Skip generalized assumptions. Deploy structural campaigns directly across creators backed by historic reach data.</p>
                 </div>
               </div>
             </div>
@@ -369,15 +348,15 @@ export default function App() {
             <div id="brand-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-5 sm:p-8 rounded-2xl backdrop-blur-md mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start shadow-2xl">
               <div className="md:col-span-5">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 tracking-tight">Work with <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">NexVance</span></h3>
-                <p className="text-neutral-400 text-xs leading-relaxed mb-4">Partner with a dedicated marketing manager to launch your next tech, SaaS, or hardware campaign seamlessly.</p>
+                <p className="text-neutral-400 text-xs leading-relaxed mb-4">Partner with a dedicated marketing pipeline to optimize and execute your product, scale or physical brand campaign seamlessly.</p>
                 <div className="space-y-3 pt-3 border-t border-white/5 hidden sm:block">
                   <div className="flex items-center space-x-3 bg-black/30 p-2.5 rounded-xl border border-white/5">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,1)]" />
-                    <span className="text-[11px] text-neutral-300 font-medium">Guaranteed Video Quality Check</span>
+                    <span className="text-[11px] text-neutral-300 font-medium">Guaranteed Asset Content Quality</span>
                   </div>
                   <div className="flex items-center space-x-3 bg-black/30 p-2.5 rounded-xl border border-white/5">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,1)]" />
-                    <span className="text-[11px] text-neutral-300 font-medium">Full CTR & conversion analytics</span>
+                    <span className="text-[11px] text-neutral-300 font-medium">Full reach & conversion analytics</span>
                   </div>
                 </div>
               </div>
@@ -385,7 +364,7 @@ export default function App() {
               <form action="https://formspree.io/f/xlgkywng" method="POST" className="md:col-span-7 space-y-4 w-full text-left">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company / SaaS name</label>
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Company / Brand name</label>
                     <input required type="text" name="companyName" placeholder="Your brand name" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none transition-all duration-300" />
                   </div>
                   <div>
@@ -426,7 +405,7 @@ export default function App() {
 
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Campaign goals & Target Audience</label>
-                  <textarea name="message" rows={4} placeholder="Tell us about your product, KPI requirements..." className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none resize-none" />
+                  <textarea name="message" rows={4} placeholder="Tell us about your product niche, customer avatar requirements..." className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-blue-500 outline-none resize-none" />
                 </div>
                 <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all shadow-[0_4px_15px_rgba(37,99,235,0.3)]">Send Strategy Request</button>
               </form>
@@ -440,22 +419,19 @@ export default function App() {
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 pt-2">
               <span className="bg-emerald-950/60 border border-emerald-800/40 text-[10px] font-bold text-emerald-300 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-[0_0_15px_rgba(16,185,129,0.2)]">👥 For Creators</span>
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-5">Focus on content. We'll bring the brand deals.</h1>
-              <p className="text-neutral-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-6 md:mb-8">Stop wasting hours on cold corporate emails. We protect your creative freedom and lock in high-paying sponsorships.</p>
+              <p className="text-neutral-400 text-sm md:text-lg max-w-xl mx-auto leading-relaxed mb-6 md:mb-8">Stop wasting hours on cold corporate templates. We guard your creative freedom and coordinate high-conversion structural sponsorships.</p>
               <a href="#roster-form" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-3 rounded-xl transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)] text-xs sm:text-sm inline-block transform hover:-translate-y-0.5">Apply to the Roster →</a>
             </div>
 
-            {/* PREMIUM ISOMETRIC INTERACTIVE VISUAL FOR CREATORS */}
+            {/* CREATOR VISUAL */}
             <div className="w-full max-w-4xl mx-auto min-h-[340px] sm:min-h-[420px] md:min-h-[460px] relative flex items-center justify-center mb-16 md:mb-24 group px-2" style={{ perspective: '1000px' }}>
               <div className="absolute w-[280px] sm:w-[500px] h-[250px] sm:h-[350px] bg-emerald-600/10 rounded-full blur-[80px] sm:blur-[140px] opacity-80 pointer-events-none" />
-              
               <div 
                 className="relative w-full max-w-2xl aspect-[1.2/1] sm:aspect-[1.4/1] transition-all duration-700 flex items-center justify-center bg-gradient-to-tr from-emerald-950/30 to-neutral-900/10 rounded-2xl sm:rounded-3xl p-3 sm:p-6 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.85)] md:group-hover:-translate-y-4"
                 style={{ transform: typeof window !== 'undefined' && window.innerWidth < 768 ? 'none' : 'rotateX(38deg) rotateZ(-18deg) skewX(2deg)' }}
               >
                 <div className="w-full h-full opacity-10 bg-[linear-gradient(to_right,#10b881_1px,transparent_1px),linear-gradient(to_bottom,#10b881_1px,transparent_1px)] bg-[size:18px_18px] rounded-2xl absolute inset-0 p-6 pointer-events-none" />
-                
                 <div className="w-full h-full bg-neutral-950/95 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between relative z-10 overflow-hidden">
-                  
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 h-full items-stretch my-auto">
                     <div className="md:col-span-7 bg-neutral-900/40 rounded-xl p-3 border border-white/5 flex flex-col justify-between backdrop-blur-sm">
                       <div className="flex justify-between items-center mb-2">
@@ -465,7 +441,6 @@ export default function App() {
                         </div>
                         <span className="text-[8px] sm:text-[9px] font-mono uppercase bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/30 font-bold">Secured</span>
                       </div>
-
                       <div className="h-16 sm:h-24 w-full flex items-end space-x-1 pt-4 pb-1 px-0.5 border-b border-white/5 relative">
                         <div className="absolute top-1 left-1 flex items-center space-x-1">
                           <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
@@ -480,7 +455,6 @@ export default function App() {
                           <div className="absolute top-0 left-0 right-0 h-0.5 bg-teal-300" />
                         </div>
                       </div>
-
                       <div className="grid grid-cols-3 gap-1.5 mt-2.5 text-center font-sans">
                         <div className="bg-black/50 p-1 rounded border border-white/5">
                           <div className="text-[7px] sm:text-[8px] text-neutral-500 uppercase font-bold">Brand Deals</div>
@@ -502,7 +476,7 @@ export default function App() {
                         <div className="text-neutral-500 mb-1.5 font-sans text-[8px] sm:text-[9px] uppercase tracking-wider font-bold">Roster Manifest</div>
                         <span className="text-emerald-400">const</span> profile = &#123;
                         <br />
-                        &nbsp;&nbsp;tier: <span className="text-teal-400">"Elite_Tech"</span>,
+                        &nbsp;&nbsp;tier: <span className="text-teal-400">"Elite_Roster"</span>,
                         <br />
                         &nbsp;&nbsp;reach: <span className="text-amber-400">"500k+"</span>
                         <br />
@@ -514,24 +488,22 @@ export default function App() {
                       </div>
                     </div>
                   </div>
-
                   <div className="border-t border-white/5 pt-2 mt-3 flex justify-between items-center w-full text-[8px] sm:text-[9px]">
                     <span className="uppercase tracking-widest text-emerald-400 font-bold font-sans">NV Creator Operations Hub</span>
                     <span className="text-neutral-500 font-mono bg-neutral-950 px-1.5 py-0.5 rounded border border-white/5">End-To-End</span>
                   </div>
-
                 </div>
               </div>
             </div>
 
-            {/* 4 GRID CARDS - Upgraded Premium Aesthetic Vibe (Creators) */}
+            {/* CREATORS HOVER GRID CARDS */}
             <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16 md:mb-20">
               <div className="group relative bg-[#050b0a]/80 border border-white/5 rounded-2xl p-5 transition-all duration-500 hover:border-emerald-500/40 hover:-translate-y-2 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">01</div>
                   <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">High Rate Protection</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">No predatory split traps. We legally secure your CPM baselines and optimize deal setups transparently.</p>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">No predatory commission traps. We legally secure your CPM metrics baselines and optimize incoming distributions.</p>
                 </div>
               </div>
 
@@ -539,8 +511,8 @@ export default function App() {
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">02</div>
-                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Automated Sponsorship Flow</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Skip cold corporate follow-ups. Recieve incoming verified brand deal routes optimized for your platform size.</p>
+                  <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Automated Deal Flow</h4>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Skip outdated manual coordination setups. Receive verified verified campaigns tracking direct target offers.</p>
                 </div>
               </div>
 
@@ -549,7 +521,7 @@ export default function App() {
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">03</div>
                   <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Creative Discretion</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Your custom production workflow stays clean. We manage tedious invoices pipelines, briefs, and legal details.</p>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Your custom workflow styling stays clean. We manage structural briefs, logistical documentation, and invoice checks.</p>
                 </div>
               </div>
 
@@ -558,7 +530,7 @@ export default function App() {
                 <div>
                   <div className="w-9 h-9 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]">04</div>
                   <h4 className="text-sm font-bold text-white mb-2 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">Zero Exclusivity Rules</h4>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Retain complete autonomy. Keep your own direct inbound deals while pulling active premium campaigns from NexVance.</p>
+                  <p className="text-neutral-400 text-[11px] leading-relaxed font-normal">Retain total structural control. Secure separate external inbound deals while routing active premium runs from NexVance.</p>
                 </div>
               </div>
             </div>
@@ -567,15 +539,15 @@ export default function App() {
             <div id="roster-form" className="max-w-4xl mx-auto bg-gradient-to-b from-neutral-900/50 to-neutral-950/90 border border-white/5 p-5 sm:p-8 rounded-2xl backdrop-blur-md mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start shadow-2xl text-left">
               <div className="md:col-span-5">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 tracking-tight">Join the <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">Elite Roster</span></h3>
-                <p className="text-neutral-400 text-xs leading-relaxed mb-4">We review applications within 48 hours. If there's a fit with active tech/SaaS campaigns, we'll reach out with immediate deal structures.</p>
+                <p className="text-neutral-400 text-xs leading-relaxed mb-4">We review inbound structures within 48 hours. If your content profile aligns with active brand placements, we match details immediately.</p>
                 <div className="space-y-3 pt-3 border-t border-white/5 hidden sm:block">
                   <div className="flex items-center space-x-3 bg-black/30 p-2.5 rounded-xl border border-white/5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,1)]" />
-                    <span className="text-[11px] text-neutral-300 font-medium">0% Exclusivity Traps — keep your inbound</span>
+                    <span className="text-[11px] text-neutral-300 font-medium">0% Exclusivity Rules — retain autonomy</span>
                   </div>
                   <div className="flex items-center space-x-3 bg-black/30 p-2.5 rounded-xl border border-white/5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,1)]" />
-                    <span className="text-[11px] text-neutral-300 font-medium">Guaranteed payment escrow system</span>
+                    <span className="text-[11px] text-neutral-300 font-medium">Guaranteed milestone escrow security</span>
                   </div>
                 </div>
               </div>
@@ -594,7 +566,7 @@ export default function App() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Avg. Views per Video</label>
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Avg. Views per Content Unit</label>
                     <select 
                       required 
                       name="views_bracket" 
@@ -610,8 +582,8 @@ export default function App() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Main Content Tech Niche</label>
-                    <input required type="text" name="niche" placeholder="e.g., Consumer Tech" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-all duration-300" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Main Content Niche</label>
+                    <input required type="text" name="niche" placeholder="e.g., Lifestyle, Review, Business" className="w-full bg-black/60 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none transition-all duration-300" />
                   </div>
                 </div>
 
@@ -624,8 +596,8 @@ export default function App() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Channel name</label>
-                    <input required type="text" name="channelName" placeholder="e.g., TechWithDev" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Channel / Profile name</label>
+                    <input required type="text" name="channelName" placeholder="e.g., CreatorDev" className="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-xs text-white focus:border-emerald-500 outline-none" />
                   </div>
                   <div>
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Contact email</label>
@@ -638,7 +610,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ==================== 4. DYNAMIC PRIVACY POLICY VIEW (PLAIN ENGLISH UPGRADE) ==================== */}
+        {/* ==================== 4. DYNAMIC PRIVACY POLICY VIEW ==================== */}
         {activeTab === 'privacy' && (
           <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%] max-w-4xl mx-auto text-left mb-16 md:mb-24">
             <div className="mb-8 border-b border-white/5 pb-5">
@@ -652,27 +624,19 @@ export default function App() {
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 1. What Data We Collect
                 </h3>
-                <p>We only collect basic info needed to run and track your campaigns. This includes your name, company website, work email, and public social media metrics (like views and subscriber counts). We never ask for or save your private passwords or sensitive bank details.</p>
+                <p>We only collect basic info needed to process your inquiries and run metrics. This includes your name, company website, work email, and public social media stats. We never ask for private dashboard credentials or passwords.</p>
               </div>
-
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 2. How We Use Your Info
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 2. How We Use Info
                 </h3>
-                <p>Your data is strictly used to match tech brands with the right creators and track campaign clicks. This helps us show accurate data dashboards to brands and ensure creators get paid fairly and on time based on actual results.</p>
-              </div>
-
-              <div>
-                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 3. Your Data Security
-                </h3>
-                <p>Your privacy is our priority. We store all data securely on protected servers. We do not rent, sell, or share your channel metrics or company information with third-party advertising tracking networks without your clear permission.</p>
+                <p>Your data is used to match active brands with structural creator rosters, manage campaign analytics layouts, and process secure milestone escrow flows transparently.</p>
               </div>
             </div>
           </div>
         )}
 
-        {/* ==================== 5. DYNAMIC TERMS OF SERVICE VIEW (PLAIN ENGLISH UPGRADE) ==================== */}
+        {/* ==================== 5. DYNAMIC TERMS OF SERVICE VIEW ==================== */}
         {activeTab === 'terms' && (
           <div className="animate-fadeIn px-4 sm:px-6 md:px-[8%] max-w-4xl mx-auto text-left mb-16 md:mb-24">
             <div className="mb-8 border-b border-white/5 pb-5">
@@ -686,21 +650,13 @@ export default function App() {
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 1. Creator Freedom (No Exclusivity)
                 </h3>
-                <p>NexVance is an independent platform that connects brands and creators. Creators have 100% control over their content. We do not lock you into exclusive contracts. You are entirely free to take external deals or work with other networks anytime.</p>
+                <p>NexVance operates as an independent pipeline connecting brands and creators. Roster accounts retain full rights and absolute autonomy to lock external deal metrics at any point.</p>
               </div>
-
               <div>
                 <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 2. Safe Payout Guarantee
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 2. Milestone Escrows
                 </h3>
-                <p>To protect everyone, brands secure the campaign budget with us before a creator starts working on a video. Once the video is uploaded and verified according to the brand brief, the payment is released immediately to prevent delays.</p>
-              </div>
-
-              <div>
-                <h3 className="text-white font-bold mb-2 text-sm sm:text-base flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> 3. Fair Play Rules
-                </h3>
-                <p>Brands agree to provide realistic guidelines, and creators agree to provide authentic content and real audience views. NexVance reserves the right to suspend any account found using fake traffic bots or providing completely false metrics.</p>
+                <p>Campaign budgets are secured upfront by verified entities to avoid distribution errors. Verified integration deliverables trigger sudden, secure payout updates instantly.</p>
               </div>
             </div>
           </div>
@@ -714,13 +670,13 @@ export default function App() {
                 <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-[10px]">NV</div>
                 <span className="text-sm font-bold text-white tracking-tight">NexVance</span>
               </div>
-              <p className="text-neutral-500 text-xs max-w-sm leading-relaxed">Elite performance influencer middleware infrastructure layout for SaaS, deep tech systems, and hardware brands.</p>
+              <p className="text-neutral-500 text-xs max-w-sm leading-relaxed">Elite performance influencer operational infrastructure matching active brands with scalable creative rosters global distribution.</p>
             </div>
             
             <div className="md:col-span-3 col-span-1">
               <h5 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-2">Navigation</h5>
               <ul className="space-y-1.5 text-xs text-neutral-400">
-                <li><button onClick={() => setActiveTab('brands')} className="hover:text-white text-left">Tech brand portal</button></li>
+                <li><button onClick={() => setActiveTab('brands')} className="hover:text-white text-left">Brand portal</button></li>
                 <li><button onClick={() => setActiveTab('creators')} className="hover:text-white text-left">Creator roster</button></li>
                 <li><button onClick={() => setActiveTab('overview')} className="hover:text-white text-left">Overview</button></li>
               </ul>
