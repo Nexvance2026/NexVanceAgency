@@ -19,9 +19,7 @@ export default function App() {
       {/* TOP NAVIGATION BAR */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-white/5 px-4 sm:px-6 md:px-[8%] py-3 md:py-4 flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between items-center">
         <div className="flex items-center space-x-2 md:space-x-3 cursor-pointer" onClick={() => setActiveTab('overview')}>
-          <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-xs md:text-sm shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-            NV
-          </div>
+          <img src="/logo.png" alt="NexVance logo" className="w-7 h-7 md:w-8 md:h-8 rounded-lg object-contain shadow-[0_0_15px_rgba(37,99,235,0.3)]" />
           <span className="text-lg md:text-xl font-bold tracking-tight bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
             NexVance
           </span>
@@ -128,10 +126,8 @@ export default function App() {
                   </div>
 
                   <div className="relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20 text-center py-2 md:py-0">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-tr from-blue-600 to-emerald-500 p-[1px] shadow-[0_0_30px_rgba(37,99,235,0.3)] animate-pulse">
-                      <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
-                        <span className="text-[10px] md:text-xs font-mono font-bold text-white tracking-widest">NV</span>
-                      </div>
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black flex items-center justify-center p-2 shadow-[0_0_30px_rgba(37,99,235,0.3)] animate-pulse">
+                      <img src="/logo.png" alt="NexVance" className="w-full h-full object-contain" />
                     </div>
                   </div>
 
@@ -549,10 +545,10 @@ export default function App() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 mb-8">
             <div className="md:col-span-6">
               <div className="flex items-center space-x-2.5 mb-3">
-                <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-[10px]">NV</div>
+                <img src="/logo.png" alt="NexVance logo" className="w-5 h-5 rounded-md object-contain" />
                 <span className="text-sm font-bold text-white tracking-tight">NexVance</span>
               </div>
-              <p className="text-neutral-500 text-xs max-w-sm leading-relaxed">Elite performance influencer operational infrastructure matching active brands with scalable creative rosters global distribution.</p>
+              <p className="text-neutral-500 text-xs max-w-sm leading-relaxed">Connecting global brands with premium creators on a transparent, performance-only model.</p>
             </div>
             
             <div className="md:col-span-3 col-span-1">
