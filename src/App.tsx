@@ -154,23 +154,34 @@ export default function App() {
               </div>
             </div>
 
-            {/* Trust badges - no fabricated stats */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 bg-neutral-900/30 border border-white/5 p-4 md:p-6 rounded-2xl backdrop-blur-md mb-16 md:mb-28 max-w-4xl mx-auto">
-              <div className="flex items-center gap-2 bg-black/30 border border-white/5 rounded-full px-4 py-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span className="text-[11px] sm:text-xs text-neutral-300 font-medium">Founder-led, direct point of contact</span>
+            {/* Why NexVance - problem/solution narrative */}
+            <div className="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
+              <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold block mb-4">Why NexVance Exists</span>
+              <p className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed font-medium mb-5">
+                Most brands and premium creators fail to build long-term, high-converting partnerships.
+              </p>
+              <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
+                Brands waste thousands on upfront agency retainers or sponsorships that don't convert — while creators lose hours managing back-and-forth emails instead of focusing on their content. At NexVance, we eliminate the friction entirely, bridging the gap between top-tier global brands and premium creators on a transparent, pure-performance model with zero hidden fees.
+              </p>
+            </div>
+
+            {/* Trust badges - no fabricated stats, premium card style */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-16 md:mb-28 max-w-4xl mx-auto">
+              <div className="flex flex-col items-center text-center gap-3 bg-gradient-to-b from-neutral-900/70 to-neutral-950/70 border border-white/10 rounded-2xl p-4 md:p-5 transition-all duration-300 hover:border-emerald-500/30 hover:-translate-y-1">
+                <div className="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-sm font-bold shadow-[0_0_15px_rgba(16,185,129,0.15)]">✓</div>
+                <span className="text-[11px] md:text-xs text-neutral-300 font-medium leading-snug">Founder-led, direct point of contact</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/30 border border-white/5 rounded-full px-4 py-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <span className="text-[11px] sm:text-xs text-neutral-300 font-medium">Zero upfront cost, ever</span>
+              <div className="flex flex-col items-center text-center gap-3 bg-gradient-to-b from-neutral-900/70 to-neutral-950/70 border border-white/10 rounded-2xl p-4 md:p-5 transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1">
+                <div className="w-9 h-9 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-sm font-bold shadow-[0_0_15px_rgba(37,99,235,0.15)]">✓</div>
+                <span className="text-[11px] md:text-xs text-neutral-300 font-medium leading-snug">Zero upfront cost, ever</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/30 border border-white/5 rounded-full px-4 py-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span className="text-[11px] sm:text-xs text-neutral-300 font-medium">Signed contract before any work begins</span>
+              <div className="flex flex-col items-center text-center gap-3 bg-gradient-to-b from-neutral-900/70 to-neutral-950/70 border border-white/10 rounded-2xl p-4 md:p-5 transition-all duration-300 hover:border-emerald-500/30 hover:-translate-y-1">
+                <div className="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-sm font-bold shadow-[0_0_15px_rgba(16,185,129,0.15)]">✓</div>
+                <span className="text-[11px] md:text-xs text-neutral-300 font-medium leading-snug">Signed contract before any work begins</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/30 border border-white/5 rounded-full px-4 py-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <span className="text-[11px] sm:text-xs text-neutral-300 font-medium">Pure performance model</span>
+              <div className="flex flex-col items-center text-center gap-3 bg-gradient-to-b from-neutral-900/70 to-neutral-950/70 border border-white/10 rounded-2xl p-4 md:p-5 transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1">
+                <div className="w-9 h-9 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-sm font-bold shadow-[0_0_15px_rgba(37,99,235,0.15)]">✓</div>
+                <span className="text-[11px] md:text-xs text-neutral-300 font-medium leading-snug">Pure performance model</span>
               </div>
             </div>
 
@@ -238,7 +249,7 @@ export default function App() {
             <div className="w-full max-w-2xl mx-auto mb-16 md:mb-24 group">
               <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
                 <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-500 z-10" />
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="Brand team reviewing campaign" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80" alt="Brand team reviewing campaign strategy" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
               </div>
             </div>
 
@@ -363,7 +374,7 @@ export default function App() {
             <div className="w-full max-w-2xl mx-auto mb-16 md:mb-24 group">
               <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
                 <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/10 transition-colors duration-500 z-10" />
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80" alt="Creator recording content" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                <img src="https://images.unsplash.com/photo-1630797160666-38e8c5ba44c1?auto=format&fit=crop&w=1200&q=80" alt="Creator recording content" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
               </div>
             </div>
 
