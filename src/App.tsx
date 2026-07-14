@@ -71,10 +71,10 @@ export default function App() {
               ONBOARDING FOUNDING CREATORS &amp; BRANDS
             </div>
             <h1 className="font-display font-semibold text-4xl md:text-5xl leading-[1.1] mb-5">
-              Where <span className="text-[#E3A64A]">creators</span> meet <span className="text-[#3FA9A0]">brands</span> — on paper, before anything else.
+              Where <span className="text-[#E3A64A]">creators</span> meet <span className="text-[#3FA9A0]">brands</span>  on paper, before anything else.
             </h1>
             <p className="text-white/60 max-w-[480px] mb-8 leading-relaxed">
-              NexVance is a performance-based sponsorship agency. We pitch, negotiate, and contract every deal between creators and brands across the US and UK — zero upfront cost, ever.
+              NexVance is a performance-based sponsorship agency. We pitch, negotiate, and contract every deal between creators and brands across the US and UK  zero upfront cost, ever.
             </p>
             <div className="flex gap-3.5 flex-wrap">
               <a href="#creators" className="bg-[#E3A64A] text-[#1a1408] px-6 py-3.5 rounded-lg font-semibold text-sm hover:bg-[#eeb562] hover:-translate-y-0.5 transition-all">
@@ -119,7 +119,7 @@ export default function App() {
           <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] block mb-3.5">WHY NEXVANCE EXISTS</span>
           <p className="font-display font-medium text-xl md:text-2xl mb-4">Most brands and creators never build partnerships that last.</p>
           <p className="text-white/60 leading-relaxed">
-            Brands waste money on retainers and sponsorships that don't convert. Creators lose hours on back-and-forth emails instead of making content. NexVance removes the friction — one contract, one point of contact, and a fee that only applies once a deal actually pays out.
+            Brands waste money on retainers and sponsorships that don't convert. Creators lose hours on back-and-forth emails instead of making content. NexVance removes the friction  one contract, one point of contact, and a fee that only applies once a deal actually pays out.
           </p>
         </div>
       </section>
@@ -134,9 +134,9 @@ export default function App() {
           {[
             { icon: '$0', title: 'Zero upfront cost', body: "Creators never pay to join or to be pitched. Our fee comes out of a deal only after it's paid.", color: 'amber' },
             { icon: '✎', title: 'Contract before content', body: 'Rate, deliverables, and timeline are signed in writing before a single video gets made.', color: 'teal' },
-            { icon: '1:1', title: 'Founder-led', body: 'You deal directly with the person running NexVance — not a rotating account manager.', color: 'amber' },
-            { icon: '%', title: 'Performance-only fee', body: "No retainers, no monthly charges. We're paid the same way you are — when the deal closes.", color: 'teal' },
-            { icon: '∞', title: 'Any niche welcome', body: 'Tech, lifestyle, business, gaming — we match on audience fit, not category.', color: 'amber' },
+            { icon: '1:1', title: 'Founder-led', body: 'You deal directly with the person running NexVance  not a rotating account manager.', color: 'amber' },
+            { icon: '%', title: 'Performance-only fee', body: "No retainers, no monthly charges. We're paid the same way you are  when the deal closes.", color: 'teal' },
+            { icon: '∞', title: 'Any niche welcome', body: 'Tech, lifestyle, business, gaming  we match on audience fit, not category.', color: 'amber' },
             { icon: 'US/UK', title: 'US & UK focused', body: 'Every brand and creator we work with sits in these two markets, by design.', color: 'teal' },
           ].map((item, i) => (
             <div
@@ -163,14 +163,14 @@ export default function App() {
       <section id="how" className="py-16 max-w-[1120px] mx-auto px-6">
         <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] block mb-3.5">THE PROCESS</span>
         <h2 className="font-display font-semibold text-3xl max-w-[600px] mb-5">Four steps. Same order, every time.</h2>
-        <p className="text-white/60 max-w-[600px] mb-10">This sequence is fixed on purpose — it's what keeps both sides protected.</p>
+        <p className="text-white/60 max-w-[600px] mb-10">This sequence is fixed on purpose  it's what keeps both sides protected.</p>
  
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[
             { n: '01', title: 'Match', body: "We connect a creator's audience to a brand's product and budget." },
             { n: '02', title: 'Contract', body: 'Rate, deliverables, and timeline are put in writing and signed by both sides.' },
             { n: '03', title: 'Produce & approve', body: 'The creator delivers a draft. The brand gets one revision and a 48-hour window to approve.' },
-            { n: '04', title: 'Pay & publish', body: 'The video stays private until payment clears — then it goes live, and the creator is paid.' },
+            { n: '04', title: 'Pay & publish', body: 'The video stays private until payment clears  then it goes live, and the creator is paid.' },
           ].map((step, i) => (
             <div key={i}>
               <div className="w-[38px] h-[38px] rounded-full bg-[#151822] border border-white/[0.09] flex items-center justify-center font-mono-nv text-[0.82rem] mb-4">
@@ -256,7 +256,7 @@ export default function App() {
             <span className="font-mono-nv text-[0.75rem] tracking-wide text-[#3FA9A0] block mb-3">FOR BRANDS</span>
             <h2 className="font-display font-semibold text-3xl mb-4">Pay for a result, not a retainer.</h2>
             <p className="text-white/60 text-[0.95rem] mb-6">
-              Skip the agency overhead. Get matched with vetted creators and pay only the agreed rate — nothing until the work is approved.
+              Skip the agency overhead. Get matched with vetted creators and pay only the agreed rate  nothing until the work is approved.
             </p>
             <ul className="mb-7">
               {[
@@ -334,8 +334,8 @@ export default function App() {
           {[
             ['What we collect', "Just what's needed to match and contract you: name, email, channel or company link, and basic audience or budget info. Nothing more."],
             ['How it\u2019s used', 'To match you with the right brand or creator, and to draft the contract and manage payment for any deal you agree to.'],
-            ['Who sees it', 'Only NexVance and the specific brand or creator you\u2019re matched with — never sold or shared beyond that deal.'],
-            ['Payment handling', 'Campaign payments are collected in two parts — before production, and before publishing — and held by NexVance until each milestone is met.'],
+            ['Who sees it', 'Only NexVance and the specific brand or creator you\u2019re matched with  never sold or shared beyond that deal.'],
+            ['Payment handling', 'Campaign payments are collected in two parts  before production, and before publishing  and held by NexVance until each milestone is met.'],
           ].map(([title, body], i) => (
             <div key={i} className="bg-[#0B0D12] p-7">
               <h3 className="font-bold text-base mb-2">{title}</h3>
