@@ -1,11 +1,12 @@
 import { useState } from 'react';
- 
+import { Analytics } from '@vercel/analytics/react';
+
 export default function App() {
   const [creatorSubmitted, setCreatorSubmitted] = useState(false);
   const [brandSubmitted, setBrandSubmitted] = useState(false);
   const [creatorSending, setCreatorSending] = useState(false);
   const [brandSending, setBrandSending] = useState(false);
- 
+
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
     setSending: (v: boolean) => void,
@@ -32,7 +33,7 @@ export default function App() {
       setSending(false);
     }
   };
- 
+
   return (
     <div className="bg-[#0B0D12] text-[#F2F1ED] font-sans antialiased selection:bg-[#E3A64A] selection:text-[#1a1408]">
       <style>{`
@@ -42,7 +43,10 @@ export default function App() {
         @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
         .pulse-dot{ animation:pulseDot 2.2s infinite; }
       `}</style>
- 
+
+      {/* Vercel Analytics Tracker */}
+      <Analytics />
+
       {/* NAV */}
       <nav className="sticky top-0 z-50 bg-[#0B0D12]/85 backdrop-blur-md border-b border-white/[0.09]">
         <div className="max-w-[1120px] mx-auto px-6 h-[76px] flex items-center justify-between">
@@ -61,7 +65,7 @@ export default function App() {
           </a>
         </div>
       </nav>
- 
+
       {/* HERO */}
       <header id="top" className="pt-20 pb-16 max-w-[1120px] mx-auto px-6">
         <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
@@ -71,10 +75,10 @@ export default function App() {
               ONBOARDING FOUNDING CREATORS &amp; BRANDS
             </div>
             <h1 className="font-display font-semibold text-4xl md:text-5xl leading-[1.1] mb-5">
-              Where <span className="text-[#E3A64A]">creators</span> meet <span className="text-[#3FA9A0]">brands</span>  on paper, before anything else.
+              Where <span className="text-[#E3A64A]">creators</span> meet <span className="text-[#3FA9A0]">brands</span> on paper, before anything else.
             </h1>
             <p className="text-white/60 max-w-[480px] mb-8 leading-relaxed">
-              NexVance is a performance-based sponsorship agency. We pitch, negotiate, and contract every deal between creators and brands across the US and UK  zero upfront cost, ever.
+              NexVance is a performance-based sponsorship agency. We pitch, negotiate, and contract every deal between creators and brands across the US and UK zero upfront cost, ever.
             </p>
             <div className="flex gap-3.5 flex-wrap">
               <a href="#creators" className="bg-[#E3A64A] text-[#1a1408] px-6 py-3.5 rounded-lg font-semibold text-sm hover:bg-[#eeb562] hover:-translate-y-0.5 transition-all">
@@ -85,7 +89,7 @@ export default function App() {
               </a>
             </div>
           </div>
- 
+
           {/* SIGNAL LINE - signature visual */}
           <div className="bg-[#151822] border border-white/[0.09] rounded-2xl p-7">
             <div className="font-mono-nv text-[0.7rem] text-white/40 uppercase tracking-wide mb-7 text-center">How a deal moves</div>
@@ -112,31 +116,31 @@ export default function App() {
           </div>
         </div>
       </header>
- 
+
       {/* WHY SECTION */}
       <section className="py-16 max-w-[1120px] mx-auto px-6">
         <div className="max-w-[700px] mx-auto text-center">
           <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] block mb-3.5">WHY NEXVANCE EXISTS</span>
           <p className="font-display font-medium text-xl md:text-2xl mb-4">Most brands and creators never build partnerships that last.</p>
           <p className="text-white/60 leading-relaxed">
-            Brands waste money on retainers and sponsorships that don't convert. Creators lose hours on back-and-forth emails instead of making content. NexVance removes the friction  one contract, one point of contact, and a fee that only applies once a deal actually pays out.
+            Brands waste money on retainers and sponsorships that don't convert. Creators lose hours on back-and-forth emails instead of making content. NexVance removes the friction one contract, one point of contact, and a fee that only applies once a deal actually pays out.
           </p>
         </div>
       </section>
- 
+
       {/* USP GRID */}
       <section className="py-16 max-w-[1120px] mx-auto px-6">
         <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#E3A64A] block mb-3.5">WHAT YOU GET</span>
         <h2 className="font-display font-semibold text-3xl max-w-[600px] mb-5">Built on a few non-negotiables.</h2>
         <p className="text-white/60 max-w-[600px] mb-10">No matter your niche or budget, every NexVance deal runs on the same terms.</p>
- 
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {[
             { icon: '$0', title: 'Zero upfront cost', body: "Creators never pay to join or to be pitched. Our fee comes out of a deal only after it's paid.", color: 'amber' },
             { icon: '✎', title: 'Contract before content', body: 'Rate, deliverables, and timeline are signed in writing before a single video gets made.', color: 'teal' },
-            { icon: '1:1', title: 'Founder-led', body: 'You deal directly with the person running NexVance  not a rotating account manager.', color: 'amber' },
-            { icon: '%', title: 'Performance-only fee', body: "No retainers, no monthly charges. We're paid the same way you are  when the deal closes.", color: 'teal' },
-            { icon: '∞', title: 'Any niche welcome', body: 'Tech, lifestyle, business, gaming  we match on audience fit, not category.', color: 'amber' },
+            { icon: '1:1', title: 'Founder-led', body: 'You deal directly with the person running NexVance not a rotating account manager.', color: 'amber' },
+            { icon: '%', title: 'Performance-only fee', body: "No retainers, no monthly charges. We're paid the same way you are when the deal closes.", color: 'teal' },
+            { icon: '∞', title: 'Any niche welcome', body: 'Tech, lifestyle, business, gaming we match on audience fit, not category.', color: 'amber' },
             { icon: 'US/UK', title: 'US & UK focused', body: 'Every brand and creator we work with sits in these two markets, by design.', color: 'teal' },
           ].map((item, i) => (
             <div
@@ -158,19 +162,19 @@ export default function App() {
           ))}
         </div>
       </section>
- 
+
       {/* PROCESS */}
       <section id="how" className="py-16 max-w-[1120px] mx-auto px-6">
         <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] block mb-3.5">THE PROCESS</span>
         <h2 className="font-display font-semibold text-3xl max-w-[600px] mb-5">Four steps. Same order, every time.</h2>
-        <p className="text-white/60 max-w-[600px] mb-10">This sequence is fixed on purpose  it's what keeps both sides protected.</p>
- 
+        <p className="text-white/60 max-w-[600px] mb-10">This sequence is fixed on purpose it's what keeps both sides protected.</p>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[
             { n: '01', title: 'Match', body: "We connect a creator's audience to a brand's product and budget." },
             { n: '02', title: 'Contract', body: 'Rate, deliverables, and timeline are put in writing and signed by both sides.' },
             { n: '03', title: 'Produce & approve', body: 'The creator delivers a draft. The brand gets one revision and a 48-hour window to approve.' },
-            { n: '04', title: 'Pay & publish', body: 'The video stays private until payment clears  then it goes live, and the creator is paid.' },
+            { n: '04', title: 'Pay & publish', body: 'The video stays private until payment clears then it goes live, and the creator is paid.' },
           ].map((step, i) => (
             <div key={i}>
               <div className="w-[38px] h-[38px] rounded-full bg-[#151822] border border-white/[0.09] flex items-center justify-center font-mono-nv text-[0.82rem] mb-4">
@@ -182,7 +186,7 @@ export default function App() {
           ))}
         </div>
       </section>
- 
+
       {/* FOR CREATORS */}
       <section id="creators" className="py-16 max-w-[1120px] mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -212,7 +216,7 @@ export default function App() {
                 </li>
               ))}
             </ul>
- 
+
             <div className="bg-[#151822] border border-white/[0.09] rounded-2xl p-7">
               {!creatorSubmitted ? (
                 <>
@@ -248,7 +252,7 @@ export default function App() {
           </div>
         </div>
       </section>
- 
+
       {/* FOR BRANDS */}
       <section id="brands" className="py-16 max-w-[1120px] mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -256,7 +260,7 @@ export default function App() {
             <span className="font-mono-nv text-[0.75rem] tracking-wide text-[#3FA9A0] block mb-3">FOR BRANDS</span>
             <h2 className="font-display font-semibold text-3xl mb-4">Pay for a result, not a retainer.</h2>
             <p className="text-white/60 text-[0.95rem] mb-6">
-              Skip the agency overhead. Get matched with vetted creators and pay only the agreed rate  nothing until the work is approved.
+              Skip the agency overhead. Get matched with vetted creators and pay only the agreed rate nothing until the work is approved.
             </p>
             <ul className="mb-7">
               {[
@@ -271,7 +275,7 @@ export default function App() {
                 </li>
               ))}
             </ul>
- 
+
             <div className="bg-[#151822] border border-white/[0.09] rounded-2xl p-7">
               {!brandSubmitted ? (
                 <>
@@ -323,19 +327,19 @@ export default function App() {
           </div>
         </div>
       </section>
- 
+
       {/* TRUST & PRIVACY */}
       <section id="trust" className="py-16 max-w-[1120px] mx-auto px-6">
         <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#E3A64A] block mb-3.5">TRUST &amp; PRIVACY</span>
         <h2 className="font-display font-semibold text-3xl max-w-[600px] mb-5">What we collect, and why.</h2>
         <p className="text-white/60 max-w-[600px] mb-10">No surprises. Here's exactly how your information is used.</p>
- 
+
         <div className="grid md:grid-cols-2 gap-px bg-white/[0.09] border border-white/[0.09] rounded-2xl overflow-hidden">
           {[
             ['What we collect', "Just what's needed to match and contract you: name, email, channel or company link, and basic audience or budget info. Nothing more."],
             ['How it\u2019s used', 'To match you with the right brand or creator, and to draft the contract and manage payment for any deal you agree to.'],
-            ['Who sees it', 'Only NexVance and the specific brand or creator you\u2019re matched with  never sold or shared beyond that deal.'],
-            ['Payment handling', 'Campaign payments are collected in two parts  before production, and before publishing  and held by NexVance until each milestone is met.'],
+            ['Who sees it', 'Only NexVance and the specific brand or creator you\u2019re matched with never sold or shared beyond that deal.'],
+            ['Payment handling', 'Campaign payments are collected in two parts before production, and before publishing and held by NexVance until each milestone is met.'],
           ].map(([title, body], i) => (
             <div key={i} className="bg-[#0B0D12] p-7">
               <h3 className="font-bold text-base mb-2">{title}</h3>
@@ -344,7 +348,7 @@ export default function App() {
           ))}
         </div>
       </section>
- 
+
       {/* CTA BAND */}
       <section className="py-20 text-center max-w-[1120px] mx-auto px-6">
         <h2 className="font-display font-semibold text-3xl md:text-4xl max-w-[600px] mx-auto mb-4">Ready to see how your deal would run?</h2>
@@ -354,7 +358,7 @@ export default function App() {
           <a href="#brands" className="bg-[#3FA9A0] text-[#06211f] px-6 py-3.5 rounded-lg font-semibold text-sm hover:-translate-y-0.5 transition-transform">Request the Roster</a>
         </div>
       </section>
- 
+
       {/* FOOTER */}
       <footer className="border-t border-white/[0.09] py-11">
         <div className="max-w-[1120px] mx-auto px-6 flex flex-wrap justify-between gap-5">
