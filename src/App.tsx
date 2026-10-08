@@ -959,12 +959,13 @@ If you have submitted information to NexVance and want to ask what information w
               you can contact us using the email address provided on our website.
 
 We may need to verify your identity before completing certain requests.
+             </p>
              <p>
              Changes to this Privacy Policy
 
 We may update this Privacy Policy when our website, services, or data practices change.
               The latest version will always be posted on this page with the updated date.
-             </p>
+            </p>
               <p>
               Contact
 
