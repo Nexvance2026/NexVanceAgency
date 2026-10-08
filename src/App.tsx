@@ -1,685 +1,957 @@
-import { useState } from 'react';
+import { useState, type FormEvent, type ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-
+ 
+/* ==========================================================================
+   NEXVANCE: SITE CONFIG
+   Edit the values here. Everything else on the page reads from this block.
+   ========================================================================== */
+const SITE = {
+  email: 'haseeb@nexvanceagency.com',
+  linkedin: 'https://www.linkedin.com/in/muhammadhaseeb3',
+  formEndpoint: 'https://formspree.io/f/mvkgblaq',
+  creatorsOnRoster: 14, // update when the number changes
+};
+ 
+type Platform = 'YouTube' | 'TikTok' | 'Instagram' | 'Facebook';
+ 
+type Creator = {
+  name: string;
+  handle?: string; // e.g. "@channel"
+  profileUrl?: string; // link to the creator's channel/profile
+  photo?: string; // e.g. "/creators/lukas.jpg" (put the file in /public/creators/)
+  niche: string;
+  platforms: Platform[];
+  ugc?: boolean; // true if the creator also does UGC for ads
+  audience: string; // a real number the creator confirmed, e.g. "120K subscribers"
+  region: string; // e.g. "US & Canada"
+  priorWork?: string[]; // the CREATOR's own past brand work (shown with a disclaimer)
+};
+ 
+/* ==========================================================================
+   ROSTER
+   Add a creator ONLY after they have said yes to being shown here.
+   Copy the template below, fill it with real details, and paste it inside the
+   array. Cards appear automatically. Leave the array empty and the page shows
+   an honest "roster being added" message instead of fake profiles.
+ 
+   TEMPLATE:
+   {
+     name: 'Creator Name',
+     handle: '@handle',
+     profileUrl: 'https://youtube.com/@handle',
+     photo: '/creators/creator-name.jpg',
+     niche: 'Desk setups & productivity',
+     platforms: ['YouTube', 'Instagram'],
+     ugc: false,
+     audience: '97K subscribers',
+     region: 'US & UK',
+     priorWork: ['Brand A', 'Brand B'],
+   },
+   ========================================================================== */
+const roster: Creator[] = [];
+ 
+const FILTERS = ['All', 'YouTube', 'TikTok', 'Instagram', 'Facebook', 'UGC'] as const;
+type Filter = (typeof FILTERS)[number];
+ 
+const NAV_LINKS = [
+  { href: '#how', label: 'How it works' },
+  { href: '#roster', label: 'Creators' },
+  { href: '#for-creators', label: 'For creators' },
+  { href: '#about', label: 'About' },
+  { href: '#faq', label: 'FAQ' },
+];
+ 
+const FAQS = [
+  {
+    q: 'What does NexVance charge?',
+    a: 'We take a 20% commission on each deal that closes, and nothing else. There is no retainer, no signup fee and no monthly cost. For brands, the 20% comes out of the agreed campaign fee; it is not added on top. Creators receive the other 80%.',
+  },
+  {
+    q: 'Do brands pay anything upfront?',
+    a: 'Brands pay NexVance no retainer or setup fee. The campaign fee itself is paid in two parts: 50% before the content is published and 50% within 30 to 45 days after it goes live. Those terms are written into the contract before any work starts.',
+  },
+  {
+    q: 'Are creators exclusive to NexVance?',
+    a: 'No. Creators stay free to work with other brands and agencies. We also never introduce a creator to a brand without their approval.',
+  },
+  {
+    q: 'Do you have case studies?',
+    a: 'NexVance is new, and we only publish results we can verify, so there are no case studies on this site yet. What we can show you is the roster, the contract terms and the way we work, before you spend anything. If you want to talk to a creator before committing, ask and we will arrange it where the creator agrees.',
+  },
+  {
+    q: 'Which platforms and regions do you cover?',
+    a: 'YouTube, TikTok, Instagram and Facebook (posts, reels, stories and long-form), plus UGC made for paid ads. Creators are based mainly in the US, UK, Canada and Europe.',
+  },
+  {
+    q: 'Who owns the content and the usage rights?',
+    a: 'It is set per campaign in the contract: how long the brand may use the content, on which channels, and whether paid usage such as whitelisting or Spark Ads is included.',
+  },
+  {
+    q: 'How quickly will I hear back?',
+    a: 'Usually within a day or two. Brand briefs get a reply with next steps; creator applications are reviewed against incoming briefs.',
+  },
+];
+ 
+const BUDGETS = [
+  '$1,250 – $2,500 (single integration)',
+  '$2,500 – $5,000',
+  '$5,000 – $15,000',
+  '$15,000+',
+  'Not sure yet',
+];
+ 
+type Status = 'idle' | 'sending' | 'sent' | 'error';
+ 
+const inputCls =
+  'w-full bg-[#0B0D12] border border-white/20 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-white/40';
+ 
+/* ---------- small helpers ---------- */
+ 
+function CheckIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
+      <path d="M3 8.5l3.2 3L13 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+ 
+function Avatar({ creator }: { creator: Creator }) {
+  const [failed, setFailed] = useState(false);
+  const initials = creator.name
+    .split(' ')
+    .map((w) => w[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+  if (creator.photo && !failed) {
+    return (
+      <img
+        src={creator.photo}
+        alt={creator.name}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        className="w-12 h-12 rounded-full object-cover border border-white/20"
+      />
+    );
+  }
+  return (
+    <div
+      aria-hidden="true"
+      className="w-12 h-12 rounded-full bg-[#E3A64A]/15 text-[#E3A64A] border border-[#E3A64A]/30 flex items-center justify-center font-display font-semibold"
+    >
+      {initials}
+    </div>
+  );
+}
+ 
+function Field({
+  id,
+  label,
+  children,
+}: {
+  id: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <label htmlFor={id} className="block text-xs text-white/70 mb-1.5">
+        {label}
+      </label>
+      {children}
+    </div>
+  );
+}
+ 
+function FormMessage({ status }: { status: Status }) {
+  if (status !== 'error') return null;
+  return (
+    <p role="alert" className="mt-4 text-sm text-[#ff8f8f]">
+      The form could not be sent. Check your connection and try again, or email{' '}
+      <a href={`mailto:${SITE.email}`} className="underline">
+        {SITE.email}
+      </a>
+      .
+    </p>
+  );
+}
+ 
+/* ========================================================================== */
+ 
 export default function App() {
   const [activeFormTab, setActiveFormTab] = useState<'brand' | 'creator'>('brand');
-  const [creatorSubmitted, setCreatorSubmitted] = useState(false);
-  const [brandSubmitted, setBrandSubmitted] = useState(false);
-  const [creatorSending, setCreatorSending] = useState(false);
-  const [brandSending, setBrandSending] = useState(false);
-
-  // Filter for Roster Display
-  const [selectedPlatform, setSelectedPlatform] = useState<string>('All');
-
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>,
-    setSending: (v: boolean) => void,
-    setSubmitted: (v: boolean) => void
-  ) => {
+  const [brandStatus, setBrandStatus] = useState<Status>('idle');
+  const [creatorStatus, setCreatorStatus] = useState<Status>('idle');
+  const [selectedFilter, setSelectedFilter] = useState<Filter>('All');
+  const [menuOpen, setMenuOpen] = useState(false);
+ 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>, setStatus: (s: Status) => void) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    setSending(true);
+    const data = new FormData(e.currentTarget);
+    setStatus('sending');
     try {
-      const res = await fetch('https://formspree.io/f/mvkgblaq', {
+      const res = await fetch(SITE.formEndpoint, {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },
       });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        alert('Something went wrong. Please email haseeb@nexvanceagency.com directly.');
-      }
+      setStatus(res.ok ? 'sent' : 'error');
     } catch {
-      alert('Something went wrong. Please email haseeb@nexvanceagency.com directly.');
-    } finally {
-      setSending(false);
+      setStatus('error');
     }
   };
-
-  // 14 Represented Talent & Network Creators (Hard Social Proof Engine)
-  const rosterTalent = [
-    {
-      name: "Tyler D.",
-      handle: "@tylertech",
-      niche: "Tech & Productivity",
-      platforms: ["YouTube", "TikTok"],
-      reach: "380K+",
-      region: "US & Canada",
-      pastBrands: ["NordVPN", "Notion", "Anker"],
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Elena R.",
-      handle: "@elenalifestyle",
-      niche: "UGC / Beauty & Skincare",
-      platforms: ["TikTok", "Instagram"],
-      reach: "190K+",
-      region: "UK & Europe",
-      pastBrands: ["GlowRecipe", "CeraVe", "Glossier"],
-      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Marcus V.",
-      handle: "@marcusbuilds",
-      niche: "SaaS & AI Tools",
-      platforms: ["YouTube", "Facebook"],
-      reach: "240K+",
-      region: "US & UK",
-      pastBrands: ["HubSpot", "ElevenLabs", "Hostinger"],
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Sarah K.",
-      handle: "@sarahfits",
-      niche: "Fitness & Wellness",
-      platforms: ["Instagram", "TikTok"],
-      reach: "410K+",
-      region: "Europe & UK",
-      pastBrands: ["Gymshark", "MyProtein", "Whoop"],
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Alex Thorne",
-      handle: "@thornefps",
-      niche: "Gaming & Setup Gear",
-      platforms: ["YouTube", "TikTok"],
-      reach: "520K+",
-      region: "US & Canada",
-      pastBrands: ["Razer", "Logitech G", "Apex Legends"],
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Chloe M.",
-      handle: "@chloeeatsugc",
-      niche: "UGC Food & Beverage",
-      platforms: ["TikTok", "Instagram Reels"],
-      reach: "125K+",
-      region: "US & UK",
-      pastBrands: ["HelloFresh", "Olipop", "Liquid I.V."],
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "David Chen",
-      handle: "@chenfinance",
-      niche: "Personal Finance & Business",
-      platforms: ["YouTube", "Facebook"],
-      reach: "310K+",
-      region: "US & Canada",
-      pastBrands: ["Webull", "Shopify", "Wise"],
-      avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Jessica P.",
-      handle: "@jesshomefinds",
-      niche: "Home Decor & Smart Gadgets",
-      platforms: ["Instagram", "TikTok"],
-      reach: "275K+",
-      region: "US & Europe",
-      pastBrands: ["Dyson", "Philips Hue", "Wayfair"],
-      avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Liam O'Connor",
-      handle: "@liamtravels",
-      niche: "Travel & Lifestyle Vlogs",
-      platforms: ["YouTube", "Instagram"],
-      reach: "460K+",
-      region: "UK & Europe",
-      pastBrands: ["Airalo", "DJI", "GoPro"],
-      avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Nina Watson",
-      handle: "@ninaugcstudio",
-      niche: "UGC High-Converting Ads",
-      platforms: ["TikTok", "Facebook Ads"],
-      reach: "85K+",
-      region: "US & UK",
-      pastBrands: ["BetterHelp", "AG1", "Lululemon"],
-      avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Jordan Reed",
-      handle: "@reedautomobile",
-      niche: "Automotive & EV Tech",
-      platforms: ["YouTube", "Instagram"],
-      reach: "340K+",
-      region: "US & Canada",
-      pastBrands: ["Castrol", "Chemical Guys", "EcoFlow"],
-      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Amara Diallo",
-      handle: "@amarastyle",
-      niche: "Fashion & Streetwear",
-      platforms: ["Instagram", "TikTok"],
-      reach: "290K+",
-      region: "UK & Europe",
-      pastBrands: ["ASOS", "Farfetch", "Cider"],
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Kevin Miller",
-      handle: "@kevindesign",
-      niche: "Design & Creative Software",
-      platforms: ["YouTube", "Facebook"],
-      reach: "215K+",
-      region: "US & Europe",
-      pastBrands: ["Figma", "Epidemic Sound", "Skillshare"],
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      name: "Hannah & Zoe",
-      handle: "@hzparenting",
-      niche: "Family, Kids & Motherhood",
-      platforms: ["TikTok", "Instagram Reels"],
-      reach: "330K+",
-      region: "US & UK",
-      pastBrands: ["Pampers", "Lego", "KiwiCo"],
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
-    }
-  ];
-
-  const filteredTalent = selectedPlatform === 'All'
-    ? rosterTalent
-    : rosterTalent.filter(t => t.platforms.some(p => p.toLowerCase().includes(selectedPlatform.toLowerCase())) || (selectedPlatform === 'UGC' && t.niche.includes('UGC')));
-
+ 
+  const openForm = (tab: 'brand' | 'creator') => {
+    setActiveFormTab(tab);
+    setMenuOpen(false);
+  };
+ 
+  const filteredRoster = roster.filter((c) => {
+    if (selectedFilter === 'All') return true;
+    if (selectedFilter === 'UGC') return !!c.ugc;
+    return c.platforms.includes(selectedFilter as Platform);
+  });
+ 
   return (
     <div className="bg-[#0B0D12] text-[#F2F1ED] font-sans antialiased selection:bg-[#E3A64A] selection:text-[#1a1408]">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-        .font-display{ font-family:'Fraunces', serif; letter-spacing:-0.01em; }
-        .font-mono-nv{ font-family:'IBM Plex Mono', monospace; }
-        @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
-        .pulse-dot{ animation:pulseDot 2.2s infinite; }
+        .font-display{ font-family:'Fraunces', Georgia, serif; letter-spacing:-0.01em; }
+        .font-mono-nv{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+        html{ scroll-behavior:smooth; }
+        section[id], header[id]{ scroll-margin-top:96px; }
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+        textarea:focus-visible, summary:focus-visible{ outline:2px solid #E3A64A; outline-offset:2px; }
+        details > summary{ list-style:none; cursor:pointer; }
+        details > summary::-webkit-details-marker{ display:none; }
+        details[open] .faq-plus{ transform:rotate(45deg); }
+        .faq-plus{ transition:transform .2s ease; }
+        @media (prefers-reduced-motion: reduce){
+          html{ scroll-behavior:auto; }
+          *{ transition:none !important; animation:none !important; }
+        }
       `}</style>
-
-      {/* Vercel Analytics */}
+ 
       <Analytics />
-
-      {/* STICKY TOP ANNOUNCEMENT BAR */}
-      <div className="bg-[#151822] border-b border-white/[0.06] text-xs py-2 px-4 text-center font-mono-nv text-white/70">
-        🚀 Now scaling creator campaigns across <span className="text-[#3FA9A0] font-semibold">US • UK • Canada • Europe</span> | Flat Rates &amp; Performance Models
+ 
+      {/* ANNOUNCEMENT */}
+      <div className="bg-[#151822] border-b border-white/[0.08] text-sm py-2 px-4 text-center text-white/75">
+        Creator campaigns for brands in the <span className="text-[#3FA9A0] font-semibold">US, UK, Canada and Europe</span>.
+        Flat-rate and performance deals.
       </div>
-
+ 
       {/* NAV */}
-      <nav className="sticky top-0 z-50 bg-[#0B0D12]/90 backdrop-blur-md border-b border-white/[0.09]">
-        <div className="max-w-[1200px] mx-auto px-6 h-[76px] flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2.5">
-            <img src="/logo.png" alt="NexVance logo" className="w-[32px] h-[32px] object-contain rounded-md" />
+      <nav className="sticky top-0 z-50 bg-[#0B0D12]/95 backdrop-blur-md border-b border-white/[0.1]" aria-label="Main">
+        <div className="max-w-[1200px] mx-auto px-6 h-[68px] flex items-center justify-between">
+          <a href="#top" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
+            <img src="/logo.png" alt="" className="w-[30px] h-[30px] object-contain rounded-md" />
             <span className="font-display font-semibold text-2xl tracking-tight">NexVance</span>
           </a>
-          <div className="hidden md:flex gap-8 text-sm text-white/70">
-            <a href="#roster" className="hover:text-white transition-colors">Talent Roster</a>
-            <a href="#how" className="hover:text-white transition-colors">Deal Architecture</a>
-            <a href="#about" className="hover:text-white transition-colors">Founder &amp; Mission</a>
-            <a href="#portal" className="hover:text-white transition-colors">Get Started</a>
+ 
+          <div className="hidden lg:flex gap-7 text-sm text-white/75">
+            {NAV_LINKS.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+                {l.label}
+              </a>
+            ))}
           </div>
-          <a href="#portal" className="bg-[#E3A64A] text-[#1a1408] px-5 py-2.5 rounded-lg font-semibold text-sm hover:-translate-y-0.5 transition-all shadow-sm shadow-[#E3A64A]/20">
-            Book Creator Deal
-          </a>
+ 
+          <div className="flex items-center gap-3">
+            <a
+              href="#portal"
+              onClick={() => openForm('creator')}
+              className="hidden sm:inline text-sm text-white/75 hover:text-white transition-colors"
+            >
+              Join as a creator
+            </a>
+            <a
+              href="#portal"
+              onClick={() => openForm('brand')}
+              className="bg-[#E3A64A] text-[#1a1408] px-4 sm:px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#eeb562] transition-colors"
+            >
+              Get a shortlist
+            </a>
+            <button
+              type="button"
+              className="lg:hidden p-2 -mr-2 text-white"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                {menuOpen ? (
+                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                ) : (
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
+ 
+        {menuOpen && (
+          <div id="mobile-menu" className="lg:hidden border-t border-white/[0.08] bg-[#0B0D12] px-6 py-4 flex flex-col gap-1">
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMenuOpen(false)}
+                className="py-3 text-base text-white/85 border-b border-white/[0.06]"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="#portal"
+              onClick={() => openForm('creator')}
+              className="py-3 text-base text-[#E3A64A] font-semibold"
+            >
+              Join as a creator
+            </a>
+          </div>
+        )}
       </nav>
-
+ 
       {/* HERO */}
-      <header id="top" className="pt-24 pb-20 max-w-[1200px] mx-auto px-6">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
+      <header id="top" className="pt-16 md:pt-24 pb-20 max-w-[1200px] mx-auto px-6">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] border border-[#3FA9A0]/30 bg-[#3FA9A0]/10 px-4 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3FA9A0] pulse-dot" />
-              GLOBAL CREATOR &amp; BRAND SPONSORSHIP NETWORK
-            </div>
-            <h1 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl leading-[1.08] mb-6">
-              Scale campaigns with <span className="text-[#E3A64A]">vetted creators</span> across YouTube, TikTok &amp; Meta.
+            <h1 className="font-display font-semibold text-4xl sm:text-5xl md:text-[3.5rem] leading-[1.08] mb-6">
+              Creator sponsorships with no retainer and no agency fee upfront.
             </h1>
-            <p className="text-white/70 text-lg max-w-[540px] mb-8 leading-relaxed">
-              NexVance structures high-impact influencer campaigns and dedicated UGC pipelines across <strong className="text-white">US, UK, Canada &amp; Europe</strong>. Zero agency retainer overhead. Fully contract-protected.
+            <p className="text-white/75 text-lg max-w-[560px] mb-8 leading-relaxed">
+              NexVance connects brands with creators on YouTube, TikTok, Instagram and Facebook, including UGC for paid
+              ads. We earn a 20% commission only when a deal closes, and every deal starts with a signed contract.
             </p>
-            <div className="flex gap-4 flex-wrap">
-              <a href="#portal" onClick={() => setActiveFormTab('brand')} className="bg-[#3FA9A0] text-[#06211f] px-7 py-3.5 rounded-xl font-bold text-sm hover:bg-[#4bbdb3] hover:-translate-y-0.5 transition-all shadow-lg shadow-[#3FA9A0]/20">
-                Request Strategy &amp; Roster →
+            <div className="flex gap-3 flex-wrap">
+              <a
+                href="#portal"
+                onClick={() => openForm('brand')}
+                className="bg-[#3FA9A0] text-[#06211f] px-7 py-3.5 rounded-xl font-bold text-sm hover:bg-[#4bbdb3] transition-colors"
+              >
+                Get a creator shortlist
               </a>
-              <a href="#roster" className="bg-[#151822] border border-white/15 text-white px-7 py-3.5 rounded-xl font-semibold text-sm hover:border-[#E3A64A] hover:-translate-y-0.5 transition-all">
-                Explore Talent Network
+              <a
+                href="#portal"
+                onClick={() => openForm('creator')}
+                className="bg-[#151822] border border-white/20 text-white px-7 py-3.5 rounded-xl font-semibold text-sm hover:border-[#E3A64A] transition-colors"
+              >
+                I'm a creator
               </a>
             </div>
-            
-            {/* Quick trust metrics */}
-            <div className="grid grid-cols-3 gap-4 pt-10 mt-10 border-t border-white/[0.08]">
+ 
+            <dl className="grid grid-cols-3 gap-4 pt-10 mt-10 border-t border-white/[0.1] max-w-[560px]">
               <div>
-                <div className="font-display text-2xl font-bold text-white">14+</div>
-                <div className="text-xs text-white/50 font-mono-nv">Vetted Creators</div>
+                <dt className="text-xs text-white/65 mb-1">Commission, on closed deals only</dt>
+                <dd className="font-display text-2xl font-semibold text-[#E3A64A]">20%</dd>
               </div>
               <div>
-                <div className="font-display text-2xl font-bold text-[#E3A64A]">4 Regions</div>
-                <div className="text-xs text-white/50 font-mono-nv">US • UK • CA • EU</div>
+                <dt className="text-xs text-white/65 mb-1">Retainers or signup fees</dt>
+                <dd className="font-display text-2xl font-semibold text-[#3FA9A0]">None</dd>
               </div>
               <div>
-                <div className="font-display text-2xl font-bold text-[#3FA9A0]">50 / 50</div>
-                <div className="text-xs text-white/50 font-mono-nv">Milestone Escrow</div>
+                <dt className="text-xs text-white/65 mb-1">Creators on our roster</dt>
+                <dd className="font-display text-2xl font-semibold text-white">{SITE.creatorsOnRoster}</dd>
               </div>
-            </div>
+            </dl>
           </div>
-
-          {/* DEAL FLOW ARCHITECTURE */}
-          <div className="bg-[#151822] border border-white/[0.09] rounded-3xl p-8 relative overflow-hidden shadow-2xl">
-            <div className="font-mono-nv text-[0.72rem] text-white/50 uppercase tracking-widest mb-6 flex justify-between items-center">
-              <span>Deal Escrow Blueprint</span>
-              <span className="text-[#3FA9A0] bg-[#3FA9A0]/10 px-2 py-0.5 rounded">Risk-Free</span>
-            </div>
-            
-            <div className="space-y-4 mb-6">
-              <div className="p-4 bg-[#0B0D12] rounded-xl border border-white/[0.06] flex items-center justify-between">
-                <div>
-                  <div className="text-xs text-[#E3A64A] font-mono-nv font-semibold">STAGE 01: AGREEMENT &amp; 50%</div>
-                  <div className="text-sm font-medium mt-0.5">Contract signed, 50% upfront held in escrow</div>
-                </div>
-                <span className="text-lg">🔒</span>
-              </div>
-
-              <div className="p-4 bg-[#0B0D12] rounded-xl border border-white/[0.06] flex items-center justify-between">
-                <div>
-                  <div className="text-xs text-[#3FA9A0] font-mono-nv font-semibold">STAGE 02: DRAFT APPROVAL</div>
-                  <div className="text-sm font-medium mt-0.5">Creator submits content draft for brand sign-off</div>
-                </div>
-                <span className="text-lg">🎬</span>
-              </div>
-
-              <div className="p-4 bg-[#0B0D12] rounded-xl border border-white/[0.06] flex items-center justify-between">
-                <div>
-                  <div className="text-xs text-purple-400 font-mono-nv font-semibold">STAGE 03: GO-LIVE &amp; NET 30-45</div>
-                  <div className="text-sm font-medium mt-0.5">Final 50% cleared within 30–45 days post-live</div>
-                </div>
-                <span className="text-lg">✅</span>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-[#E3A64A]/10 to-[#3FA9A0]/10 border border-[#3FA9A0]/30 rounded-xl p-4 text-center">
-              <div className="font-mono-nv text-xs text-white/60 mb-1">NexVance Guarantee</div>
-              <div className="text-sm font-semibold text-white">No content publishes without brand approval. No upfront loss.</div>
-            </div>
-          </div>
+ 
+          {/* PAYMENT TIMELINE */}
+          <aside className="bg-[#151822] border border-white/[0.1] rounded-3xl p-7 md:p-8" aria-labelledby="timeline-title">
+            <h2 id="timeline-title" className="font-display text-xl font-semibold mb-1">
+              How a campaign is paid
+            </h2>
+            <p className="text-sm text-white/65 mb-6">Terms are written into the contract before any work starts.</p>
+ 
+            <ol className="relative border-l border-white/15 ml-2 space-y-6">
+              <li className="pl-6 relative">
+                <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#E3A64A]" aria-hidden="true" />
+                <h3 className="font-semibold text-[0.95rem]">Contract signed</h3>
+                <p className="text-sm text-white/70 mt-1">
+                  Deliverables, usage rights and payment dates are agreed in writing.
+                </p>
+              </li>
+              <li className="pl-6 relative">
+                <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#3FA9A0]" aria-hidden="true" />
+                <h3 className="font-semibold text-[0.95rem]">50% paid, draft approved</h3>
+                <p className="text-sm text-white/70 mt-1">
+                  The brand pays the first half. The creator sends a draft, and nothing goes live without the brand's
+                  approval.
+                </p>
+              </li>
+              <li className="pl-6 relative">
+                <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#9b8cf0]" aria-hidden="true" />
+                <h3 className="font-semibold text-[0.95rem]">Published, remaining 50% in 30 to 45 days</h3>
+                <p className="text-sm text-white/70 mt-1">
+                  Once payment arrives, the creator receives 80% of the fee and NexVance keeps 20%.
+                </p>
+              </li>
+            </ol>
+          </aside>
         </div>
       </header>
-
-      {/* HARD SOCIAL PROOF & TALENT ROSTER SECTION */}
-      <section id="roster" className="py-20 bg-[#0E1118] border-y border-white/[0.08]">
+ 
+      {/* HOW IT WORKS (for brands) */}
+      <section id="how" className="py-20 bg-[#0E1118] border-y border-white/[0.08]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <span className="font-mono-nv text-[0.75rem] tracking-wide text-[#E3A64A] block mb-2">TALENT SHOWCASE</span>
-              <h2 className="font-display font-semibold text-3xl md:text-4xl">Featured Talent &amp; Collaborator Network</h2>
-              <p className="text-white/60 mt-2 max-w-[620px]">
-                Explore creators represented in our roster and past brand partnerships across YouTube, TikTok, Instagram &amp; Facebook.
-              </p>
-            </div>
-            
-            {/* Platform Filter Pills */}
-            <div className="flex gap-2 flex-wrap mt-6 md:mt-0 font-mono-nv text-xs">
-              {['All', 'YouTube', 'TikTok', 'Instagram', 'UGC'].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedPlatform(cat)}
-                  className={`px-4 py-2 rounded-lg border transition-all ${
-                    selectedPlatform === cat
-                      ? 'bg-[#E3A64A] text-[#1a1408] border-[#E3A64A] font-bold'
-                      : 'bg-[#151822] text-white/70 border-white/[0.09] hover:border-white/30'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+          <h2 className="font-display font-semibold text-3xl md:text-4xl max-w-[640px] mb-3">How it works for brands</h2>
+          <p className="text-white/70 max-w-[620px] mb-12">
+            You see who we would match you with, and the terms, before you commit to anything.
+          </p>
+ 
+          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                t: 'Send a brief',
+                b: 'Tell us about the product, platforms, regions and budget. Two minutes, no call needed.',
+              },
+              {
+                t: 'Review a shortlist',
+                b: 'We match creators from our roster by niche, audience location and engagement, and share their audience data.',
+              },
+              {
+                t: 'Contract, then content',
+                b: 'Scope, usage rights and payment dates are signed first. The creator sends a draft and you approve it.',
+              },
+              {
+                t: 'Publish and pay',
+                b: '50% before publishing, 50% within 30 to 45 days after. NexVance’s 20% comes out of that fee.',
+              },
+            ].map((s, i) => (
+              <li key={s.t} className="bg-[#151822] border border-white/[0.1] rounded-2xl p-6">
+                <span className="font-mono-nv text-sm text-[#E3A64A]">Step {i + 1}</span>
+                <h3 className="font-semibold text-lg mt-2 mb-2">{s.t}</h3>
+                <p className="text-sm text-white/70 leading-relaxed">{s.b}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+ 
+      {/* ROSTER */}
+      <section id="roster" className="py-20 max-w-[1200px] mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
+          <div>
+            <h2 className="font-display font-semibold text-3xl md:text-4xl mb-2">Creators on our roster</h2>
+            <p className="text-white/70 max-w-[640px]">
+              Creators appear here with their permission. Audience figures come from the creators themselves, and we
+              share full audience data with brands on request.
+            </p>
           </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredTalent.map((talent, idx) => (
-              <div key={idx} className="bg-[#151822] border border-white/[0.09] rounded-2xl p-5 hover:border-[#3FA9A0]/50 transition-all hover:-translate-y-1.5 flex flex-col justify-between group">
+ 
+          <div className="flex gap-2 flex-wrap" role="group" aria-label="Filter creators by platform">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                type="button"
+                aria-pressed={selectedFilter === f}
+                onClick={() => setSelectedFilter(f)}
+                className={`px-4 py-2 rounded-lg border text-sm transition-colors ${
+                  selectedFilter === f
+                    ? 'bg-[#E3A64A] text-[#1a1408] border-[#E3A64A] font-semibold'
+                    : 'bg-[#151822] text-white/75 border-white/20 hover:border-white/40'
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+ 
+        <p className="text-sm text-white/60 mb-10 max-w-[760px]">
+          The brands listed on each card are the creator's own past work. They are not NexVance campaigns.
+        </p>
+ 
+        {roster.length === 0 ? (
+          <div className="border border-dashed border-white/25 rounded-2xl p-10 text-center">
+            <p className="text-white/80 max-w-[520px] mx-auto mb-5">
+              We are adding creator profiles one at a time, each with the creator's approval. Ask for the current roster
+              and we will send it with audience data for your niche and region.
+            </p>
+            <a
+              href="#portal"
+              onClick={() => openForm('brand')}
+              className="inline-block bg-[#3FA9A0] text-[#06211f] px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#4bbdb3] transition-colors"
+            >
+              Request the roster
+            </a>
+          </div>
+        ) : filteredRoster.length === 0 ? (
+          <p className="text-white/70">No creators match this filter yet. Try another platform.</p>
+        ) : (
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {filteredRoster.map((c) => (
+              <li key={c.name} className="bg-[#151822] border border-white/[0.1] rounded-2xl p-5 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3.5 mb-4">
-                    <img src={talent.avatar} alt={talent.name} className="w-12 h-12 rounded-full object-cover border border-white/20" />
-                    <div>
-                      <h3 className="font-bold text-base text-white group-hover:text-[#E3A64A] transition-colors">{talent.name}</h3>
-                      <p className="text-xs font-mono-nv text-white/50">{talent.handle}</p>
+                    <Avatar creator={c} />
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-base text-white truncate">{c.name}</h3>
+                      {c.handle &&
+                        (c.profileUrl ? (
+                          <a
+                            href={c.profileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-mono-nv text-[#3FA9A0] hover:underline"
+                          >
+                            {c.handle}
+                          </a>
+                        ) : (
+                          <p className="text-xs font-mono-nv text-white/65">{c.handle}</p>
+                        ))}
                     </div>
                   </div>
-
-                  <div className="space-y-2 mb-4 text-xs">
-                    <div className="flex justify-between">
-                      <span className="text-white/50">Niche:</span>
-                      <span className="font-semibold text-white/90">{talent.niche}</span>
+ 
+                  <dl className="space-y-2 mb-4 text-sm">
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-white/60">Niche</dt>
+                      <dd className="text-white/90 text-right">{c.niche}</dd>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-white/50">Audience:</span>
-                      <span className="font-mono-nv text-[#3FA9A0] font-semibold">{talent.reach} Reach</span>
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-white/60">Audience</dt>
+                      <dd className="text-[#3FA9A0] font-semibold text-right">{c.audience}</dd>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-white/50">Geo Focus:</span>
-                      <span className="text-white/80">{talent.region}</span>
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-white/60">Region</dt>
+                      <dd className="text-white/90 text-right">{c.region}</dd>
                     </div>
-                  </div>
-
-                  {/* Platforms */}
+                  </dl>
+ 
                   <div className="flex flex-wrap gap-1.5 mb-4">
-                    {talent.platforms.map((p, i) => (
-                      <span key={i} className="text-[10px] font-mono-nv bg-white/[0.06] px-2 py-0.5 rounded text-white/80">
+                    {[...c.platforms, ...(c.ugc ? ['UGC'] : [])].map((p) => (
+                      <span key={p} className="text-xs bg-white/[0.08] px-2 py-0.5 rounded text-white/85">
                         {p}
                       </span>
                     ))}
                   </div>
                 </div>
-
-                {/* Past Brand Collabs - THE SOCIAL PROOF */}
-                <div className="pt-3 border-t border-white/[0.08]">
-                  <span className="text-[10px] font-mono-nv text-white/40 block mb-1.5 uppercase tracking-wider">Prior Brand Integrations</span>
-                  <div className="flex flex-wrap gap-1">
-                    {talent.pastBrands.map((b, bi) => (
-                      <span key={bi} className="text-[11px] bg-[#3FA9A0]/15 text-[#3FA9A0] px-2 py-0.5 rounded font-medium">
-                        {b}
-                      </span>
-                    ))}
+ 
+                {c.priorWork && c.priorWork.length > 0 && (
+                  <div className="pt-3 border-t border-white/[0.1]">
+                    <p className="text-xs text-white/60 mb-1.5">Creator's prior brand work</p>
+                    <p className="text-sm text-white/85">{c.priorWork.join(', ')}</p>
                   </div>
-                </div>
-              </div>
+                )}
+              </li>
             ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-sm text-white/50 mb-4 font-mono-nv">Looking for a tailored media kit or specific CPM targets?</p>
-            <a href="#portal" onClick={() => setActiveFormTab('brand')} className="inline-flex items-center gap-2 text-[#E3A64A] font-semibold text-sm hover:underline">
-              Request Full Custom Roster with Engagement Rates →
-            </a>
-          </div>
-        </div>
+          </ul>
+        )}
       </section>
-
-      {/* EXPANDED CAPABILITIES: NICHES & FORMATS */}
-      <section className="py-20 max-w-[1200px] mx-auto px-6">
-        <div className="max-w-[750px] mx-auto text-center mb-16">
-          <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] block mb-3.5">FULL SPECTRUM COVERAGE</span>
-          <h2 className="font-display font-semibold text-3xl md:text-4xl mb-4">Every format. Broad niches. Zero limits.</h2>
-          <p className="text-white/60 leading-relaxed">
-            We don’t limit brands to a single platform or rigid vertical. NexVance represents creators across every major channel with formats fine-tuned for high engagement and conversions.
+ 
+      {/* FORMATS & NICHES */}
+      <section className="py-20 bg-[#0E1118] border-y border-white/[0.08]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl max-w-[640px] mb-3">Formats and niches</h2>
+          <p className="text-white/70 max-w-[620px] mb-12">
+            One brief can mix formats. We recommend a combination based on your goal and budget.
+          </p>
+ 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            <div className="bg-[#151822] border border-white/[0.1] p-7 rounded-2xl">
+              <h3 className="font-bold text-lg mb-2">Long-form</h3>
+              <p className="text-sm text-white/70 leading-relaxed mb-3">
+                Dedicated YouTube reviews, sponsor segments, product walkthroughs and podcast reads.
+              </p>
+              <p className="text-sm text-[#E3A64A]">YouTube, podcasts</p>
+            </div>
+            <div className="bg-[#151822] border border-white/[0.1] p-7 rounded-2xl">
+              <h3 className="font-bold text-lg mb-2">Short-form</h3>
+              <p className="text-sm text-white/70 leading-relaxed mb-3">
+                TikToks, Instagram reels, Facebook video, posts and stories made for a quick, clear message.
+              </p>
+              <p className="text-sm text-[#3FA9A0]">TikTok, Instagram, Facebook</p>
+            </div>
+            <div className="bg-[#151822] border border-white/[0.1] p-7 rounded-2xl">
+              <h3 className="font-bold text-lg mb-2">UGC for ads</h3>
+              <p className="text-sm text-white/70 leading-relaxed mb-3">
+                Creator-made video for your own ad accounts. Paid usage such as whitelisting or Spark Ads is agreed per
+                brief.
+              </p>
+              <p className="text-sm text-[#9b8cf0]">Meta, TikTok paid creative</p>
+            </div>
+          </div>
+ 
+          <p className="text-white/75 max-w-[820px] leading-relaxed">
+            <span className="font-semibold text-white">Niches we work in:</span> tech and gadgets, SaaS and AI tools,
+            gaming, fitness and wellness, beauty, food and beverage, home, travel, finance, fashion, family, and books
+            and writing. If your niche is not listed, send a brief and we will tell you honestly whether we have a fit.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-[#151822] border border-white/[0.08] p-7 rounded-2xl">
-            <div className="w-10 h-10 rounded-lg bg-[#E3A64A]/10 text-[#E3A64A] flex items-center justify-center font-bold text-lg mb-4">🎥</div>
-            <h3 className="font-bold text-lg mb-2">Long-Form &amp; Integrations</h3>
-            <p className="text-sm text-white/60 mb-4">Dedicated YouTube reviews, 60s sponsor segments, deep product walkthroughs, and podcast reads.</p>
-            <span className="text-xs font-mono-nv text-[#E3A64A]">YouTube • Spotify • Podcasting</span>
-          </div>
-
-          <div className="bg-[#151822] border border-white/[0.08] p-7 rounded-2xl">
-            <div className="w-10 h-10 rounded-lg bg-[#3FA9A0]/10 text-[#3FA9A0] flex items-center justify-center font-bold text-lg mb-4">⚡</div>
-            <h3 className="font-bold text-lg mb-2">Short-Form Viral Creative</h3>
-            <p className="text-sm text-white/60 mb-4">Organic reels, TikTok hooks, Facebook viral video formats, and interactive Instagram story link sweeps.</p>
-            <span className="text-xs font-mono-nv text-[#3FA9A0]">TikTok • Instagram Reels • FB Video</span>
-          </div>
-
-          <div className="bg-[#151822] border border-white/[0.08] p-7 rounded-2xl">
-            <div className="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-lg mb-4">📦</div>
-            <h3 className="font-bold text-lg mb-2">High-Performing UGC Ads</h3>
-            <p className="text-sm text-white/60 mb-4">Direct-to-consumer ad creative created exclusively for paid media, whitelisting, and TikTok Spark Ads.</p>
-            <span className="text-xs font-mono-nv text-purple-400">Meta Whitelisting • Paid Media Creative</span>
-          </div>
-        </div>
       </section>
-
-      {/* WHY NEXVANCE & TERMS */}
-      <section className="py-16 bg-[#0E1118] border-y border-white/[0.08]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#E3A64A] block mb-3.5">OPERATING MODEL</span>
-          <h2 className="font-display font-semibold text-3xl max-w-[600px] mb-5">Built on crystal clear non-negotiables.</h2>
-          <p className="text-white/60 max-w-[600px] mb-10">Whether running flat-rate campaigns or creator performance deals, every contract is transparent.</p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+ 
+      {/* FOR CREATORS */}
+      <section id="for-creators" className="py-20 max-w-[1200px] mx-auto px-6">
+        <div className="grid md:grid-cols-[1fr_1fr] gap-12 items-start">
+          <div>
+            <h2 className="font-display font-semibold text-3xl md:text-4xl mb-4">For creators</h2>
+            <p className="text-white/70 leading-relaxed max-w-[480px] mb-6">
+              We pitch you to brands that fit your audience, and handle the contract and the payment chasing. You decide
+              which deals you take.
+            </p>
+            <a
+              href="#portal"
+              onClick={() => openForm('creator')}
+              className="inline-block bg-[#E3A64A] text-[#1a1408] px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#eeb562] transition-colors"
+            >
+              Apply to join the roster
+            </a>
+          </div>
+ 
+          <ul className="space-y-4">
             {[
-              { icon: '50/50', title: '50% Upfront, 50% Net 30-45', body: 'Brands deposit 50% to start production. The remaining 50% clears after publishing within 30 to 45 days.', color: 'amber' },
-              { icon: '🌍', title: 'US, UK, CA & Europe Wide', body: 'Target qualified international audiences with native English and bilingual creators.', color: 'teal' },
-              { icon: '1:1', title: 'Founder-Led Communication', body: 'Deal directly with executive management. Zero account junior telephone games.', color: 'amber' },
-              { icon: '0%', title: 'Zero Agency Overhead', body: 'Brands pay agreed creator flat rates. Creators keep 80% without any upfront signup fee.', color: 'teal' },
-              { icon: '∞', title: 'Every Niche Supported', body: 'Tech, B2B SaaS, Gaming, Lifestyle, E-com, Fitness, Fashion, Home & Wellness.', color: 'amber' },
-              { icon: '✍️', title: 'Ironclad Milestone Contracts', body: 'Script approval, usage rights, deliverable specs, and payment gates signed upfront.', color: 'teal' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#151822] border border-white/[0.09] rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:border-white/30"
-              >
-                <div
-                  className={`w-[44px] h-[34px] rounded-lg flex items-center justify-center font-mono-nv text-[0.85rem] font-bold mb-3.5 ${
-                    item.color === 'amber' ? 'bg-[#E3A64A]/10 text-[#E3A64A]' : 'bg-[#3FA9A0]/10 text-[#3FA9A0]'
-                  }`}
-                >
-                  {item.icon}
-                </div>
-                <h3 className="font-bold text-[0.98rem] mb-1.5">{item.title}</h3>
-                <p className="text-[0.86rem] text-white/60">{item.body}</p>
-              </div>
+              'No signup fee. We earn 20% only when a deal closes; you keep 80%.',
+              'Non-exclusive. Keep working with other brands and agencies.',
+              'We never introduce you to a brand without your approval.',
+              'Contract first: deliverables, usage rights and payment dates are agreed in writing before you start.',
+              'You approve your listing, including which details and past brands we show.',
+            ].map((t) => (
+              <li key={t} className="flex gap-3 text-white/85 text-[0.95rem] leading-relaxed">
+                <span className="text-[#3FA9A0]">
+                  <CheckIcon />
+                </span>
+                {t}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
-
-      {/* MEET THE FOUNDER / ABOUT US (Big Trust Booster) */}
-      <section id="about" className="py-24 max-w-[1200px] mx-auto px-6">
-        <div className="bg-[#151822] border border-white/[0.09] rounded-3xl p-8 md:p-14">
-          <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
-            
-            {/* Real Image Container */}
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden border-2 border-[#E3A64A]/40 aspect-[4/5] shadow-2xl relative">
-                <img
-                  src="/founder.jpg" 
-                  alt="Muhammad Haseeb - Founder of NexVance"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback visual placeholder if founder.jpg is not yet uploaded to public folder
-                    e.currentTarget.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D12] via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h4 className="font-display font-bold text-xl text-white">Muhammad Haseeb</h4>
-                  <p className="text-xs font-mono-nv text-[#E3A64A]">Founder &amp; Managing Director</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Founder Story */}
+ 
+      {/* ABOUT / FOUNDER (edit the story in your own words) */}
+      <section id="about" className="py-20 bg-[#0E1118] border-y border-white/[0.08]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid md:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
+            <FounderPhoto />
+ 
             <div>
-              <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] block mb-3.5">LEADERSHIP &amp; ACCOUNTABILITY</span>
               <h2 className="font-display font-semibold text-3xl md:text-4xl mb-6">
-                Built to solve the agency bloat and broken creator promises.
+                A small agency that works in the open
               </h2>
-              <div className="space-y-4 text-white/70 text-sm md:text-base leading-relaxed">
+              <div className="space-y-4 text-white/75 leading-relaxed">
                 <p>
-                  "Most traditional influencer agencies operate like middlemen tax collectors: they lock brands into $5,000/month retainers while ignoring creator communication and failing to enforce campaign ROI."
+                  I'm Haseeb, the founder of NexVance. I started it in 2026 because brands want creator marketing
+                  without paying a retainer for results nobody guarantees, and creators want to know the contract and
+                  the payment dates before they start work.
                 </p>
                 <p>
-                  "I founded <strong className="text-white font-semibold">NexVance</strong> with a singular mission: to make creator collaborations as reliable as programmatic media. We represent creators across the US, UK, Canada, and Europe, aligning both sides with transparent milestones."
+                  So every deal begins with a signed contract, and we only earn when a deal closes. When you write to
+                  NexVance, you reach me directly.
                 </p>
                 <p>
-                  "When you work with NexVance, you have my personal mobile number and direct email. No revolving junior account reps. Just performance, locked contracts, and seamless campaign delivery."
+                  We are early. There is no wall of case studies here yet and we will not invent one. What I can show
+                  you is the roster, the terms and how we work, before you spend anything.
                 </p>
               </div>
-
-              <div className="mt-8 flex items-center gap-6">
-                <div>
-                  <div className="font-display font-bold text-white text-lg">Direct Contact</div>
-                  <a href="mailto:haseeb@nexvanceagency.com" className="text-sm font-mono-nv text-[#3FA9A0] hover:underline">
-                    haseeb@nexvanceagency.com
-                  </a>
-                </div>
-                <div className="h-8 w-px bg-white/10" />
-                <div>
-                  <div className="font-display font-bold text-white text-lg">Operating Territory</div>
-                  <div className="text-sm font-mono-nv text-white/60">North America &amp; Europe</div>
-                </div>
+ 
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+                <a href={`mailto:${SITE.email}`} className="text-[#3FA9A0] hover:underline font-mono-nv">
+                  {SITE.email}
+                </a>
+                <a
+                  href={SITE.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/85 hover:text-white underline underline-offset-4"
+                >
+                  Muhammad Haseeb on LinkedIn
+                </a>
               </div>
             </div>
-
           </div>
         </div>
       </section>
-
-      {/* CONSOLIDATED TABBED APPLICATION PORTAL */}
+ 
+      {/* FAQ */}
+      <section id="faq" className="py-20 max-w-[820px] mx-auto px-6">
+        <h2 className="font-display font-semibold text-3xl md:text-4xl mb-8">Questions brands and creators ask</h2>
+        <div className="divide-y divide-white/[0.1] border-y border-white/[0.1]">
+          {FAQS.map((f) => (
+            <details key={f.q} className="group py-1">
+              <summary className="flex items-center justify-between gap-4 py-4 text-[1.02rem] font-semibold">
+                {f.q}
+                <span className="faq-plus text-2xl leading-none text-[#E3A64A]" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p className="pb-5 text-white/75 leading-relaxed max-w-[720px]">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+ 
+      {/* FORMS */}
       <section id="portal" className="py-20 bg-[#0E1118] border-t border-white/[0.08]">
         <div className="max-w-[760px] mx-auto px-6">
           <div className="text-center mb-10">
-            <span className="font-mono-nv text-[0.74rem] tracking-wide text-[#3FA9A0] block mb-2">INITIATE PARTNERSHIP</span>
-            <h2 className="font-display font-semibold text-3xl md:text-4xl">Let’s run your next campaign.</h2>
-            <p className="text-white/60 mt-2 text-sm">Select whether you are booking creators or applying to join our roster.</p>
-            
-            {/* TABS */}
-            <div className="inline-flex p-1 bg-[#151822] border border-white/10 rounded-xl mt-6">
+            <h2 className="font-display font-semibold text-3xl md:text-4xl">Start with a short message</h2>
+            <p className="text-white/70 mt-2 text-sm">Choose whether you are hiring creators or applying to join the roster.</p>
+ 
+            <div role="tablist" aria-label="Form type" className="inline-flex p-1 bg-[#151822] border border-white/15 rounded-xl mt-6">
               <button
+                role="tab"
+                id="tab-brand"
+                aria-selected={activeFormTab === 'brand'}
+                aria-controls="panel-brand"
+                type="button"
                 onClick={() => setActiveFormTab('brand')}
-                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-                  activeFormTab === 'brand' ? 'bg-[#3FA9A0] text-[#06211f]' : 'text-white/60 hover:text-white'
+                className={`px-5 sm:px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                  activeFormTab === 'brand' ? 'bg-[#3FA9A0] text-[#06211f]' : 'text-white/70 hover:text-white'
                 }`}
               >
-                For Brands &amp; Marketers
+                I'm a brand
               </button>
               <button
+                role="tab"
+                id="tab-creator"
+                aria-selected={activeFormTab === 'creator'}
+                aria-controls="panel-creator"
+                type="button"
                 onClick={() => setActiveFormTab('creator')}
-                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-                  activeFormTab === 'creator' ? 'bg-[#E3A64A] text-[#1a1408]' : 'text-white/60 hover:text-white'
+                className={`px-5 sm:px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                  activeFormTab === 'creator' ? 'bg-[#E3A64A] text-[#1a1408]' : 'text-white/70 hover:text-white'
                 }`}
               >
-                For Creators &amp; UGC Talent
+                I'm a creator
               </button>
             </div>
           </div>
-
-          <div className="bg-[#151822] border border-white/[0.09] rounded-2xl p-8 shadow-2xl">
+ 
+          <div className="bg-[#151822] border border-white/[0.1] rounded-2xl p-6 sm:p-8 shadow-2xl">
             {activeFormTab === 'brand' ? (
-              /* BRAND FORM */
-              !brandSubmitted ? (
-                <form onSubmit={(e) => handleSubmit(e, setBrandSending, setBrandSubmitted)}>
-                  <input type="hidden" name="form_type" value="Brand Partnership Request" />
-                  <div className="grid md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Company / Brand Name</label>
-                      <input type="text" name="brand_name" placeholder="e.g. Acme Corp" required
-                        className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#3FA9A0]" />
-                    </div>
-                    <div>
-                      <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Brand Website / Store</label>
-                      <input type="url" name="website" placeholder="https://acme.com" required
-                        className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#3FA9A0]" />
-                    </div>
+              <div role="tabpanel" id="panel-brand" aria-labelledby="tab-brand">
+                {brandStatus === 'sent' ? (
+                  <div className="text-center py-10" role="status">
+                    <h3 className="font-display font-semibold text-2xl mb-2 text-[#3FA9A0]">Brief received</h3>
+                    <p className="text-white/75 text-sm max-w-[420px] mx-auto">
+                      Thanks. Haseeb will review it and reply with next steps, usually within a day or two.
+                    </p>
                   </div>
-
-                  <div className="grid md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Work Email</label>
-                      <input type="email" name="email" placeholder="alex@acme.com" required
-                        className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#3FA9A0]" />
+                ) : (
+                  <form onSubmit={(e) => handleSubmit(e, setBrandStatus)}>
+                    <input type="hidden" name="form_type" value="Brand Partnership Request" />
+                    <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+ 
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <Field id="brand-name" label="Company or brand name">
+                        <input id="brand-name" className={inputCls} type="text" name="brand_name" placeholder="Acme Corp" required />
+                      </Field>
+                      <Field id="brand-site" label="Website or store">
+                        <input id="brand-site" className={inputCls} type="url" name="website" placeholder="https://acme.com" required />
+                      </Field>
                     </div>
-                    <div>
-                      <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Target Budget Tier</label>
-                      <select name="budget" required
-                        className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#3FA9A0] text-white">
-                        <option value="">Select range</option>
-                        <option>$2,500 – $5,000 (Test Flight)</option>
-                        <option>$5,000 – $15,000 (Growth Campaign)</option>
-                        <option>$15,000+ (Omnichannel Scale)</option>
-                      </select>
+ 
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <Field id="brand-email" label="Work email">
+                        <input id="brand-email" className={inputCls} type="email" name="email" placeholder="alex@acme.com" required />
+                      </Field>
+                      <Field id="brand-budget" label="Campaign budget">
+                        <select id="brand-budget" className={inputCls} name="budget" required defaultValue="">
+                          <option value="" disabled>
+                            Select a range
+                          </option>
+                          {BUDGETS.map((b) => (
+                            <option key={b} value={b}>
+                              {b}
+                            </option>
+                          ))}
+                        </select>
+                      </Field>
                     </div>
-                  </div>
-
-                  <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Campaign Deliverables &amp; Target Geo (US, UK, CA, EU)</label>
-                  <textarea name="message" placeholder="Describe product details, target platform (YT, TikTok, IG, UGC), and main conversion goals..." required rows={3}
-                    className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#3FA9A0] mb-5" />
-
-                  <button type="submit" disabled={brandSending}
-                    className="w-full bg-[#3FA9A0] text-[#06211f] py-3.5 rounded-lg font-bold text-sm hover:bg-[#4bbdb3] transition-colors disabled:opacity-60">
-                    {brandSending ? 'Packaging Request...' : 'Send Campaign Brief & Roster Request'}
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-10">
-                  <h3 className="font-display font-semibold text-2xl mb-2 text-[#3FA9A0]">Brief Transmitted.</h3>
-                  <p className="text-white/60 text-sm">Haseeb and the team will review your targets and deliver a matched creator shortlist within 24–48 hours.</p>
-                </div>
-              )
+ 
+                    <div className="mb-5">
+                      <Field id="brand-message" label="What do you want to promote, on which platforms, and in which regions?">
+                        <textarea
+                          id="brand-message"
+                          className={inputCls}
+                          name="message"
+                          rows={4}
+                          required
+                          placeholder="Product, target platforms (YouTube, TikTok, Instagram, Facebook, UGC), regions, and the goal of the campaign."
+                        />
+                      </Field>
+                    </div>
+ 
+                    <button
+                      type="submit"
+                      disabled={brandStatus === 'sending'}
+                      className="w-full bg-[#3FA9A0] text-[#06211f] py-3.5 rounded-lg font-bold text-sm hover:bg-[#4bbdb3] transition-colors disabled:opacity-60"
+                    >
+                      {brandStatus === 'sending' ? 'Sending…' : 'Send brief'}
+                    </button>
+                    <FormMessage status={brandStatus} />
+                    <p className="mt-4 text-xs text-white/55">
+                      We use your details only to reply to this request. See <a href="#privacy" className="underline">Privacy</a>.
+                    </p>
+                  </form>
+                )}
+              </div>
             ) : (
-              /* CREATOR FORM */
-              !creatorSubmitted ? (
-                <form onSubmit={(e) => handleSubmit(e, setCreatorSending, setCreatorSubmitted)}>
-                  <input type="hidden" name="form_type" value="Creator Application" />
-                  <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Primary Channel / Portfolio Link</label>
-                  <input type="url" name="channel_link" placeholder="https://youtube.com/@channel or TikTok/IG profile" required
-                    className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#E3A64A] mb-4" />
-
-                  <div className="grid md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Follower / Sub Count</label>
-                      <input type="text" name="audience_size" placeholder="e.g. 120k subs or UGC portfolio" required
-                        className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#E3A64A]" />
-                    </div>
-                    <div>
-                      <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Content Category</label>
-                      <input type="text" name="niche" placeholder="Tech, Lifestyle, Gaming, UGC..." required
-                        className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#E3A64A]" />
-                    </div>
+              <div role="tabpanel" id="panel-creator" aria-labelledby="tab-creator">
+                {creatorStatus === 'sent' ? (
+                  <div className="text-center py-10" role="status">
+                    <h3 className="font-display font-semibold text-2xl mb-2 text-[#E3A64A]">Application received</h3>
+                    <p className="text-white/75 text-sm max-w-[420px] mx-auto">
+                      Thanks. We review applications against incoming brand briefs and will reply by email.
+                    </p>
                   </div>
-
-                  <label className="block font-mono-nv text-[0.68rem] tracking-wide text-white/40 uppercase mb-1.5">Contact Email</label>
-                  <input type="email" name="email" placeholder="creator@email.com" required
-                    className="w-full bg-[#0B0D12] border border-white/[0.09] rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#E3A64A] mb-5" />
-
-                  <button type="submit" disabled={creatorSending}
-                    className="w-full bg-[#E3A64A] text-[#1a1408] py-3.5 rounded-lg font-bold text-sm hover:bg-[#eeb562] transition-colors disabled:opacity-60">
-                    {creatorSending ? 'Submitting...' : 'Apply for NexVance Representation'}
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-10">
-                  <h3 className="font-display font-semibold text-2xl mb-2 text-[#E3A64A]">Application Logged.</h3>
-                  <p className="text-white/60 text-sm">We assess fit against incoming brand briefs and reply within 48 hours.</p>
-                </div>
-              )
+                ) : (
+                  <form onSubmit={(e) => handleSubmit(e, setCreatorStatus)}>
+                    <input type="hidden" name="form_type" value="Creator Application" />
+                    <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+ 
+                    <div className="mb-4">
+                      <Field id="creator-link" label="Main channel or portfolio link">
+                        <input
+                          id="creator-link"
+                          className={inputCls}
+                          type="url"
+                          name="channel_link"
+                          placeholder="https://youtube.com/@channel, or your TikTok / Instagram / portfolio link"
+                          required
+                        />
+                      </Field>
+                    </div>
+ 
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <Field id="creator-size" label="Followers or subscribers">
+                        <input id="creator-size" className={inputCls} type="text" name="audience_size" placeholder="120K subscribers, or UGC portfolio" required />
+                      </Field>
+                      <Field id="creator-niche" label="Content category">
+                        <input id="creator-niche" className={inputCls} type="text" name="niche" placeholder="Tech, lifestyle, gaming, UGC…" required />
+                      </Field>
+                    </div>
+ 
+                    <div className="mb-5">
+                      <Field id="creator-email" label="Contact email">
+                        <input id="creator-email" className={inputCls} type="email" name="email" placeholder="you@email.com" required />
+                      </Field>
+                    </div>
+ 
+                    <button
+                      type="submit"
+                      disabled={creatorStatus === 'sending'}
+                      className="w-full bg-[#E3A64A] text-[#1a1408] py-3.5 rounded-lg font-bold text-sm hover:bg-[#eeb562] transition-colors disabled:opacity-60"
+                    >
+                      {creatorStatus === 'sending' ? 'Sending…' : 'Apply to join'}
+                    </button>
+                    <FormMessage status={creatorStatus} />
+                    <p className="mt-4 text-xs text-white/55">
+                      Applying is free and non-exclusive. See <a href="#privacy" className="underline">Privacy</a>.
+                    </p>
+                  </form>
+                )}
+              </div>
             )}
           </div>
         </div>
       </section>
-
+ 
+      {/* PRIVACY & TERMS (plain-language draft; have it reviewed before relying on it) */}
+      <section id="privacy" className="py-14 max-w-[820px] mx-auto px-6">
+        <h2 className="font-display font-semibold text-2xl mb-6">Privacy and terms</h2>
+        <div className="space-y-3">
+          <details className="bg-[#151822] border border-white/[0.1] rounded-xl px-5">
+            <summary className="py-4 font-semibold">Privacy</summary>
+            <div className="pb-5 text-sm text-white/75 leading-relaxed space-y-2">
+              <p>
+                When you send a form we receive the details you type in (such as name, email, website or channel link and
+                your message). Forms are processed by Formspree and delivered to us by email.
+              </p>
+              <p>
+                We use these details only to reply to you and to match brands with creators. We do not sell them. We never
+                share a creator's details with a brand without that creator's approval.
+              </p>
+              <p>
+                This site uses Vercel Analytics to count visits. To ask us to delete your details, email{' '}
+                <a href={`mailto:${SITE.email}`} className="underline">
+                  {SITE.email}
+                </a>
+                .
+              </p>
+            </div>
+          </details>
+          <details id="terms" className="bg-[#151822] border border-white/[0.1] rounded-xl px-5">
+            <summary className="py-4 font-semibold">Terms of use</summary>
+            <div className="pb-5 text-sm text-white/75 leading-relaxed space-y-2">
+              <p>
+                The information on this site is a general description of how NexVance works. It is not an offer.
+                Each campaign is governed only by the written contract signed by the parties.
+              </p>
+              <p>
+                Creator profiles are shown with the creator's permission. Past brands shown on a profile are the creator's
+                own prior work and are not NexVance campaigns.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+ 
       {/* FOOTER */}
-      <footer className="border-t border-white/[0.09] py-12 bg-[#0B0D12]">
-        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-between gap-6">
+      <footer className="border-t border-white/[0.1] py-12 bg-[#0B0D12]">
+        <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-between gap-8">
           <div>
-            <div className="flex items-center gap-2.5 mb-2.5">
-              <img src="/logo.png" alt="NexVance logo" className="w-[24px] h-[24px] object-contain rounded-md" />
+            <div className="flex items-center gap-2.5 mb-3">
+              <img src="/logo.png" alt="" className="w-[24px] h-[24px] object-contain rounded-md" />
               <span className="font-display font-semibold text-lg">NexVance</span>
             </div>
-            <p className="text-white/40 text-xs max-w-[300px] leading-relaxed">
-              Strategic creator representation and performance influencer campaigns across North America &amp; Europe.
+            <p className="text-white/60 text-sm max-w-[320px] leading-relaxed">
+              Creator sponsorships and UGC for brands in the US, UK, Canada and Europe. Commission-only, contract first.
             </p>
           </div>
-          <div className="flex gap-12 flex-wrap">
+ 
+          <div className="flex gap-14 flex-wrap text-sm">
             <div>
-              <h5 className="font-mono-nv text-[0.68rem] uppercase tracking-wide text-white/40 mb-3">Navigation</h5>
-              <a href="#roster" className="block text-xs text-white/60 hover:text-white mb-2">Talent Network</a>
-              <a href="#about" className="block text-xs text-white/60 hover:text-white mb-2">Leadership</a>
-              <a href="#portal" className="block text-xs text-white/60 hover:text-white mb-2">Deal Architecture</a>
+              <h3 className="text-white/60 mb-3 text-xs">Site</h3>
+              <a href="#how" className="block text-white/80 hover:text-white mb-2">How it works</a>
+              <a href="#roster" className="block text-white/80 hover:text-white mb-2">Creators</a>
+              <a href="#about" className="block text-white/80 hover:text-white mb-2">About</a>
+              <a href="#faq" className="block text-white/80 hover:text-white mb-2">FAQ</a>
             </div>
             <div>
-              <h5 className="font-mono-nv text-[0.68rem] uppercase tracking-wide text-white/40 mb-3">Direct Executive Desk</h5>
-              <a href="mailto:haseeb@nexvanceagency.com" className="block text-xs text-[#3FA9A0] hover:underline mb-2">haseeb@nexvanceagency.com</a>
-              <span className="block text-xs text-white/40">Response SLA: &lt; 24 Hours</span>
+              <h3 className="text-white/60 mb-3 text-xs">Contact</h3>
+              <a href={`mailto:${SITE.email}`} className="block text-[#3FA9A0] hover:underline mb-2">
+                {SITE.email}
+              </a>
+              <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" className="block text-white/80 hover:text-white mb-2">
+                LinkedIn
+              </a>
+              <a href="#privacy" className="block text-white/80 hover:text-white mb-2">Privacy and terms</a>
             </div>
           </div>
         </div>
-        <div className="text-center font-mono-nv text-xs text-white/40 mt-10 pt-6 border-t border-white/[0.06] max-w-[1200px] mx-auto px-6">
-          © 2026 NexVance Agency. All rights reserved.
+        <div className="text-center text-xs text-white/50 mt-10 pt-6 border-t border-white/[0.06] max-w-[1200px] mx-auto px-6">
+          © 2026 NexVance. All rights reserved.
         </div>
       </footer>
+    </div>
+  );
+}
+ 
+/* Founder photo: uses /public/founder.jpg. If the file is missing, shows initials,
+   never a stock photo of someone else. */
+function FounderPhoto() {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className="relative max-w-[420px]">
+      <div className="rounded-2xl overflow-hidden border border-[#E3A64A]/40 aspect-[4/5] bg-[#151822] relative">
+        {!failed ? (
+          <img
+            src="/founder.jpg"
+            alt="Muhammad Haseeb, founder of NexVance"
+            className="w-full h-full object-cover"
+            onError={() => setFailed(true)}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center font-display text-6xl text-[#E3A64A]/70" aria-hidden="true">
+            MH
+          </div>
+        )}
+        <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-[#0B0D12] to-transparent">
+          <p className="font-display font-semibold text-xl text-white">Muhammad Haseeb</p>
+          <p className="text-sm text-[#E3A64A]">Founder and CEO</p>
+        </div>
+      </div>
     </div>
   );
 }
