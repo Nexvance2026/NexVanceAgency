@@ -75,10 +75,6 @@ const FAQS = [
     a: 'No. Creators stay free to work with other brands and agencies. We also never introduce a creator to a brand without their approval.',
   },
   {
-    q: 'Do you have case studies?',
-    a: 'NexVance is new, and we only publish results we can verify, so there are no case studies on this site yet. What we can show you is the roster, the contract terms and the way we work, before you spend anything. If you want to talk to a creator before committing, ask and we will arrange it where the creator agrees.',
-  },
-  {
     q: 'Which platforms and regions do you cover?',
     a: 'YouTube, TikTok, Instagram and Facebook (posts, reels, stories and long-form), plus UGC made for paid ads. Creators are based mainly in the US, UK, Canada and Europe.',
   },
@@ -459,10 +455,6 @@ export default function App() {
           </div>
         </div>
  
-        <p className="text-sm text-white/60 mb-10 max-w-[760px]">
-          The brands listed on each card are the creator's own past work. They are not NexVance campaigns.
-        </p>
- 
         {roster.length === 0 ? (
           <div className="border border-dashed border-white/25 rounded-2xl p-10 text-center">
             <p className="text-white/80 max-w-[520px] mx-auto mb-5">
@@ -603,7 +595,6 @@ export default function App() {
             {[
               'No signup fee. We earn 20% only when a deal closes; you keep 80%.',
               'Non-exclusive. Keep working with other brands and agencies.',
-              'We never introduce you to a brand without your approval.',
               'Contract first: deliverables, usage rights and payment dates are agreed in writing before you start.',
               'You approve your listing, including which details and past brands we show.',
             ].map((t) => (
@@ -639,8 +630,16 @@ export default function App() {
                   NexVance, you reach me directly.
                 </p>
                 <p>
-                  We are early. There is no wall of case studies here yet and we will not invent one. What I can show
-                  you is the roster, the terms and how we work, before you spend anything.
+                 My background isn’t a traditional agency story. 
+                 Before NexVance, I was running a perfume brand, then worked in sales for a thumbnail agency,
+                 where I learned how to find people, pitch, follow up, handle rejection and turn conversations into business. 
+                 Around the same time, I started going deep into AI and I’m still actively learning how it works,
+                 what it can automate and how it can give small businesses an advantage. 
+                 None of this was planned as a path toward building NexVance. 
+                 It just kept stacking up selling, building, learning AI, understanding creators and understanding brands.
+                 Eventually, NexVance became the place where all of that came together.
+                 I’m still building it from there. No fake success story, no made-up case studies just the real process,
+                 as it happens.
                 </p>
               </div>
  
@@ -862,13 +861,7 @@ export default function App() {
                 We use these details only to reply to you and to match brands with creators. We do not sell them. We never
                 share a creator's details with a brand without that creator's approval.
               </p>
-              <p>
-                This site uses Vercel Analytics to count visits. To ask us to delete your details, email{' '}
-                <a href={`mailto:${SITE.email}`} className="underline">
-                  {SITE.email}
-                </a>
-                .
-              </p>
+
             </div>
           </details>
           <details id="terms" className="bg-[#151822] border border-white/[0.1] rounded-xl px-5">
@@ -880,7 +873,7 @@ export default function App() {
               </p>
               <p>
                 Creator profiles are shown with the creator's permission. Past brands shown on a profile are the creator's
-                own prior work and are not NexVance campaigns.
+                prior work.
               </p>
             </div>
           </details>
