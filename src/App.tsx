@@ -853,9 +853,9 @@ export default function App() {
           <details className="bg-[#151822] border border-white/[0.1] rounded-xl px-5">
             <summary className="py-4 font-semibold">Privacy</summary>
             <div className="pb-5 text-sm text-white/75 leading-relaxed space-y-2">
-             
+
+             <summary className="py-4 font-semibold">Last updated: October 8, 2026</summary>
               <p>
-               Last updated: October 8, 2026
 
 NexVance respects your privacy. This Privacy Policy explains what information we collect when you use our website,
                submit a form, contact us, or work with us, and how we use that information
