@@ -856,12 +856,11 @@ export default function App() {
 
              <summary className="py-4 font-semibold">Last updated: October 8, 2026</summary>
               <p>
-
 NexVance respects your privacy. This Privacy Policy explains what information we collect when you use our website,
                submit a form, contact us, or work with us, and how we use that information
               </p>
+             <summary className="py-4 font-semibold">Information we collect</summary>
               <p>
-               Information we collect
 
 When you contact NexVance or submit one of our website forms, we may receive information such as your name, 
                email address, social media or channel links, website, company or brand information, 
@@ -870,8 +869,9 @@ When you contact NexVance or submit one of our website forms, we may receive inf
 
 We may also receive information you provide when communicating with us by email or through other direct communication channels.
               </p>
+             <summary className="py-4 font-semibold"> How we use your information</summary>
                <p>
-                How we use your information
+               
 
 We use the information you provide to operate NexVance and respond to legitimate business inquiries.
 
@@ -885,8 +885,9 @@ For brands and clients, this may include understanding your campaign requirement
 We may also use your information to respond to questions, improve our website and services, prevent misuse of our website, 
                 and maintain records related to our business relationships.
                </p>
+             <summary className="py-4 font-semibold">We do not sell your information</summary>
              <p>
-              We do not sell your information
+              
 
 NexVance does not sell your personal information.
 
@@ -899,8 +900,9 @@ When we believe there may be a genuine opportunity for a creator, we may contact
 Likewise, information provided by a brand is used for the purpose of evaluating and managing potential 
               creator partnerships and is not publicly disclosed by NexVance without appropriate authorization.
              </p>
+             <summary className="py-4 font-semibold">  Website forms</summary>
              <p>
-              Website forms
+            
 
 Our website forms are processed using Formspree and the information submitted through those forms is delivered to us by email.
 
@@ -910,8 +912,9 @@ By submitting a form, you understand that the information you provide will be tr
 We recommend that you do not submit passwords, payment card details, government identification numbers, 
               or other highly sensitive information through our website forms.
              </p>
+             <summary className="py-4 font-semibold">When information may be shared</summary>
              <p>
-             When information may be shared
+             
 
 NexVance may share relevant information when it is reasonably necessary to operate a campaign or provide a service you have requested.
 
@@ -923,16 +926,18 @@ We may also disclose information where required by law, legal process, or to pro
 
 We do not share more information than is reasonably necessary for the relevant purpose.
              </p>
+              <summary className="py-4 font-semibold">Data security</summary>
              <p>
-             Data security
+           
 
 We take reasonable steps to protect the information we receive from unauthorized access, misuse, loss, or disclosure.
 
 However, no website, email service, or method of transmitting information over the internet can be guaranteed to be completely secure.
               You submit information to NexVance at your own risk.
              </p>
+              <summary className="py-4 font-semibold">How long we keep information</summary>
              <p>
-             How long we keep information
+         
 
 We keep information for as long as reasonably necessary for the purpose for which it was collected,
               including maintaining business, campaign, contractual, accounting, or communication records.
@@ -940,9 +945,9 @@ We keep information for as long as reasonably necessary for the purpose for whic
 When information is no longer reasonably required, we may delete or anonymize it, 
               subject to any legal or legitimate business requirements that require us to retain it for longer.
              </p>
-
+               <summary className="py-4 font-semibold">Third-party services</summary>
              <p>
-             Third-party services
+             
 
 NexVance may rely on third-party services to operate parts of our website, forms, communications, analytics, hosting,
               or business operations.
@@ -950,9 +955,9 @@ NexVance may rely on third-party services to operate parts of our website, forms
 Those services may process information on our behalf or according to their own privacy policies. 
               We only use third-party services that are reasonably necessary for operating the business.
              </p>
-             
+             <summary className="py-4 font-semibold">Your choices and requests</summary>
              <p>
-             Your choices and requests
+             
 
 If you have submitted information to NexVance and want to ask what information we hold about you,
               request a correction, or ask us to delete information where legally possible,
@@ -960,14 +965,16 @@ If you have submitted information to NexVance and want to ask what information w
 
 We may need to verify your identity before completing certain requests.
              </p>
+             <summary className="py-4 font-semibold">Changes to this Privacy Policy</summary>
              <p>
-             Changes to this Privacy Policy
+       
 
 We may update this Privacy Policy when our website, services, or data practices change.
               The latest version will always be posted on this page with the updated date.
             </p>
+              <summary className="py-4 font-semibold"> Contact</summary>
               <p>
-              Contact
+             
 
 If you have a privacy-related question or request, please contact:
 
