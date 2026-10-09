@@ -986,14 +986,127 @@ Email: haseeb@nexvanceagency.com
           <details id="terms" className="bg-[#151822] border border-white/[0.1] rounded-xl px-5">
             <summary className="py-4 font-semibold">Terms of use</summary>
             <div className="pb-5 text-sm text-white/75 leading-relaxed space-y-2">
+             <summary className="py-4 font-semibold">Last updated: October 8, 2026</summary>
               <p>
-                The information on this site is a general description of how NexVance works. It is not an offer.
-                Each campaign is governed only by the written contract signed by the parties.
+                These Terms of Use explain the basic terms under which you may use the NexVance website and interact with our services.
+
+By using this website or submitting information to NexVance, you agree to these Terms.
               </p>
+             <summary className="py-4 font-semibold">What NexVance does</summary>
               <p>
-                Creator profiles are shown with the creator's permission. Past brands shown on a profile are the creator's
-                prior work.
+                NexVance is a talent management and creator-brand partnership business.
+
+We connect creators and brands for potential paid sponsorships and collaborations. We may help identify opportunities, communicate with both sides, coordinate campaign discussions, and assist with the process of getting a collaboration agreed and completed.
+
+NexVance does not guarantee that any creator will receive a sponsorship or that any brand will find a suitable creator.
+
+A creator being listed, reviewed, contacted, or considered by NexVance does not guarantee a campaign.
+
+Likewise, submitting a campaign request does not guarantee that NexVance will accept or complete the campaign.
               </p>
+             <summary className="py-4 font-semibold">No upfront fees</summary>
+             <P>
+             NexVance does not charge creators or brands an upfront fee simply for submitting an opportunity or joining the process.
+
+Our standard business model is performance-based: when a sponsorship deal is successfully secured and paid, NexVance earns its agreed commission from that deal.
+
+Where applicable, the specific commercial terms, commission, payment structure, deliverables, deadlines, and responsibilities will be confirmed separately between the relevant parties.
+             </P>
+             <summary className="py-4 font-semibold">Every campaign is separate</summary>
+             <P>
+             A campaign is not considered confirmed simply because a creator and brand have spoken, exchanged messages, or expressed interest.
+
+A campaign becomes official only when the relevant parties have agreed to the applicable terms and, where required, signed the relevant contract or agreement.
+
+The written agreement for a particular campaign takes priority over general information published on this website.
+             </P>
+             <summary className="py-4 font-semibold">Creator responsibilities</summary>
+             <P>
+             Creators are responsible for providing accurate information about themselves, their platforms, audience, performance, availability, rates, and previous work.
+
+Creators must have the necessary rights and permissions to provide any content, images, videos, statistics, or other materials they submit to NexVance.
+
+Creators are also responsible for completing agreed campaign deliverables accurately and on time.
+
+NexVance may decline, pause, or end a creator relationship if information provided is misleading, fraudulent, materially inaccurate, or inconsistent with a campaign's requirements.
+             </P>
+             <summary className="py-4 font-semibold">Brand responsibilities</summary>
+             <P>
+             Brands are responsible for providing accurate campaign information, requirements, budgets, timelines, deliverables, and other relevant details.
+
+Brands are also responsible for paying agreed campaign amounts according to the applicable agreement.
+
+A brand must not request content or conduct that violates applicable law, platform rules, or the agreed campaign terms.
+             </P>
+             <summary className="py-4 font-semibold">Creator and brand content</summary>
+             <P>
+             Creators remain responsible for the content they create and publish unless a separate agreement states otherwise.
+
+Brands are responsible for the materials, trademarks, products, claims, instructions, and other assets they provide to creators.
+
+Ownership and usage rights for sponsored content, including whether a brand may repost, edit, advertise, license, or otherwise use creator content, should be defined in the applicable campaign agreement.
+
+Nothing on this website automatically transfers ownership or intellectual property rights from one party to another.
+             </P>
+             <summary className="py-4 font-semibold">Information and creator profiles</summary>
+             <P>
+             Creator profiles or information displayed on NexVance may be based on information provided by the creator, publicly available information, or information collected during the business relationship.
+
+We try to keep information accurate, but we do not guarantee that every follower count, statistic, rate, availability, or profile detail is always current.
+
+A creator's presence on the NexVance website or roster does not constitute an endorsement, guarantee of performance, or guarantee of future results.
+             </P>
+             <summary className="py-4 font-semibold">Website content</summary>
+             <P>
+             The information on this website is provided to explain how NexVance works and what we offer.
+
+It is not a promise that a particular result, sponsorship, income level, campaign performance, or business outcome will be achieved.
+
+Any examples, creator profiles, campaign descriptions, or statements about our process should not be interpreted as a guarantee of future results.
+             </P>
+             <summary className="py-4 font-semibold">No guarantee of results</summary>
+             <P>
+             Influencer marketing involves factors outside NexVance's control, including audience behaviour, platform algorithms, content performance, market conditions, brand decisions, creator performance, and changes to social media platforms.
+
+Because of this, NexVance does not guarantee specific views, clicks, sales, conversions, followers, engagement, revenue, or other campaign results unless a specific written agreement expressly provides otherwise.
+             </P>
+             <summary className="py-4 font-semibold">Third-party platforms and links</summary>
+             <P>
+             NexVance may link to or rely on third-party platforms such as social media networks, creator channels, websites, payment providers, form providers, or other services.
+
+Those services are operated independently from NexVance and may have their own terms and privacy policies.
+
+NexVance is not responsible for the availability, security, policies, or actions of third-party platforms.
+             </P>
+             <summary className="py-4 font-semibold">Website availability</summary>
+             <P>
+             We aim to keep the website available and accurate, but we do not guarantee that the website will always be available, uninterrupted, error-free, or completely up to date.
+
+We may modify, suspend, or discontinue any part of the website or its functionality at any time.
+             </P>
+             <summary className="py-4 font-semibold">Prohibited use</summary>
+             <P>
+             You may not use this website to submit fraudulent information, impersonate another person or business, interfere with the website, attempt unauthorized access, distribute malicious software, or use NexVance's services for unlawful purposes.
+             </P>
+             <summary className="py-4 font-semibold">Limitation of responsibility</summary>
+             <P>
+             To the extent permitted by applicable law, NexVance is not responsible for indirect, incidental, consequential, or other losses arising from the use of this website or from a creator-brand relationship unless such responsibility is expressly accepted in a separate written agreement.
+
+The specific responsibilities of NexVance, a creator, and a brand for an individual campaign are governed by the applicable campaign agreement.
+             </P>
+             <summary className="py-4 font-semibold">Changes to these Terms</summary>
+             <P>
+             We may update these Terms when our business, website, or services change.
+
+The latest version will be posted on this page with the updated date. Your continued use of the website after an update means you accept the revised Terms to the extent permitted by law.
+             </P>
+             <summary className="py-4 font-semibold">Contact</summary>
+             <P>
+             If you have a question about these Terms or how NexVance works, contact:
+
+NexVance
+Email: haseeb@nexvanceagency.com
+             </P>
             </div>
           </details>
         </div>
