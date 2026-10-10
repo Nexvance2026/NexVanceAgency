@@ -17,7 +17,21 @@ type Creator = {
   platforms: Platform[]; ugc?: boolean; audience: string; region: string; priorWork?: string[];
 };
  
-/* Add a creator ONLY after they said yes. Empty array = honest "being added" message. */
+/* ROSTER: add a creator ONLY after they said yes to being shown here.
+   Copy the template, fill real details, paste inside the array. Cards appear automatically.
+   TEMPLATE:
+   {
+     name: 'Creator Name',
+     handle: '@handle',
+     profileUrl: 'https://youtube.com/@handle',
+     photo: '/creators/creator-name.jpg',   // file goes in /public/creators/
+     niche: 'Desk setups & productivity',
+     platforms: ['YouTube', 'Instagram'],
+     ugc: false,
+     audience: '97K subscribers',
+     region: 'US & UK',
+     priorWork: ['Brand A', 'Brand B'],
+   }, */
 const roster: Creator[] = [];
  
 const FILTERS = ['All', 'YouTube', 'TikTok', 'Instagram', 'Facebook', 'UGC'] as const;
@@ -74,6 +88,154 @@ const btnWhite = 'inline-block bg-white text-black px-8 py-4 rounded-full font-b
 const btnNavy = 'inline-block bg-[#0A1A3F] text-white border border-[#1c3a7a] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#10285c] transition-colors text-center';
 const eyebrow = 'inline-block text-xs font-semibold tracking-[0.18em] uppercase text-white bg-[#0A1A3F] border border-[#1c3a7a] rounded-full px-4 py-1.5 mb-5';
 const h2Cls = 'font-display font-bold text-4xl md:text-6xl leading-[1.05] tracking-tight';
+ 
+ 
+/* ==========================================================================
+   PRIVACY & TERMS TEXT (plain-language draft; have it reviewed before relying on it)
+   Each item = heading + paragraphs. Edit the text here, the layout reads from it.
+   ========================================================================== */
+type LegalItem = { h: string; p: string[] };
+ 
+const PRIVACY_UPDATED = 'October 8, 2026';
+ 
+const PRIVACY: LegalItem[] = [
+  { h: 'Introduction', p: ['NexVance respects your privacy. This Privacy Policy explains what information we collect when you use our website, submit a form, contact us, or work with us, and how we use that information.'] },
+  { h: 'Information we collect', p: [
+    'When you contact NexVance or submit one of our website forms, we may receive information such as your name, email address, social media or channel links, website, company or brand information, creator information, audience information, campaign requirements, rates, and anything else you choose to include in your message.',
+    'We may also receive information you provide when communicating with us by email or through other direct communication channels.',
+  ] },
+  { h: 'How we use your information', p: [
+    'We use the information you provide to operate NexVance and respond to legitimate business inquiries.',
+    'For creators, this may include reviewing your profile, understanding your audience and content, determining whether you may be a suitable fit for a brand opportunity, communicating with you about potential campaigns, and managing an agreed sponsorship.',
+    'For brands and clients, this may include understanding your campaign requirements, identifying suitable creators, communicating about potential collaborations, and managing campaigns that both sides agree to pursue.',
+    'We may also use your information to respond to questions, improve our website and services, prevent misuse of our website, and maintain records related to our business relationships.',
+  ] },
+  { h: 'We do not sell your information', p: [
+    'NexVance does not sell your personal information.',
+    'We also do not provide a creator\u2019s private contact details, rates, audience information, or other submitted information to a brand simply because the creator has joined our roster or submitted a form.',
+    'When we believe there may be a genuine opportunity for a creator, we may contact the creator first and seek the appropriate permission before sharing relevant information with a brand.',
+    'Likewise, information provided by a brand is used for the purpose of evaluating and managing potential creator partnerships and is not publicly disclosed by NexVance without appropriate authorization.',
+  ] },
+  { h: 'Website forms', p: [
+    'Our website forms are processed using Formspree and the information submitted through those forms is delivered to us by email.',
+    'By submitting a form, you understand that the information you provide will be transmitted through the services required to operate that form and website.',
+    'We recommend that you do not submit passwords, payment card details, government identification numbers, or other highly sensitive information through our website forms.',
+  ] },
+  { h: 'When information may be shared', p: [
+    'NexVance may share relevant information when it is reasonably necessary to operate a campaign or provide a service you have requested.',
+    'For example, if a creator has agreed to work with a brand, relevant creator information may need to be shared with that brand for campaign planning and execution.',
+    'We may also disclose information where required by law, legal process, or to protect the rights, security, and legitimate interests of NexVance, our clients, creators, or others.',
+    'We do not share more information than is reasonably necessary for the relevant purpose.',
+  ] },
+  { h: 'Data security', p: [
+    'We take reasonable steps to protect the information we receive from unauthorized access, misuse, loss, or disclosure.',
+    'However, no website, email service, or method of transmitting information over the internet can be guaranteed to be completely secure. You submit information to NexVance at your own risk.',
+  ] },
+  { h: 'How long we keep information', p: [
+    'We keep information for as long as reasonably necessary for the purpose for which it was collected, including maintaining business, campaign, contractual, accounting, or communication records.',
+    'When information is no longer reasonably required, we may delete or anonymize it, subject to any legal or legitimate business requirements that require us to retain it for longer.',
+  ] },
+  { h: 'Third-party services', p: [
+    'NexVance may rely on third-party services to operate parts of our website, forms, communications, analytics, hosting, or business operations.',
+    'Those services may process information on our behalf or according to their own privacy policies. We only use third-party services that are reasonably necessary for operating the business.',
+  ] },
+  { h: 'Your choices and requests', p: [
+    'If you have submitted information to NexVance and want to ask what information we hold about you, request a correction, or ask us to delete information where legally possible, you can contact us using the email address provided on our website.',
+    'We may need to verify your identity before completing certain requests.',
+  ] },
+  { h: 'Changes to this Privacy Policy', p: ['We may update this Privacy Policy when our website, services, or data practices change. The latest version will always be posted on this page with the updated date.'] },
+  { h: 'Contact', p: ['If you have a privacy-related question or request, please contact NexVance at haseeb@nexvanceagency.com.'] },
+];
+ 
+const TERMS: LegalItem[] = [
+  { h: 'Introduction', p: ['These Terms of Use explain the basic terms under which you may use the NexVance website and interact with our services. By using this website or submitting information to NexVance, you agree to these Terms.'] },
+  { h: 'What NexVance does', p: [
+    'NexVance is a talent management and creator-brand partnership business.',
+    'We connect creators and brands for potential paid sponsorships and collaborations. We may help identify opportunities, communicate with both sides, coordinate campaign discussions, and assist with the process of getting a collaboration agreed and completed.',
+    'NexVance does not guarantee that any creator will receive a sponsorship or that any brand will find a suitable creator.',
+    'A creator being listed, reviewed, contacted, or considered by NexVance does not guarantee a campaign. Likewise, submitting a campaign request does not guarantee that NexVance will accept or complete the campaign.',
+  ] },
+  { h: 'No upfront fees', p: [
+    'NexVance does not charge creators or brands an upfront fee simply for submitting an opportunity or joining the process.',
+    'Our standard business model is performance-based: when a sponsorship deal is successfully secured and paid, NexVance earns its agreed commission from that deal.',
+    'Where applicable, the specific commercial terms, commission, payment structure, deliverables, deadlines, and responsibilities will be confirmed separately between the relevant parties.',
+  ] },
+  { h: 'Every campaign is separate', p: [
+    'A campaign is not considered confirmed simply because a creator and brand have spoken, exchanged messages, or expressed interest.',
+    'A campaign becomes official only when the relevant parties have agreed to the applicable terms and, where required, signed the relevant contract or agreement.',
+    'The written agreement for a particular campaign takes priority over general information published on this website.',
+  ] },
+  { h: 'Creator responsibilities', p: [
+    'Creators are responsible for providing accurate information about themselves, their platforms, audience, performance, availability, rates, and previous work.',
+    'Creators must have the necessary rights and permissions to provide any content, images, videos, statistics, or other materials they submit to NexVance.',
+    'Creators are also responsible for completing agreed campaign deliverables accurately and on time.',
+    'NexVance may decline, pause, or end a creator relationship if information provided is misleading, fraudulent, materially inaccurate, or inconsistent with a campaign\u2019s requirements.',
+  ] },
+  { h: 'Brand responsibilities', p: [
+    'Brands are responsible for providing accurate campaign information, requirements, budgets, timelines, deliverables, and other relevant details.',
+    'Brands are also responsible for paying agreed campaign amounts according to the applicable agreement.',
+    'A brand must not request content or conduct that violates applicable law, platform rules, or the agreed campaign terms.',
+  ] },
+  { h: 'Creator and brand content', p: [
+    'Creators remain responsible for the content they create and publish unless a separate agreement states otherwise.',
+    'Brands are responsible for the materials, trademarks, products, claims, instructions, and other assets they provide to creators.',
+    'Ownership and usage rights for sponsored content, including whether a brand may repost, edit, advertise, license, or otherwise use creator content, should be defined in the applicable campaign agreement.',
+    'Nothing on this website automatically transfers ownership or intellectual property rights from one party to another.',
+  ] },
+  { h: 'Information and creator profiles', p: [
+    'Creator profiles or information displayed on NexVance may be based on information provided by the creator, publicly available information, or information collected during the business relationship.',
+    'We try to keep information accurate, but we do not guarantee that every follower count, statistic, rate, availability, or profile detail is always current.',
+    'A creator\u2019s presence on the NexVance website or roster does not constitute an endorsement, guarantee of performance, or guarantee of future results.',
+  ] },
+  { h: 'Website content', p: [
+    'The information on this website is provided to explain how NexVance works and what we offer.',
+    'It is not a promise that a particular result, sponsorship, income level, campaign performance, or business outcome will be achieved.',
+    'Any examples, creator profiles, campaign descriptions, or statements about our process should not be interpreted as a guarantee of future results.',
+  ] },
+  { h: 'No guarantee of results', p: [
+    'Influencer marketing involves factors outside NexVance\u2019s control, including audience behaviour, platform algorithms, content performance, market conditions, brand decisions, creator performance, and changes to social media platforms.',
+    'Because of this, NexVance does not guarantee specific views, clicks, sales, conversions, followers, engagement, revenue, or other campaign results unless a specific written agreement expressly provides otherwise.',
+  ] },
+  { h: 'Third-party platforms and links', p: [
+    'NexVance may link to or rely on third-party platforms such as social media networks, creator channels, websites, payment providers, form providers, or other services.',
+    'Those services are operated independently from NexVance and may have their own terms and privacy policies.',
+    'NexVance is not responsible for the availability, security, policies, or actions of third-party platforms.',
+  ] },
+  { h: 'Website availability', p: [
+    'We aim to keep the website available and accurate, but we do not guarantee that the website will always be available, uninterrupted, error-free, or completely up to date.',
+    'We may modify, suspend, or discontinue any part of the website or its functionality at any time.',
+  ] },
+  { h: 'Prohibited use', p: ['You may not use this website to submit fraudulent information, impersonate another person or business, interfere with the website, attempt unauthorized access, distribute malicious software, or use NexVance\u2019s services for unlawful purposes.'] },
+  { h: 'Limitation of responsibility', p: [
+    'To the extent permitted by applicable law, NexVance is not responsible for indirect, incidental, consequential, or other losses arising from the use of this website or from a creator-brand relationship unless such responsibility is expressly accepted in a separate written agreement.',
+    'The specific responsibilities of NexVance, a creator, and a brand for an individual campaign are governed by the applicable campaign agreement.',
+  ] },
+  { h: 'Changes to these Terms', p: [
+    'We may update these Terms when our business, website, or services change.',
+    'The latest version will be posted on this page with the updated date. Your continued use of the website after an update means you accept the revised Terms to the extent permitted by law.',
+  ] },
+  { h: 'Contact', p: ['If you have a question about these Terms or how NexVance works, contact NexVance at haseeb@nexvanceagency.com.'] },
+];
+ 
+function LegalBlock({ id, title, items }: { id?: string; title: string; items: LegalItem[] }) {
+  return (
+    <details id={id} className="bg-[#0A1A3F]/50 border border-[#1c3a7a] rounded-2xl px-6">
+      <summary className="py-5 font-semibold text-lg flex items-center justify-between gap-4">
+        {title}
+        <span className="faq-plus text-2xl leading-none" aria-hidden="true">+</span>
+      </summary>
+      <div className="pb-6 text-sm text-white/75 leading-relaxed">
+        <p className="text-white/55 mb-4">Last updated: {PRIVACY_UPDATED}</p>
+        {items.map((it) => (
+          <div key={it.h} className="mb-5">
+            <h3 className="font-semibold text-white mb-1.5">{it.h}</h3>
+            {it.p.map((t, i) => (<p key={i} className="mb-2">{t}</p>))}
+          </div>
+        ))}
+      </div>
+    </details>
+  );
+}
  
 /* ---------- helpers ---------- */
 function CheckIcon() {
@@ -641,143 +803,15 @@ export default function App() {
         </div>
       </section>
  
-      {/* ======================================================================
-          PRIVACY & TERMS: paste your existing <section id="privacy"> ... </section>
-          block here exactly as it is in your current code (it keeps working).
-          Colors there use old classes; replace bg-[#151822] with bg-[#0A1A3F]/50.
-          ====================================================================== */}
-      <section id="privacy" className="py-14 max-w-[820px] mx-auto px-6">
-        <h2 className="font-display font-bold text-2xl mb-6">Privacy and terms</h2>
-        <p className="text-white/60 text-sm">Paste your Privacy and Terms details here.</p>
-             <summary className="py-4 font-semibold">Last updated: October 8, 2026</summary>
-              <p>
-NexVance respects your privacy. This Privacy Policy explains what information we collect when you use our website,
-               submit a form, contact us, or work with us, and how we use that information
-              </p>
-             <summary className="py-4 font-semibold">Information we collect</summary>
-              <p>
-
-When you contact NexVance or submit one of our website forms, we may receive information such as your name, 
-               email address, social media or channel links, website, company or brand information, 
-               creator information, audience information, campaign requirements, rates, 
-               and anything else you choose to include in your message.
-
-We may also receive information you provide when communicating with us by email or through other direct communication channels.
-              </p>
-             <summary className="py-4 font-semibold"> How we use your information</summary>
-               <p>
-               
-
-We use the information you provide to operate NexVance and respond to legitimate business inquiries.
-
-For creators, this may include reviewing your profile, understanding your audience and content, 
-                determining whether you may be a suitable fit for a brand opportunity, communicating with you about potential campaigns,
-                and managing an agreed sponsorship.
-
-For brands and clients, this may include understanding your campaign requirements, identifying suitable creators, 
-                communicating about potential collaborations, and managing campaigns that both sides agree to pursue.
-
-We may also use your information to respond to questions, improve our website and services, prevent misuse of our website, 
-                and maintain records related to our business relationships.
-               </p>
-             <summary className="py-4 font-semibold">We do not sell your information</summary>
-             <p>
-              
-
-NexVance does not sell your personal information.
-
-We also do not provide a creator's private contact details, rates, audience information, 
-              or other submitted information to a brand simply because the creator has joined our roster or submitted a form.
-
-When we believe there may be a genuine opportunity for a creator, we may contact the creator first and 
-              seek the appropriate permission before sharing relevant information with a brand.
-
-Likewise, information provided by a brand is used for the purpose of evaluating and managing potential 
-              creator partnerships and is not publicly disclosed by NexVance without appropriate authorization.
-             </p>
-             <summary className="py-4 font-semibold">  Website forms</summary>
-             <p>
-            
-
-Our website forms are processed using Formspree and the information submitted through those forms is delivered to us by email.
-
-By submitting a form, you understand that the information you provide will be transmitted through the 
-              services required to operate that form and website.
-
-We recommend that you do not submit passwords, payment card details, government identification numbers, 
-              or other highly sensitive information through our website forms.
-             </p>
-             <summary className="py-4 font-semibold">When information may be shared</summary>
-             <p>
-             
-
-NexVance may share relevant information when it is reasonably necessary to operate a campaign or provide a service you have requested.
-
-For example, if a creator has agreed to work with a brand, relevant creator information may need 
-              to be shared with that brand for campaign planning and execution.
-
-We may also disclose information where required by law, legal process, or to protect the rights, 
-              security, and legitimate interests of NexVance, our clients, creators, or others.
-
-We do not share more information than is reasonably necessary for the relevant purpose.
-             </p>
-              <summary className="py-4 font-semibold">Data security</summary>
-             <p>
-           
-
-We take reasonable steps to protect the information we receive from unauthorized access, misuse, loss, or disclosure.
-
-However, no website, email service, or method of transmitting information over the internet can be guaranteed to be completely secure.
-              You submit information to NexVance at your own risk.
-             </p>
-              <summary className="py-4 font-semibold">How long we keep information</summary>
-             <p>
-         
-
-We keep information for as long as reasonably necessary for the purpose for which it was collected,
-              including maintaining business, campaign, contractual, accounting, or communication records.
-
-When information is no longer reasonably required, we may delete or anonymize it, 
-              subject to any legal or legitimate business requirements that require us to retain it for longer.
-             </p>
-               <summary className="py-4 font-semibold">Third-party services</summary>
-             <p>
-             
-
-NexVance may rely on third-party services to operate parts of our website, forms, communications, analytics, hosting,
-              or business operations.
-
-Those services may process information on our behalf or according to their own privacy policies. 
-              We only use third-party services that are reasonably necessary for operating the business.
-             </p>
-             <summary className="py-4 font-semibold">Your choices and requests</summary>
-             <p>
-             
-
-If you have submitted information to NexVance and want to ask what information we hold about you,
-              request a correction, or ask us to delete information where legally possible,
-              you can contact us using the email address provided on our website.
-
-We may need to verify your identity before completing certain requests.
-             </p>
-             <summary className="py-4 font-semibold">Changes to this Privacy Policy</summary>
-             <p>
-       
-
-We may update this Privacy Policy when our website, services, or data practices change.
-              The latest version will always be posted on this page with the updated date.
-            </p>
-              <summary className="py-4 font-semibold"> Contact</summary>
-              <p>
-             
-
-If you have a privacy-related question or request, please contact:
-
-NexVance
-Email: haseeb@nexvanceagency.com
-
+      {/* PRIVACY & TERMS */}
+      <section id="privacy" className="py-16 max-w-[820px] mx-auto px-6">
+        <h2 className="font-display font-bold text-3xl mb-6">Privacy and terms</h2>
+        <div className="space-y-3">
+          <LegalBlock title="Privacy" items={PRIVACY} />
+          <LegalBlock id="terms" title="Terms of use" items={TERMS} />
+        </div>
       </section>
-
+ 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-12 bg-black">
         <div className="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-between gap-8">
