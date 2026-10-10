@@ -649,11 +649,6 @@ export default function App() {
       <section id="privacy" className="py-14 max-w-[820px] mx-auto px-6">
         <h2 className="font-display font-bold text-2xl mb-6">Privacy and terms</h2>
         <p className="text-white/60 text-sm">Paste your Privacy and Terms details here.</p>
-       <div className="space-y-3">
-          <details className="bg-[#151822] border border-white/[0.1] rounded-xl px-5">
-            <summary className="py-4 font-semibold">Privacy</summary>
-            <div className="pb-5 text-sm text-white/75 leading-relaxed space-y-2">
-
              <summary className="py-4 font-semibold">Last updated: October 8, 2026</summary>
               <p>
 NexVance respects your privacy. This Privacy Policy explains what information we collect when you use our website,
@@ -780,9 +775,7 @@ If you have a privacy-related question or request, please contact:
 
 NexVance
 Email: haseeb@nexvanceagency.com
-              </p>
-            </div>
-          </details>
+
       </section>
  
       {/* FOOTER */}
