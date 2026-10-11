@@ -38,7 +38,7 @@ const roster: Creator[] = [
     name: 'Kori Jane Spaulding',
     handle: '@korijanes',
     profileUrl: 'https://www.tiktok.com/@korijanes',
-    photo: '/creators/kori-jane.jpg',
+    photo: '/kori-jane.jpg',
     niche: 'Books, poetry and writing',
     platforms: ['TikTok', 'Instagram'],
     audience: '1.3M TikTok, 804K+ Instagram',
