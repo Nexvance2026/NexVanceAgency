@@ -668,7 +668,7 @@ export default function App() {
             <span className={eyebrow}>Founder</span>
             <h2 className={`${h2Cls} mb-6`}>A small agency that works in the open</h2>
             <div className="space-y-4 text-white/75 leading-relaxed">
-              <p>I'm Haseeb, the founder of NexVance. I started it in 2026 because brands want creator marketing without paying a retainer for results nobody guarantees, and creators want to know the contract and the payment dates before they start work.</p>
+              <p>I'm Muhammad Haseeb, the founder of NexVance. I started it in 2026 because brands want creator marketing without paying a retainer for results nobody guarantees, and creators want to know the contract and the payment dates before they start work.</p>
               <p>So every deal begins with a signed contract, and we only earn when a deal closes. When you write to NexVance, you reach me directly.</p>
               <p>
                 My background isn’t a traditional agency story. Before NexVance, I was running a perfume brand, then worked in sales for a thumbnail agency,
