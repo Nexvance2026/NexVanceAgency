@@ -33,7 +33,7 @@ type Creator = {
      priorWork: ['Brand A', 'Brand B'],
    }, */
 const roster: Creator[] = [];
- .
+ 
 {
     name: 'Kori Jane Spaulding',
     handle: '@korijanes',
