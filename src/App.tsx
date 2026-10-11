@@ -32,7 +32,7 @@ type Creator = {
      region: 'US & UK',
      priorWork: ['Brand A', 'Brand B'],
    }, */
-const roster: Creator[] = [];
+const roster: Creator[] = [
  
 {
     name: 'Kori Jane Spaulding',
