@@ -36,16 +36,18 @@ const roster: Creator[] = [];
  
 {
     name: 'Kori Jane Spaulding',
-    korijanes handle: '@...', profileUrl: 'https://www.tiktok.com/@korijanes',
+    handle: '@korijanes',
+    profileUrl: 'https://www.tiktok.com/@korijanes',
     photo: '/creators/kori-jane.jpg',
     niche: 'Books, poetry and writing',
     platforms: ['TikTok', 'Instagram'],
-    audience: '1.3M TikTok', 804k+ Instagram',
+    audience: '1.3M TikTok, 804K+ Instagram',
     region: 'United States',
   },
   {
-    name: 'Lukas Lakutsin',',
-    lucaslakutsin handle: '@...', profileUrl: 'https://www.tiktok.com/@lucaslakutsin',
+    name: 'Lukas Lakutsin',
+    handle: '@lucaslakutsin',
+    profileUrl: 'https://www.tiktok.com/@lucaslakutsin',
     photo: '/creators/lukas-lakutsin.jpg',
     niche: 'Fitness and sports nutrition',
     platforms: ['TikTok', 'Instagram'],
@@ -54,7 +56,8 @@ const roster: Creator[] = [];
   },
   {
     name: 'Dr. Morissa Schwartz',
-    morissaschwartz handle: '@...', profileUrl: 'https://www.tiktok.com/@morissaschwartz',
+    handle: '@morissaschwartz',
+    profileUrl: 'https://www.tiktok.com/@morissaschwartz',
     photo: '/creators/morissa-schwartz.jpg',
     niche: 'AI, productivity, writing and publishing',
     platforms: ['TikTok', 'Instagram'],
@@ -63,7 +66,8 @@ const roster: Creator[] = [];
   },
   {
     name: 'Malachi (Worldwidewmal)',
-    worldwidewmal handle: '@worldwidewmal', profileUrl: 'https://www.tiktok.com/@worldwidewmal',
+    handle: '@worldwidewmal',
+    profileUrl: 'https://www.tiktok.com/@worldwidewmal',
     photo: '/creators/malachi.jpg',
     niche: 'UGC, lifestyle, travel and tech',
     platforms: ['TikTok', 'Instagram'],
@@ -71,7 +75,7 @@ const roster: Creator[] = [];
     audience: '48K+ TikTok, 10K+ Instagram',
     region: 'United States',
   },
-];
+     ];
   
 const FILTERS = ['All', 'YouTube', 'TikTok', 'Instagram', 'Facebook', 'UGC'] as const;
 type Filter = (typeof FILTERS)[number];
