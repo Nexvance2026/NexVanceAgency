@@ -34,6 +34,45 @@ type Creator = {
    }, */
 const roster: Creator[] = [];
  
+{
+    name: 'Kori Jane Spaulding',
+    korijanes handle: '@...', profileUrl: 'https://www.tiktok.com/@korijanes',
+    photo: '/creators/kori-jane.jpg',
+    niche: 'Books, poetry and writing',
+    platforms: ['TikTok', 'Instagram'],
+    audience: '1.3M TikTok', 804k+ Instagram',
+    region: 'United States',
+  },
+  {
+    name: 'Lukas Lakutsin',',
+    lucaslakutsin handle: '@...', profileUrl: 'https://www.tiktok.com/@lucaslakutsin',
+    photo: '/creators/lukas-lakutsin.jpg',
+    niche: 'Fitness and sports nutrition',
+    platforms: ['TikTok', 'Instagram'],
+    audience: '3.2M+ TikTok, 1.7M+ Instagram',
+    region: 'United States',
+  },
+  {
+    name: 'Dr. Morissa Schwartz',
+    morissaschwartz handle: '@...', profileUrl: 'https://www.tiktok.com/@morissaschwartz',
+    photo: '/creators/morissa-schwartz.jpg',
+    niche: 'AI, productivity, writing and publishing',
+    platforms: ['TikTok', 'Instagram'],
+    audience: '65.7K TikTok, 21K+ Instagram',
+    region: 'United States',
+  },
+  {
+    name: 'Malachi (Worldwidewmal)',
+    worldwidewmal handle: '@worldwidewmal', profileUrl: 'https://www.tiktok.com/@worldwidewmal',
+    photo: '/creators/malachi.jpg',
+    niche: 'UGC, lifestyle, travel and tech',
+    platforms: ['TikTok', 'Instagram'],
+    ugc: true,
+    audience: '48K+ TikTok, 10K+ Instagram',
+    region: 'United States',
+  },
+];
+  
 const FILTERS = ['All', 'YouTube', 'TikTok', 'Instagram', 'Facebook', 'UGC'] as const;
 type Filter = (typeof FILTERS)[number];
  
