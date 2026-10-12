@@ -1,5 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
  
 /* ==========================================================================
    NEXVANCE: SITE CONFIG  (theme: #000000 black, #FFFFFF white, navy #0A1A3F)
@@ -33,8 +34,7 @@ type Creator = {
      priorWork: ['Brand A', 'Brand B'],
    }, */
 const roster: Creator[] = [
- 
-{
+  {
     name: 'Kori Jane Spaulding',
     handle: '@korijanes',
     profileUrl: 'https://www.tiktok.com/@korijanes',
@@ -48,7 +48,7 @@ const roster: Creator[] = [
     name: 'Lukas Lakutsin',
     handle: '@lucaslakutsin',
     profileUrl: 'https://www.tiktok.com/@lucaslakutsin',
-    photo: '/creators/lukas-lakutsin.jpg',
+    photo: '/lukas-lakutsin.jpg',
     niche: 'Fitness and sports nutrition',
     platforms: ['TikTok', 'Instagram'],
     audience: '3.2M+ TikTok, 1.7M+ Instagram',
@@ -58,7 +58,7 @@ const roster: Creator[] = [
     name: 'Dr. Morissa Schwartz',
     handle: '@morissaschwartz',
     profileUrl: 'https://www.tiktok.com/@morissaschwartz',
-    photo: '/creators/morissa-schwartz.jpg',
+    photo: '/morissa-schwartz.jpg',
     niche: 'AI, productivity, writing and publishing',
     platforms: ['TikTok', 'Instagram'],
     audience: '65.7K TikTok, 21K+ Instagram',
@@ -68,15 +68,15 @@ const roster: Creator[] = [
     name: 'Malachi (Worldwidewmal)',
     handle: '@worldwidewmal',
     profileUrl: 'https://www.tiktok.com/@worldwidewmal',
-    photo: '/creators/malachi.jpg',
+    photo: '/malachi.jpg',
     niche: 'UGC, lifestyle, travel and tech',
     platforms: ['TikTok', 'Instagram'],
     ugc: true,
     audience: '48K+ TikTok, 10K+ Instagram',
     region: 'United States',
   },
-     ];
-  
+];
+ 
 const FILTERS = ['All', 'YouTube', 'TikTok', 'Instagram', 'Facebook', 'UGC'] as const;
 type Filter = (typeof FILTERS)[number];
  
@@ -387,6 +387,7 @@ export default function App() {
       `}</style>
  
       <Analytics />
+      <SpeedInsights />
  
       {/* ANNOUNCEMENT */}
       <div className="bg-[#0A1A3F] border-b border-[#1c3a7a] text-sm py-2.5 px-4 text-center font-medium">
@@ -883,4 +884,3 @@ export default function App() {
     </div>
   );
 }
-
