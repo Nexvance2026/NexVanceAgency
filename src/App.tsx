@@ -61,7 +61,7 @@ const roster: Creator[] = [
     photo: '/morissa-schwartz.jpg',
     niche: 'AI, productivity, writing and publishing',
     platforms: ['TikTok', 'Instagram'],
-    audience: '65.7K TikTok, 21K+ Instagram',
+    audience: '65.7K TikTok, 20.9K+ Instagram',
     region: 'United States',
   },
   {
