@@ -54,14 +54,14 @@ const roster: Creator[] = [
     audience: '3.2M+ TikTok, 1.7M+ Instagram',
     region: 'United States',
   },
-  {
+    {
     name: 'Dr. Morissa Schwartz',
     handle: '@morissaschwartz',
     profileUrl: 'https://www.tiktok.com/@morissaschwartz',
     photo: '/morissa-schwartz.jpg',
     niche: 'AI, productivity, writing and publishing',
     platforms: ['TikTok', 'Instagram'],
-    audience: '65.7K TikTok, 20.9K+ Instagram',
+    audience: '500K+ combined',
     region: 'United States',
   },
   {
