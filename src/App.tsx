@@ -93,6 +93,7 @@ const roster: Creator[] = [
   niche: 'UGC, pets and lifestyle, cats, coffee, product demos',
   platforms: ['Facebook', 'Instagram', 'TikTok'],
   audience: '740K+ Facebook community',
+  ugc: true,
   region: 'United States',
 },
 {
