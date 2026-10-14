@@ -15,8 +15,8 @@ const SITE = {
 type Platform = 'YouTube' | 'TikTok' | 'Instagram' | 'Facebook';
 type Creator = {
   name: string; handle?: string; profileUrl?: string; photo?: string; niche: string;
-  platforms: Platform[]; ugc?: boolean; audience: string; region: string; priorWork?: string[];
-};
+  platforms: Platform[]; ugc?: boolean; audience: string; region: string; priorWork?: string[]; location: Location[];
+ };
  
 /* ROSTER: add a creator ONLY after they said yes to being shown here.
    Copy the template, fill real details, paste inside the array. Cards appear automatically.
