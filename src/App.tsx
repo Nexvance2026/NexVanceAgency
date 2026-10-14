@@ -86,7 +86,7 @@ const roster: Creator[] = [
   region: 'United States',
 },
 {
-  name: 'Cats Coffee & Chaos (Meisa Gannam)',
+  name: 'Meisa Gannam',
   handle: '@konservatifhippie',
   profileUrl: 'https://www.tiktok.com/@konservatifhippie',
   photo: '/cats-coffee-chaos.jpg',
