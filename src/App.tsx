@@ -15,7 +15,7 @@ const SITE = {
 type Platform = 'YouTube' | 'TikTok' | 'Instagram' | 'Facebook';
 type Creator = {
   name: string; handle?: string; profileUrl?: string; photo?: string; niche: string;
-  platforms: Platform[]; ugc?: boolean; audience: string; region: string; priorWork?: string[]; location: Location[];
+  platforms: Platform[]; ugc?: boolean; audience: string; region: string; priorWork?: string[];
  };
  
 /* ROSTER: add a creator ONLY after they said yes to being shown here.
